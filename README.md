@@ -1,1 +1,3 @@
+<a href="https://codeclimate.com/github/migugalde/ITPH-Forum/"><img src="https://codeclimate.com/github/migugalde/ITPH-Forum/badges/gpa.svg" /></a>
+
 In The Potter's Hands is a non-profit counseling center based in Pleasanton, California. Our challenge was to meet their need of having an online community forum where the organization community can interact and support eachother, while also maintaining a form of authorization and moderation.
