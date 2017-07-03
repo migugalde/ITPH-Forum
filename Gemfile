@@ -63,6 +63,3 @@ group :production do
   gem 'pg'              # use PostgreSQL in production (Heroku)
   gem 'rails_12factor'  # Heroku-specific production settings
 end
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
