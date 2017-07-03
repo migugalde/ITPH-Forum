@@ -8,4 +8,4 @@ www.itph.org
 Pivotal Tracker:
 https://www.pivotaltracker.com/n/projects/2071063
 
-Deployment on Heroku:
+Deployment on Heroku: https://nameless-temple-25833.herokuapp.com/
