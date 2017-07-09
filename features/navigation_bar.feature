@@ -19,5 +19,3 @@ Scenario: click on profile and routes to profile
   When I press on "Profile"
   Then I should be on "profile" page
   Then I should not be on "home" page
-  
-  
