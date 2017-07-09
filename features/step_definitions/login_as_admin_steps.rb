@@ -16,4 +16,8 @@ end
 
 Then(/^I should get error warning$/) do
   pending # Write code here that turns the phrase above into concrete actions
+end 
+
+When(/^I click again$/) do
+  pending # Write code here that turns the phrase above into concrete actions
 end
