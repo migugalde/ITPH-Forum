@@ -20,3 +20,4 @@ Scenario: unable to login with valid username and incorrect password
   Given correct cl_user_email and password
   When I press "login"
   Then I should see "Invalid email address and/or password"
+
