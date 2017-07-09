@@ -10,15 +10,15 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-When /^(?:|I )press '([^"]*)'$/ do |button|
+When /^(?:|I )press ([^"]*)$/ do |button|
     pending
 end
 
-Then /^(?:|I )should not be on '([^"]*)'$ page/ do |page_id|
+Then /^(?:|I )should not be on ([^"]*)$/ do |page_id|
     pending
 end
 
-Then /^(?:|I )should be on '([^"]*)'$ page/ do |page_id|
+Then /^(?:|I )should be on ([^"]*)$ page/ do |page_id|
     pending
 end
 
