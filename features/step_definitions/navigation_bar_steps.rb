@@ -11,14 +11,14 @@ end
 World(WithinHelpers)
 
 When /^(?:|I )press ([^"]*)$/ do |button|
-    pending
+    # pending
 end
 
 Then /^(?:|I )should not be on ([^"]*)$/ do |page_id|
-    pending
+    # pending
 end
 
 Then /^(?:|I )should be on ([^"]*)$ page/ do |page_id|
-    pending
+    # pending
 end
 
