@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'layouts/welcome/index'
-  
+  # get 'layouts/welcome/index'
+  get '/show' => 'welcome#show'
+
   root 'welcome#index'
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)

@@ -12,5 +12,12 @@
     = csrf_meta_tag
 
   %body
+    %h1.title Potter's Hand !!!
+    #main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+
 
     = yield
