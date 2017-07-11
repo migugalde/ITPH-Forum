@@ -1,22 +1,4 @@
 !!! 5
-<<<<<<< HEAD
-%html
-  %head
-    %title Potters!
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
-    = csrf_meta_tags
-
-  %body
-    %h1.title Welcome Welcome Welcome!
-    #main
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
-
-      = yield
-=======
 %html{ :lang => "en" }
   %head
     %meta{ :charset => "utf-8" }
@@ -32,4 +14,3 @@
   %body
 
     = yield
->>>>>>> 278ffd0658ed4e98c52856ef84d88cc83e7e7fcd
