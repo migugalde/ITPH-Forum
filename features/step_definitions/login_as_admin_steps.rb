@@ -21,3 +21,11 @@ end
 When(/^I click again$/) do
   # pending # Write code here that turns the phrase above into concrete actions
 end
+
+Given(/^correct Admin username and password$/) do
+  #pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given(/^incorrect Admin username or password$/) do
+  #pending # Write code here that turns the phrase above into concrete actions
+end
