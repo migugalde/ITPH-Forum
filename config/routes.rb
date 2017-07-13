@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  get 'layouts/welcome/index'
-  
+  # get 'layouts/welcome/index'
+  resources :welcome
   root 'welcome#index'
 
-  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+  # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
