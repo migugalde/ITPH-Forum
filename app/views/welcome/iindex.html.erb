@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Welcome | Log In</title>
+  </head>
+  <body>
+    <div class="login-panel">
+      <div class="row">
+        <div class="small-12 columns">
+          <h3>Sign In</h3>
+        </div>
+      </div>
+      <h1>
+        <h1></h1>
+      </h1>
+      <form action="/session" id="form1" method="post">
+        <div class="row">
+          <div class="large-12 columns">
+            <input placeholder="Username" type="text"></input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <input placeholder="Password" type="password"></input>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="large-12 columns right-align">
+          <button class="button large" form="form1" type="submit" value="Submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+    <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
