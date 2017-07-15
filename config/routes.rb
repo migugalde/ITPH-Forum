@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :welcome
   get '/show' => 'welcome#show'
   root 'welcome#index'
+  
+  namespace :dashboard do
+    get "index"
+  end
 
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
