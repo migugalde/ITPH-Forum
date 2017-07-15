@@ -1,6 +1,11 @@
-<p>this is within the actual</p>
+<div id="flash">
+  <% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+  <% end %>
+</div>
+
 <%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
+  <div id="Email" class="text-field">
     <%= form.label :email %>
     <%= form.text_field :email, type: 'email' %>
   </div>
@@ -11,7 +16,7 @@
   </div>
 
   <div class="submit-field">
-    <%= form.submit %>
+    <%= form.submit :id => 'button-cap'%>
   </div>
 
   <div class="other-links">
@@ -21,3 +26,5 @@
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
 <% end %>
+
+
