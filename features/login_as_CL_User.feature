@@ -22,7 +22,7 @@ Scenario: able to login with valid username and correct password
   When I press "Sign in"
   Then I should see "Sign out"
   
-# Login with valid username and incorrect password  
+# Login with invalid username and correct password  
 Scenario: unable to login with valid username and incorrect password
   Given correct cl_user_email and incorrect password
   When I press "Sign in"
