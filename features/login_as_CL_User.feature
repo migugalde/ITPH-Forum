@@ -6,8 +6,8 @@ Feature: able to login as cl_user
   
 Background:
   Given that I have a user with a valid credentials placed in the correct forms:
-  When I press "submit"
-  Then I should see "Signed in as:"
+  # When I press "submit"
+  # Then I should see "Signed in as:"
     
   
 # Login with invalid username
@@ -16,11 +16,11 @@ Scenario: unable to login with invalid username
   When I press "Sign in"
   Then I should see "Incorrect email and/or password."
   
-# # Login with valid username and password
-# Scenario: able to login with valid username and correct password
-#   Given correct cl_user_email and password 
-#   When I press "Sign in"
-#   Then I should see "Sign out"
+# Login with valid username and password
+Scenario: able to login with valid username and correct password
+  Given correct cl_user_email and password 
+  When I press "Sign in"
+  Then I should see "Signed in as:"
   
 # Login with valid username and incorrect password  
 Scenario: unable to login with valid username and incorrect password
