@@ -5,6 +5,7 @@ Feature: able to login as cl_user
   
   
 Background:
+  #
   Given that I have a user with a valid credentials placed in the correct forms:
   When I press "Sign up"
   Then I should see "Sign out"
