@@ -2,23 +2,12 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  after_filter :store_action
   before_action :configure_permitted_parameters, if: :devise_controller?
   
-  def store_action
-    return unless request.get? 
-    if (request.path != "/users/sign_in" &&
-        request.path != "/users/sign_up" &&
-        request.path != "/users/password/new" &&
-        request.path != "/users/password/edit" &&
-        request.path != "/users/confirmation" &&
-        request.path != "/users/sign_out" &&
-        !request.xhr?) # don't store ajax calls
-      store_location_for(:user, community_index_path)
-    end
+  def after_sign_in_path_for(resource_or_scope)
+    community_index_path
   end
   
-  protected
   def authenticate_user!
     if user_signed_in?
       super
@@ -28,8 +17,7 @@ class ApplicationController < ActionController::Base
       ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
     end
   end
-  
-  protected
+
   def authenticate_admin!
     if user_signed_in? && current_user.admin
       authenticate_user!
@@ -38,7 +26,6 @@ class ApplicationController < ActionController::Base
     end
   end
  
-  protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [[:first_name], [:last_name]])
   end
