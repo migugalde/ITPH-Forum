@@ -5,9 +5,9 @@
 </div>
 
 <%= form_for :session, url: session_path do |form| %>
-  <div id="Email" class="text-field">
+  <div  class="text-field">
     <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
+    <%= form.text_field :email, type: 'email', id: "Email" %>
   </div>
 
   <div class="password-field">
