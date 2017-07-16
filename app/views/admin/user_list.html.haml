@@ -6,6 +6,7 @@
     %th Last Name 
     %th Email 
     %th Admin?
+    %th Approved?
   %tbody
     - @users.each do |user|
       %tr
@@ -13,5 +14,7 @@
         %td= user.last_name
         %td= user.email 
         %td= user.admin
-
+        %td= user.approved
+        
+=link_to 'Approve New Users', authorize_path
 = link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy

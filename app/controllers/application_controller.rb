@@ -13,7 +13,28 @@ class ApplicationController < ActionController::Base
         request.path != "/users/confirmation" &&
         request.path != "/users/sign_out" &&
         !request.xhr?) # don't store ajax calls
-      store_location_for(:user, show_path)
+      store_location_for(:user, community_index_path)
     end
   end
+  
+  protected
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to root_path, :notice => 'You must be logged in to access this page'
+      ## if you want render 404 page
+      ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+    end
+  end
+  
+  protected
+  def authenticate_admin!
+    if user_signed_in? && current_user.admin
+      super
+    else
+      redirect_to community_index_path, :notice => 'You do not have the rights to access this page. Please contact the admin.'
+    end
+  end
+  
 end
