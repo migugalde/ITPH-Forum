@@ -6,9 +6,6 @@ Feature: able to login as cl_user
   
 Scenario: I am trying to create a user
   Given that I have a user with a valid credentials placed in the correct forms:
-  # When I press "submit"
-  # Then I should see "Signed in as:"
-    
   
 # Login with invalid username
 Scenario: unable to login with invalid username
@@ -19,7 +16,7 @@ Scenario: unable to login with invalid username
 # Login with valid username and password
 Scenario: able to login with valid username and correct password
   Given correct cl_user_email and password 
-  When I press "Sign in"
+  When I press "button-cap"
   Then I should see "Signed in as:"
   
 # Login with valid username and incorrect password  
