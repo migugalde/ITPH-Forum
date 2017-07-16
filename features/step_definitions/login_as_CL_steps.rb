@@ -26,9 +26,15 @@ end
 
 Given(/^invalid cl_user_email and a password$/) do
   # pending # Write code here that turns the phrase above into concrete actions
+<<<<<<< HEAD
   # visit "/sign_in"
   # fill_in('Email', :with => 'us@domain.com')
   # fill_in('Password', :with => 'us')
+=======
+  visit "/sign_in"
+  fill_in('Email', :with => 'us@domain.com')
+  fill_in('Password', :with => 'usa')
+>>>>>>> 9b436f0401536955df891ba1952c610f89323170
   click_button 'button-cap'
   
   page.should have_content("Incorrect email and/or password.")

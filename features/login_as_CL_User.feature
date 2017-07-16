@@ -4,7 +4,7 @@ Feature: able to login as cl_user
   to put my email and password and login
   
   
-Background:
+Scenario: I am trying to create a user
   Given that I have a user with a valid credentials placed in the correct forms:
   # When I press "submit"
   # Then I should see "Signed in as:"
