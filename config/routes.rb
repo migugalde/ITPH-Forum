@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'adminhome' => 'admin#home'
   resources :community
   root 'welcome#index'
+  
+  namespace :dashboard do
+    get "index"
+  end
 
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
