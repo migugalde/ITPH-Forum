@@ -16,5 +16,6 @@
         %td= user.admin
         %td= user.approved
         
-=link_to 'Approve New Users', authorize_path
-= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
+%br= link_to 'Approve New Users', authorize_path
+%br= link_to "Admin Index", admin_index_path
+%br= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy

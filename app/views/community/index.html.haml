@@ -1,5 +1,4 @@
-%h1 Welcome! You are now logged in as a user
+%h1 Welcome to the ITPH Community!
 
-= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
-%br
-= link_to 'admin?', admin_index_path
+%p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
+%p= link_to 'admin?', admin_index_path
