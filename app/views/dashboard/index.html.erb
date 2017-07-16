@@ -1,31 +1,28 @@
 <html>
 <head>
     <title>Welcome | Log In</title>
+    <script src="https://use.fontawesome.com/647f706861.js"></script>
 </head>
 <body>
-    <div class="login-panel">
-        <div class="row">
-            <div class="small-12 columns"><h3>Sign In</h3></div>
-        </div> 
-        <h1 @username</h1>
-        <h1 @password</h1>
-        <form action="/" method="get" id="form1">
-            <div class="row">
-                <div class="large-12 columns">
-                <input type="text" placeholder="Username" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-12 columns">  
-                <input type="password" placeholder="Password" />
-                </div>
-            </div>
-        </form>
-        <div class="row">
-            <div class="large-12 columns right-align">
-                <button type="submit" form="form1" value="Submit" class="button large">Submit</button>
-            </div>
-        </div>
-    </div> 
+<div class="off-canvas position-left" id="offCanvas" data-off-canvas>
+    <!-- Your menu or Off-canvas content goes here -->
+  
+  <ul class="menu vertical">
+     <a><li><i class="fa fa-home" aria-hidden="true"></i><label>Home</label></li></a>
+     <a><li><i class="fa fa-comments-o" aria-hidden="true"></i><label>Forum</label></li></a>
+     <a><li><i class="fa fa-inbox" aria-hidden="true"></i><label>Inbox</label></li></a>
+     <a><li><i class="fa fa-user" aria-hidden="true"></i><label>Profile</label></li></a>
+     <a><li><i class="fa fa-cogs" aria-hidden="true"></i><label>Settings</label></li></a>
+  </ul>
+</div>
+<div class="off-canvas-content" data-off-canvas-content>
+    <!-- Your page content lives here -->
+  <button type="button" class="button" data-toggle="offCanvas"><i class="fa fa-bars" aria-hidden="true" style="font-size: 1.9em"></i></button>
+  
+</div>
+
+<script>
+    $(document).foundation();
+  </script>
 </body>
 </html>
