@@ -1,31 +1,69 @@
-Given(/^correct Admin email and password$/) do
+require 'uri'
+require 'cgi'
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+
+module WithinHelpers
+  def with_scope(locator)
+    locator ? within(*selector_for(locator)) { yield } : yield
+  end
+end
+World(WithinHelpers)
+
+
+  #now we have a user within this
+Given(/^that I have an Admin user with a valid credentials placed in the correct forms:$/) do
+
+  visit "/sign_up"
+
+  fill_in('Email', :with => 'us@domain.com')
+  fill_in('Password', :with => 'us')
+  # click_button "submit"
+end
+
+
+Given(/^invalid admin_user_email and a password$/) do
   # pending # Write code here that turns the phrase above into concrete actions
+  visit "/sign_in"
+  fill_in('Email', :with => 'usa@domain.com')
+  fill_in('Password', :with => 'us')
+  click_button 'button-cap'
+  
+  page.should have_content("Incorrect email and/or password.")
+  #page.should have_content("Sign in")
+  
 end
 
-When(/^I click login$/) do
-  # pending # Write code here that turns the phrase above into concrete actions
+Given(/^correct admin_user_email and password$/) do 
+    visit "/sign_up"
+
+  fill_in('Email', :with => 'us@domain.com')
+  fill_in('Password', :with => 'us')
+  click_button "submit"
+  
+  visit "/"
+  click_button 'sign_out'
+  
+  visit "/sign_in"
+  fill_in('Email', :with => 'us@domain.com')
+  fill_in('Password', :with => 'us')
+  # click_button 'button-cap'
+  
+  # page.should have_content("Signed in as:")
+  #page.should have_content("Sign in")
+  
+
 end
 
-Then(/^I should see Admin version homepage$/) do
-  # pending # Write code here that turns the phrase above into concrete actions
+Given(/^correct admin_user_email and incorrect password$/) do
+  visit "/sign_in"
+  fill_in('Email', :with => 'us@domaindomain.com')
+  fill_in('Password', :with => 'us')
+  click_button 'button-cap'
+  
+  page.should have_content("Incorrect email and/or password.")
+  #page.should have_content("Sign in")
+  
 end
 
-Given(/^incorrect Admin email or password$/) do
-  # pending # Write code here that turns the phrase above into concrete actions
-end
 
-Then(/^I should get error warning$/) do
-  # pending # Write code here that turns the phrase above into concrete actions
-end
-
-When(/^I click again$/) do
-  # pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given(/^correct Admin username and password$/) do
-  #pending # Write code here that turns the phrase above into concrete actions
-end
-
-Given(/^incorrect Admin username or password$/) do
-  #pending # Write code here that turns the phrase above into concrete actions
-end
