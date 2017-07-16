@@ -2,8 +2,12 @@
 <head>
     <title>Welcome!</title>
 </head>
-<h3><%= flash[:success] %> </h3>
-<h3> <%= flash.now[:error] %></h3>
+<% if flash[:alert] %>
+    <p class="alert" id="red"><%= flash[:alert] %></p>
+<% end %>
+<% if flash[:notice] %>
+    <p class="alert" id="green"><%= flash[:notice] %></p>
+<% end %>
 <div class="login-panel">
     <div class="center">
         <div class="row">
