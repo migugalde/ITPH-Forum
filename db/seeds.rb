@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)  
 
   	 
-users = [{:first_name => "Allowa", :last_name => "Obo", :username => "allowa", :password => "encrypted_ala", :email => "ala@gmail.com", :admin => false, :approved => true},
-         {:first_name => "John", :last_name => "James", :username => "james", :password => "encryped_jam", :email => "jam@gmail.com", :admin => false, :approved => true },
+users = [{:first_name => "Allowa", :last_name => "Obo", :username => "allowa", :password => "encrypted_ala", :email => "ala@gmail.com", :admin => false, :approved => false },
+         {:first_name => "John", :last_name => "James", :username => "james", :password => "encryped_jam", :email => "jam@gmail.com", :admin => false, :approved => false },
          {:first_name => "Helen", :last_name => "William", :username => "helen", :password => "encrypted_hel", :email => "hel@gmail.com", :admin => false, :approved => true },
          {:first_name => "Mary", :last_name => "Tony", :username => "mary", :password => "encrypted_mar", :email => "mar@gmail.com", :admin => false, :approved => true },
          {:first_name => "Teddy", :last_name => "Manny", :username => "teddy", :password => "encrypted_ted", :email => "ted@yahoo.com", :admin => false, :approved => true },

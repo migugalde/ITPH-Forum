@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   # get 'layouts/welcome/index'
   get '/' => 'welcome#index'
   resources :admin
+  get 'adminhome' => 'admin#home'
   resources :community
-  get '/authorize' => 'admin#authorize_users'
-  get 'user_list' => 'admin#user_list'
   root 'welcome#index'
 
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
