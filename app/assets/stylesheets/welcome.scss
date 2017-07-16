@@ -18,13 +18,13 @@ body {
     margin-top: 10px;
 }
 
-[type='text'] {
+[type='text'],[type='password'] {
     border: none !important;
     box-shadow: none !important;
     border-bottom: 1px cornflowerblue solid !important;
     transition: all 0.5s ease-in-out;
 }
-[type='text']:focus {
+[type='text']:focus, [type='password']:focus {
     background-color: aliceblue !important;
 }
 
