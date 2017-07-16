@@ -4,6 +4,9 @@
 </head>
 
 <body>
+<% if flash[:notice] %>
+  <p class="alert" id="red"><%= flash[:notice] %></p>
+<% end %>
 <div class="login-panel">
   <div class="row">
       <div class="small-12 columns"><h3>Sign In</h3></div>
