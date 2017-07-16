@@ -5,13 +5,13 @@
     %th First Name 
     %th Last Name 
     %th Email 
-    %th Privilege
+    %th Admin?
   %tbody
     - @users.each do |user|
       %tr
         %td= user.first_name 
         %td= user.last_name
         %td= user.email 
-        %td= user.privilege
+        %td= user.admin
 
-= link_to 'sign out', root_path
+= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy

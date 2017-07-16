@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Welcome | Log In</title>
+</head>
+
+<body>
+<div class="login-panel">
+  <div class="row">
+      <div class="small-12 columns"><h3>Forgot Password?</h3></div>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+  
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "email", required: "true" %>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="large-12 columns right-align">
+        <%= f.submit "Send me reset password instructions", class: "button medium" %>
+      </div>
+    </div>
+  <% end %>
+  
+  <div class="row">
+    <div class="large-12 columns">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

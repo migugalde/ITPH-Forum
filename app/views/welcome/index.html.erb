@@ -1,31 +1,24 @@
 <html>
 <head>
-    <title>Welcome | Log In</title>
+    <title>Welcome!</title>
 </head>
-<body>
-    <div class="login-panel">
+<h3><%= flash[:success] %> </h3>
+<h3> <%= flash.now[:error] %></h3>
+<div class="login-panel">
+    <div class="center">
         <div class="row">
-            <div class="small-12 columns"><h3>Sign In</h3></div>
-        </div> 
-        <h1 @username</h1>
-        <h1 @password</h1>
-        <form action="/" method="get" id="form1">
-            <div class="row">
-                <div class="large-12 columns">
-                <input type="text" placeholder="Username" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-12 columns">
-                <input type="password" placeholder="Password" />
-                </div>
-            </div>
-        </form>
+            <div class="small-12 columns"><h3>Welcome to the ITPH Community!</h3></div>
+        </div>
+        </br>
         <div class="row">
-            <div class="large-12 columns right-align">
-                <button type="submit" form="form1" value="Submit" class="button large">Submit</button>
+            <div class="large-12 columns" id="in_box_align">
+                <a href=<%=new_user_session_path%> class="button large welcome">Login</a><a href=<%=new_user_registration_path %> class="button large welcome">Sign Up</a>
             </div>
         </div>
-    </div> 
-</body>
+
+    </div>
+
+</div>
+
+        
 </html>
