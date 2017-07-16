@@ -15,14 +15,12 @@ World(WithinHelpers)
   
   #now we have a user within this
 Given(/^that I have a user with a valid credentials placed in the correct forms:$/) do
-    # creating a user 
+
   visit "/sign_up"
-  # click_button("button-cap")
-  #find('submit_sign_in').click_link("Sign in")
+
   fill_in('Email', :with => 'us@domain.com')
   fill_in('Password', :with => 'us')
-  click_button "submit"
-  # find('submit_sign_in').click_link("Sign in")
+  # click_button "submit"
 end
 
 
