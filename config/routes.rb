@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get 'layouts/welcome/index'
-  resources :welcome
-  get '/show' => 'welcome#show'
+  get '/' => 'welcome#index'
+  resources :admin
+  get 'adminhome' => 'admin#home'
+  resources :community
   root 'welcome#index'
 
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)

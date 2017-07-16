@@ -1,0 +1,32 @@
+
+
+<%= form_for @user, url: admin_path do |f| %>
+    <p class="form">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name, :required => true, :value => @user.first_name%>
+    </p>
+   
+    <p class="form">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name, :required => true, :value => @user.last_name%>
+    </p>
+    
+    <p class="form">
+      <%= f.label :email %><br>
+      <%= f.text_area :email, :required => true, :value => @user.email%>
+    </p>
+    
+     <p class="form">
+      <%= f.label :admin %><br>
+      <%= f.select :admin, ['true', 'false'], :selected => @user.admin %>
+    </p>
+    
+    <p class="form">
+      <%= f.label :approved %><br>
+      <%= f.select :approved, ['true', 'false'], :selected => @user.approved %>
+    </p>
+   
+    <p class="form">
+      <%= f.submit "Update", class: "button large" %>
+    </p>
+<% end %>

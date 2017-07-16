@@ -1,0 +1,8 @@
+-if flash[:alert]
+    %p.alert#red
+        =flash[:alert]
+
+%h1 Welcome to the ITPH Community!
+
+%p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
+%p= link_to 'admin?', adminhome_path
