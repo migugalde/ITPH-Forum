@@ -56,3 +56,16 @@ Given(/^correct cl_user_email and password$/) do
   
 
 end
+
+Given(/^correct cl_user_email and incorrect password$/) do
+  visit "/sign_in"
+  fill_in('Email', :with => 'us@domaindomain.com')
+  fill_in('Password', :with => 'us')
+  click_button 'button-cap'
+  
+  page.should have_content("Incorrect email and/or password.")
+  #page.should have_content("Sign in")
+  
+end
+
+
