@@ -1,3 +1,5 @@
 %h1 Welcome! You are now logged in as a user
 
 = link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
+%br
+= link_to 'admin?', admin_index_path

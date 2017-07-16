@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   devise_for :users
   # get 'layouts/welcome/index'
   get '/' => 'welcome#index'

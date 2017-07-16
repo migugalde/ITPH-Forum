@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   protected
   def authenticate_admin!
     if user_signed_in? && current_user.admin
-      super
+      authenticate_user!
     else
       redirect_to community_index_path, :notice => 'You do not have the rights to access this page. Please contact the admin.'
     end
