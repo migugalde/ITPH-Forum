@@ -40,12 +40,12 @@
 }
 
 .position-left {
-  width: 150px !important;
+  width: 150px;
   transform: translateX(-150px);
 }
 
 .off-canvas {
-    background-color: lightskyblue !important;
+    background-color: lightskyblue;
 }
 
 .position-left.is-open ~ .off-canvas-content {
