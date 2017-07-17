@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'navbar/home'
+
+  get 'navbar/forum'
+
+  get 'navbar/inbox'
+
+  get 'navbar/profile'
+
+  get 'navbar/settings'
+
   devise_for :users
   # get 'layouts/welcome/index'
   get '/' => 'welcome#index'

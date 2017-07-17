@@ -5,7 +5,6 @@
     %title Welcome | Log In
     %script{:src => "https://use.fontawesome.com/647f706861.js"}
   %body
-    %h1 Welcome to the ITPH Community!
     #offCanvas.off-canvas.position-left{"data-off-canvas" => ""}
       / Your menu or Off-canvas content goes here
       %ul.menu.vertical
@@ -31,14 +30,14 @@
             %label Settings
     .off-canvas-content{"data-off-canvas-content" => ""}
       / Your page content lives here
-      %button.button{:id => "clicker", "data-toggle" => "offCanvas", :type => "button"}
+      %button.button{"data-toggle" => "offCanvas", :type => "button"}
         %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size: 1.9em"}
       .row
         -if flash[:alert]
           %p.alert#red
             =flash[:alert]
       
-        %h1 Welcome to the ITPH Community!
+        %h1 Forum!
         
         %p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
         %p= link_to 'admin?', adminhome_path
