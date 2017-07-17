@@ -17,7 +17,8 @@ users = [{:first_name => "Allowa", :last_name => "Obo", :username => "allowa", :
          {:first_name => "Miki", :last_name => "Korra", :username => "miki", :password => "encrypted_miki", :email => "miki@gmail.com", :admin => false, :approved => true },
          {:first_name => "Lora", :last_name => "Moo", :username => "lora", :password => "encrypted_lora", :email => "lora@gmail.com", :admin => false, :approved => true },
          {:first_name => "Jessica", :last_name => "Tom", :username => "jessica", :password => "encrypted_jessica", :email => "jess@yahoo.com", :admin => false, :approved => true},
-         {:first_name => "Irene", :last_name => "Li", :username => "ireneaili", :password => "ireneaili", :email => "ireneaili@berkeley.edu", :admin => true, :approved => true}]
+         {:first_name => "Tester", :last_name => "Tester", :username => "tester", :password => "tester", :email => "tester@tester.com", :admin => true, :approved => true},
+         {:first_name => "User", :last_name => "User", :username => "user", :password => "user_password", :email => "user@domain.com", :admin => false, :approved => true}]
          
 users.each do |user| 
     User.create!(user) 
