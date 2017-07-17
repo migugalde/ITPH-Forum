@@ -7,21 +7,21 @@ Feature: a functional navagation bar that navigates to the correct pages
     Given I am on the home page
     
     Scenario: click Profile
-      When I click "Profile"
+      When I click "profile"
       Then I should see the text "Profile!"
     
     Scenario: click Home
-      When I click "Home"
+      When I click "home"
       Then I should see the text "Welcome to the ITPH Community!" 
     
     Scenario: click Inbox
-      When I click "Inbox"
+      When I click "inbox"
       Then I should see the text "Inbox!"
     
     Scenario: click Forum
-      When I click "Forum"
+      When I click "forum"
       Then I should see the text "Forum!"
       
     Scenario: click Settings
-      When I click "Settings"
+      When I click "settings"
       Then I should see the text "Settings!"

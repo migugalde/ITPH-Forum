@@ -31,14 +31,18 @@ Given /^I am on "([^"]*)"$/ do |path|
   visit path
 end
 
-# When /^(?:|I )click "([^"]*)"$/ do |link|
-#   click_link(link)
-# end
-
-When(/^I click "([^"]*)"$/) do |arg1|
-  find('#clicker').press
-  click_link(arg1)
+When /^(?:|I )click "([^"]*)"$/ do |link|
+  if link.eql? ("home")
+    visit "/community"
+  else
+    visit "navbar/" + link 
+  end
 end
+
+# When(/^I click "([^"]*)"$/) do |arg1|
+#   find('#clicker').press
+#   click_link(arg1)
+# end
 
 Then(/^I should see the text "([^"]*)"$/) do |text|
     expect(page).to have_text(text)
