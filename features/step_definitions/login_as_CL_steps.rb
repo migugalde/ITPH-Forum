@@ -71,3 +71,8 @@ Given(/^correct cl_user_email and incorrect password$/) do
   #page.should have_content("Sign in")
   
 end
+
+Then (/^I should see "([^"]*)"$/) do |text|
+  expect(page).to have_text(text)
+end
+
