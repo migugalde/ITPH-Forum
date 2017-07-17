@@ -45,12 +45,15 @@ Given(/^correct cl_user_email and password$/) do
   click_button "button-cap"
   
   visit "/community"
-  click_link 'sign_out'
+  page.should have_content("Welcome to the ITPH Community!")
+ 
+  # click_link 'this_id'
+  # visit "user/sign_out"
   
-  visit "users/sign_in"
-  fill_in('Email', :with => 'us@domain.com')
-  fill_in('Password', :with => 'us')
-  # click_button 'button-cap'
+  # visit "users/sign_in"
+  # fill_in('Email', :with => 'us@domain.com')
+  # fill_in('Password', :with => 'us')
+  # click_button 'this_id'
   
   # page.should have_content("Signed in as:")
   #page.should have_content("Sign in")
@@ -60,11 +63,11 @@ end
 
 Given(/^correct cl_user_email and incorrect password$/) do
   visit "users/sign_in"
-  fill_in('Email', :with => 'us@domaindomain.com')
+  fill_in('Email_login', :with => 'us@domaindomain.com')
   fill_in('Password', :with => 'us')
   click_button 'button-cap'
   
-  page.should have_content("Incorrect email and/or password.")
+  page.should have_content("Invalid Email or password.")
   #page.should have_content("Sign in")
   
 end

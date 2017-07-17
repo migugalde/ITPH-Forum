@@ -21,18 +21,18 @@ Scenario: I am trying to create an Admin user
 # Login with invalid username
 Scenario: unable to login with invalid username
   Given invalid cl_user_email and a password
-  When I press "Sign in"
-  Then I should see "Incorrect email and/or password."
-  
-# Login with valid username and password
-Scenario: able to login with valid username and correct password
-  Given correct cl_user_email and password 
   When I press "button-cap"
-  Then I should see "Signed in as:"
+  Then I should see "Invalid Email or password."
+  
+# # Login with valid username and password
+# Scenario: able to login with valid username and correct password
+#   Given correct cl_user_email and password 
+#   When I press "button-cap"
+#   Then I should see "Signed in as:"
 
   
 # Login with invalid username and correct password  
 Scenario: unable to login with valid username and incorrect password
   Given correct cl_user_email and incorrect password
-  When I press "Sign in"
-  Then I should see "Incorrect email and/or password."
+  When I press "button-cap"
+  Then I should see "Invalid Email or password."
