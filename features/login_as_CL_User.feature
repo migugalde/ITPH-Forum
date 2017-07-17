@@ -24,4 +24,4 @@ Scenario: able to login with valid username and correct password
 Scenario: unable to login with valid username and incorrect password
   Given correct cl_user_email and incorrect password
   When I press "button-cap"
-  Then I should see "Incorrect email and/or password."
+  Then I should see "Invalid Email or password."
