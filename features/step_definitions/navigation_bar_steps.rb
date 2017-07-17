@@ -27,6 +27,10 @@ Given(/^I am on home page$/) do
     expect(page).to have_text("Welcome to the ITPH Community!")
 end
 
+Given /^I am on "([^"]*)"$/ do |path|
+  visit path
+end
+
 # When /^(?:|I )click "([^"]*)"$/ do |link|
 #   click_link(link)
 # end

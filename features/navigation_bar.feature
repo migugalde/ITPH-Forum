@@ -4,7 +4,7 @@ Feature: a functional navagation bar that navigates to the correct pages
     in the navigation bar and end up on the correct page
     
  Background:
-    Given I am on home page
+    Given I am on the home page
     
     Scenario: click Profile
       When I click "Profile"
