@@ -9,3 +9,9 @@ Pivotal Tracker:
 https://www.pivotaltracker.com/n/projects/2071063
 
 Deployment on Heroku: https://nameless-temple-25833.herokuapp.com/
+
+    Test Accounts 
+    
+    Admin username: tester@tester.com,  Admin password: tester
+    
+    User username: user@domain.com,  User password: user_password
