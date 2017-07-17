@@ -10,15 +10,33 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-When /^(?:|I )press ([^"]*)$/ do |button|
-    # pending
+# When /^(?:|I )press ([^"]*)$/ do |button|
+#     # pending
+# end
+
+# Then /^(?:|I )should not be on ([^"]*)$/ do |page_id|
+#     # pending
+# end
+
+# Then /^(?:|I )should be on ([^"]*)$ page/ do |page_id|
+#     # pending
+# end
+
+Given(/^I am on home page$/) do
+    visit '/community'
+    expect(page).to have_text("Welcome to the ITPH Community!")
 end
 
-Then /^(?:|I )should not be on ([^"]*)$/ do |page_id|
-    # pending
+# When /^(?:|I )click "([^"]*)"$/ do |link|
+#   click_link(link)
+# end
+
+When(/^I click "([^"]*)"$/) do |arg1|
+  find('#clicker').press
+  click_link(arg1)
 end
 
-Then /^(?:|I )should be on ([^"]*)$ page/ do |page_id|
-    # pending
+Then(/^I should see the text "([^"]*)"$/) do |text|
+    expect(page).to have_text(text)
 end
 
