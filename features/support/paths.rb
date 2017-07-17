@@ -14,7 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/community'
+      community_path
 
     when /signup$/
       new_user_registration_path
