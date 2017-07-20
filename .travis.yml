@@ -3,13 +3,12 @@ rvm:
     - 2.3.0
 env:
   CODECLIMATE_REPO_TOKEN: "9d667e577d77ea5119363d40c20cb59aeb5a4cb004caa2d405bf5d7516b33843"
-  task: travis do
-    [“rspec spec”, “rake jasmine:ci”, “rake cucumber”].each do |cmd|
-    puts “Starting to run #{cmd}...”
-    system(“export DISPLAY=:99.0 && bundle exec #{cmd}“)
-    raise “#{cmd} failed!” unless $?.exitstatus == 0
-    end
-end
 # regular test configuration
 after_success:
   - bundle exec codeclimate-test-reporter
+
+script:
+ - bundle exec rake db:migrate --trace
+ - bundle exec rake db:test:prepare
+ - bundle exec rspec
+ - bundle exec cucumber
