@@ -3,7 +3,7 @@ rvm:
     - 2.3.0
 env:
   CODECLIMATE_REPO_TOKEN: "9d667e577d77ea5119363d40c20cb59aeb5a4cb004caa2d405bf5d7516b33843"
-  task : travis do
+  task: travis do
     [“rspec spec”, “rake jasmine:ci”, “rake cucumber”].each do |cmd|
     puts “Starting to run #{cmd}...”
     system(“export DISPLAY=:99.0 && bundle exec #{cmd}“)
