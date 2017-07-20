@@ -6,10 +6,3 @@ env:
 # regular test configuration
 after_success:
   - bundle exec codeclimate-test-reporter
-
-script:
- - bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec
- - bundle exec cucumber
- 
