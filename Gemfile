@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'haml'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 # Use foundation framework app with ruby, can also call "rails g foundation:install" locally
 gem 'foundation-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -24,6 +25,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+
+gem 'thredded', '~> 0.13.2'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

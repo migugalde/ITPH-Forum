@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
+//= require thredded
+
 $(function(){ $(document).foundation(); });
