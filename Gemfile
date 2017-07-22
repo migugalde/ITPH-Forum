@@ -13,7 +13,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'haml'
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.3.0"
 
 # Use foundation framework app with ruby, can also call "rails g foundation:install" locally
 gem 'foundation-rails'
