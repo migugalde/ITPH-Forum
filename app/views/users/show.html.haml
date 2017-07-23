@@ -1,2 +1,13 @@
-%h1
-    = @user.first_name
+= render :partial => "nav"
+.row
+    -if flash[:alert]
+        %p.alert#red
+            =flash[:alert]
+    
+%h1 First Name: #{@user.first_name}
+
+%p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
+%p= link_to 'admin?', adminhome_path
+:javascript
+    $(document).foundation();
+    
