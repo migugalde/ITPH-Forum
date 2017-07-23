@@ -1,0 +1,87 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+  - 'spec/dummy/db/**/*'
+  - 'vendor/**/*'
+
+Style/SafeNavigation:
+  # Disable because we still support Ruby ~>2.1.
+  # TODO(glebm): Remove this when we change the minimum Ruby version to 2.3.1.
+  Enabled: false
+
+Layout/IndentHeredoc:
+  # TODO(glebm): Remove this when we change the minimum Ruby version to 2.3.1.
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Rails/ApplicationRecord:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+  - Rakefile
+  - spec/**/*_spec.rb
+  - spec/dummy/config/environments/*.rb
+  - spec/factories.rb
+
+Metrics/ClassLength:
+  Max: 125
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 25
+
+Metrics/ModuleLength:
+  Exclude:
+  - spec/**/*_spec.rb
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/PredicateName:
+  Exclude:
+  - spec/**/*.rb
+
+Style/SignalException:
+  EnforcedStyle: semantic
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+
+Style/VariableNumber:
+  EnforcedStyle: snake_case
+
+Rails:
+  Enabled: true
+
+Rails/Date:
+  EnforcedStyle: strict
+
+Rails/FindBy:
+  Enabled: true
+  Include:
+  - app/commands/**/*.rb
+  - app/models/**/*.rb
+  - app/view_models/**/*.rb

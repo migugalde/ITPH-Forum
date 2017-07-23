@@ -1,0 +1,20 @@
+.thredded--user-navigation {
+  @extend %thredded--nav-tabs;
+  text-align: right;
+  @media print {
+    display: none;
+  }
+}
+
+.thredded--user-navigation--item {
+  @extend %thredded--nav-tabs--item;
+
+  &.thredded--is-current {
+    @extend %thredded--nav-tabs--item-current;
+  }
+}
+
+.thredded--user-navigation--private-topics--unread,
+.thredded--user-navigation--moderation--pending-count {
+  @extend %thredded--nav-tabs--item--badge;
+}
