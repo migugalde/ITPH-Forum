@@ -1,0 +1,32 @@
+%head
+    %title Forum
+    %link{rel: "stylesheet", href: "http://fonts.googleapis.com/css?family=Lato:300,400,700", type: "text/css"}
+    %link{rel: "stylesheet", href: "http://cdnjscloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
+%body 
+    %header.main_header.clearfix
+    .wrapper
+        #logo
+            %p= link_to "Forum", posts_path
+        #button
+            - if user_signed_in?
+                = link_to "New Post", new_post_path
+            - else
+                = link_to "Sign Up", new_user_registration_path
+                = link_to "Sign In", new_user_session_path
+        
+    .wrapper
+    
+    .wrapper
+    =yield
+
+#posts
+    - @posts.each do |post|
+        .post
+        %h2.title= link_to post.title, post
+        %p.date
+            Published at
+            = time_ago_in_words(post.created_at)
+            by
+            = post.user.email
+
+        

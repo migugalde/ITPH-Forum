@@ -14,9 +14,15 @@ Rails.application.routes.draw do
   get '/' => 'welcome#index'
   resources :admin
   get 'adminhome' => 'admin#home'
+  ##############
+  resources :posts do
+    resources :comments
+  end
+  ##############
   resources :community
   root 'welcome#index'
-
+  
+  
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
