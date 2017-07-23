@@ -4,7 +4,6 @@
     %link{rel: "stylesheet", href: "http://cdnjscloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
 %body 
     %header.main_header.clearfix
-    .wrapper
         #logo
             %p= link_to "Forum", posts_path
         #button
@@ -14,7 +13,7 @@
                 = link_to "Sign Up", new_user_registration_path
                 = link_to "Sign In", new_user_session_path
         
-    .wrapper
+
     
     .wrapper
     =yield
