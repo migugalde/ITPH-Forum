@@ -156,21 +156,25 @@ body {
     }
 }
 
+.move {
+    padding: 50px;
+}
 #post_content {
     background: white;
-    padding: 2em 5%;
     border-radius: 0.5em;
+    height: 300px;
     h1 {
         /*font-weight: 100;*/
-        font-size: 2em;
+        font-size: 1.3em;
         color: #397CAC;
         margin-top: 0;
     }
     p {
         /*color: #B2BAC2;*/
-        font-size: 0.9rem;
+        /*font-size: 0.9rem;
         font-weight: 100;
-        line-height: 1.5;
+        line-height: 1.5;*/
+        padding: 50px;
     }
 }
 
