@@ -5,6 +5,10 @@
     %title
       Thredded | #{yield :thredded_page_title}
     %script{:src => "https://use.fontawesome.com/647f706861.js"}
+    %link{"data-turbolinks-track" => "true", :href => "/assets/foundation.min.self-4b092450391598b88865b2b523f39c488eb305b018401c5cb09ace7b40ff7fd4.css?body=1", :media => "all", :rel => "stylesheet"}/
+    %link{"data-turbolinks-track" => "true", :href => "/assets/foundation_and_overrides.self-3fd641ca2986769aeecdcf6dbf2d49ff4c480b39db3bb13246065a5578507058.css?body=1", :media => "all", :rel => "stylesheet"}/
+
+    %script{"data-turbolinks-track" => "true", :src => "/assets/foundation.min.self-f0d295f00ec32bd9fcc029d00ceb720f4d88efd3bfa9473199461fae59110027.js?body=1"}
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0", :name => "viewport"}/
     = stylesheet_link_tag 'thredded', 'data-turbolinks-track': 'reload'
     = csrf_meta_tag
@@ -15,6 +19,96 @@
     != Gravatar.prefetch_dns
     %meta{:content => "width=device-width, initial-scale=1, user-scalable=no", :name => "viewport"}/
   %body
+    :css
+      .button {
+          display: inline-block;
+          vertical-align: middle;
+          margin: 0 0 1rem 0;
+          font-family: inherit;
+          padding: 0.85em 1em;
+          -webkit-appearance: none;
+          border: 1px solid transparent;
+          border-radius: 0;
+          -webkit-transition: background-color 0.25s ease-out, color 0.25s ease-out;
+          transition: background-color 0.25s ease-out, color 0.25s ease-out;
+          font-size: 0.9rem;
+          line-height: 1;
+          text-align: center;
+          cursor: pointer;
+          background-color: #1779ba;
+          color: #fefefe;
+      }
+      .menu.vertical > a > li {
+        text-align: center;
+        padding: 10%;
+      }
+    
+      .menu.vertical > a > li > i {
+        font-size: 3em;
+        color: white;
+      }
+    
+      .menu.vertical > a > li > label {
+        color: white;
+      }
+    
+      .position-left {
+        width: 150px;
+        transform: translateX(-150px);
+      }
+      .position-left {
+        position: fixed;
+        z-index: 12;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 100%;
+        overflow-y: auto;
+        transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+        font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+        font-weight: normal;
+        line-height: 1.5;
+        color: #0a0a0a;
+        -webkit-font-smoothing: antialiased;
+        -webkit-box-shadow: inset -13px 0 20px -13px rgba(10, 10, 10, 0.25);
+        box-shadow: inset -13px 0 20px -13px rgba(10, 10, 10, 0.25)
+      }
+      .off-canvas {
+          background-color: lightskyblue;
+      }
+      .menu.vertical {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        }
+      .menu {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .menu a, .menu .button {
+            line-height: 1;
+            text-decoration: none;
+            white-space: nowrap;
+            display: block;
+            padding: 0.7rem 1rem;
+        }
+      .position-left.is-open ~ .off-canvas-content {
+        transform: translateX(150px);
+      }
+      .thredded--main-container {
+        max-width: 1200px;
+      }
+
     #offCanvas.off-canvas.position-left{"data-off-canvas" => ""}
       / Your menu or Off-canvas content goes here
       %ul.menu.vertical
@@ -40,14 +134,25 @@
             %label Settings
     .off-canvas-content{"data-off-canvas-content" => ""}
       / Your page content lives here
-      %button.button{"data-toggle" => "offCanvas", :type => "button"}
+      %button.button#openUp{"data-toggle" => "offCanvas", :onClick => "fun()"}
         %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size: 1.9em"}
       .row
         -if flash[:alert]
           %p.alert#red
             =flash[:alert]
-      
       = yield
     :javascript
-      $(document).foundation();
+      //$(document).foundation();
+      function fun() { 
+        var content = document.getElementsByClassName("off-canvas-content")[0];
+        var panel = document.getElementsByClassName("off-canvas")[0]
+        if(content.style.transform == 'translateX(150px)') {
+            content.style.transform = 'translateX(0px)';
+            panel.style.transform = 'translateX(-150px)';
+        }
+        else {    
+            content.style.transform = 'translateX(150px)';
+            panel.style.transform = 'translateX(0px)';
+            }
+      }
 
