@@ -34,6 +34,8 @@ end
 When /^(?:|I )click "([^"]*)"$/ do |link|
   if link.eql? ("home")
     visit "/community"
+  elsif link.eql? ("New Post") 
+    visit "/posts/new"
   else
     visit "navbar/" + link 
   end

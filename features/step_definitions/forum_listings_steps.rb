@@ -12,7 +12,7 @@ World(WithinHelpers)
 
 Given(/^I am on the forum page$/) do
   #visit 'navbar/forum'
-  pending
+  visit 'posts'
 end
 
 Then(/^I should see "([^"]*)" before "([^"]*)"$/) do |arg1, arg2|
@@ -28,5 +28,6 @@ end
 # end
 
 Then(/^I should be on the forum post page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  # Write code here that turns the phrase above into concrete actions
+  visit 'posts/new'
 end
