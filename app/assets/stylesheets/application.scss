@@ -15,7 +15,34 @@
  *= require foundation_and_overrides
 
  */
-
+#forum-container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+#header {
+    background-color: white;
+}
+.header-icon {
+    font-size: 1.2em;
+    font-variant: small-caps !important;
+    font-family: Avenir !important;
+    letter-spacing: 1px !important;
+}
+.header-text {
+    font-size: 1.5em;
+    font-variant: small-caps !important;
+    font-family: Avenir !important;
+    letter-spacing: 1px !important;
+}
+.margT {
+    margin-top: 8px;
+}
+.marB {
+    margin-top: 10px;
+}
+#change {
+    color: white;
+}
 .right-align {
     display: -webkit-flex;
    display: flex;
