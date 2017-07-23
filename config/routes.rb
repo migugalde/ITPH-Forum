@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   mount Thredded::Engine => '/forum'
 
   devise_for :users
-  # get 'layouts/welcome/index'
+  devise_scope :user do  
+    get '/users/sign_out' => 'devise/sessions#destroy'     
+  end
+  
   get '/' => 'welcome#index'
   resources :admin
   get 'adminhome' => 'admin#home'
