@@ -22,7 +22,7 @@ Scenario: I am trying to create an Admin user
 Scenario: unable to login with invalid username
   Given invalid cl_user_email and a password
   When I press "button-cap"
-  Then I should see "Invalid Email or password."
+  Then I should see "Invalid email or password."
   
 # # Login with valid username and password
 # Scenario: able to login with valid username and correct password
@@ -35,4 +35,4 @@ Scenario: unable to login with invalid username
 Scenario: unable to login with valid username and incorrect password
   Given correct cl_user_email and incorrect password
   When I press "button-cap"
-  Then I should see "Invalid Email or password."
+  Then I should see "Invalid email or password."

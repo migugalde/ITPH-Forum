@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+ .wrapper {
+     width: 60%;
+     max-width: 1140px;
+     margin: 0 auto;
+ }
+ 
+ .main_header {
+     width: 80%;
+     max-width: 1140px;
+     margin: 0 auto;
+ }
+
+.right-align {
+    display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+   -webkit-justify-content: flex-end;
+   justify-content: flex-end;
+}
+
+.menu.vertical > a > li {
+    text-align: center;
+    padding: 10%;
+}
+
+.menu.vertical > a > li > i {
+    font-size: 3em;
+    color: white;
+}
+
+.menu.vertical > a > li > label {
+    color: white;
+}
+
+.position-left {
+  width: 150px;
+  transform: translateX(-150px);
+}
+
+.off-canvas {
+    background-color: lightskyblue;
+}
+
+.position-left.is-open ~ .off-canvas-content {
+  transform: translateX(150px);
+}

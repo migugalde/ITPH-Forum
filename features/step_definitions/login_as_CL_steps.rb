@@ -31,7 +31,7 @@ Given(/^invalid cl_user_email and a password$/) do
   fill_in('Password', :with => 'us')
   click_button 'button-cap'
   
-  page.should have_content("Invalid Email or password.")
+  page.should have_content("Invalid email or password.")
   
   #page.should have_content("Sign in")
   
@@ -67,7 +67,7 @@ Given(/^correct cl_user_email and incorrect password$/) do
   fill_in('Password', :with => 'us')
   click_button 'button-cap'
   
-  page.should have_content("Invalid Email or password.")
+  page.should have_content("Invalid email or password.")
   #page.should have_content("Sign in")
   
 end
