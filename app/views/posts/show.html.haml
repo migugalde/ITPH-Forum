@@ -1,9 +1,12 @@
-#post_content
-    %h1= @post.title
-    %p= @post.content 
-    
+#forum-container
+    #post_content
+        %h1= @post.title
+        %p= @post.content
+        %p.right-align
+            = @post.comments.count 
+            POSTS
+    %hr/
     #comments
-        %h2= @post.comments.count
         = render @post.comments
         
         %h3 Reply to thread
