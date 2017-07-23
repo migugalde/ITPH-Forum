@@ -20,7 +20,7 @@ module NavigationHelpers
       new_user_registration_path
       
     when /community page$/
-      root_path
+      '/'
       
     
     # Add more mappings here.
