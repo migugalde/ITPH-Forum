@@ -1,0 +1,36 @@
+# frozen_string_literal: true
+source 'https://rubygems.org'
+ruby '2.4.1'
+
+gem 'thredded', path: File.dirname(__FILE__)
+
+gem 'mustache'
+
+# Rails 5
+gem 'rails', '~> 5.1.0'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier'
+
+# Make these gems available in production
+gem 'puma'
+gem 'pg'
+gem 'rails_email_preview', '>= 1.0.3'
+gem 'roadie-rails'
+gem 'turbolinks'
+gem 'coffee-rails'
+gem 'rails-i18n'
+gem 'kaminari-i18n'
+gem 'http_accept_language'
+gem 'factory_girl_rails'
+gem 'faker', '>= 1.6.2'
+
+gem 'thredded-markdown_coderay'
+gem 'thredded-markdown_katex'
+
+# Heroku-specific gems
+gem 'newrelic_rpm'
+gem 'rollbar'
+gem 'rack-canonical-host'
+gem 'dalli'
+gem 'tunemygc'

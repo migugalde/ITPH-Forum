@@ -1,0 +1,239 @@
+---
+ru:
+  thredded:
+    content_moderation_states:
+      content_blocked_notice: Блокировано
+      content_blocked_notice_with_record_html: Блокировано %{moderator} %{time_ago}
+    email_notifier:
+      by_email: email
+    emails:
+      message_notification:
+        html:
+          email_sent_reason_html: >-
+            Это письмо было отправлено вам, потому что %{user} добавил вас в приватную тему «<a href="%{post_url}">%{topic_title}</a>».
+          post_lead_html: 'Новое сообщение от %{user} в <a href="%{post_url}">«%{topic_title}»</a>:'
+          unsubscribe_instructions_html: :thredded.emails.post_notification.html.unsubscribe_instructions_html
+        subject: Новое сообщение от %{user} в «%{topic_title}»
+        text:
+          email_sent_reason: |-
+            Это письмо было отправлено вам, потому что %{user} добавил вас в
+            приватную тему «%{topic_title}».
+
+            Перейдите сюда, чтобы просмотреть разговор:
+            %{post_url}
+          post_lead: 'Новое сообщение от %{user} в «%{topic_title}»:'
+          unsubscribe_instructions: :thredded.emails.post_notification.text.unsubscribe_instructions
+      post_notification:
+        html:
+          email_sent_reason_html: >-
+            Это письмо было отправлено вам, потому что вы подписаны на тему: «<a href="%{post_url}">%{topic_title}</a>».
+          post_lead_html: '%{user} в <a href="%{post_url}">«%{topic_title}»</a>:'
+          unsubscribe_instructions_html: Чтобы отписаться от этих писем, обновите свои <a href="%{preferences_url}">настройки</a>.
+        subject: Новое сообщение в «%{topic_title}» от %{user}
+        text:
+          email_sent_reason: |-
+            Это письмо было отправлено вам, потому что вы подписаны на тему «%{topic_title}».
+
+            Перейдите сюда, чтобы просмотреть разговор:
+            %{post_url}
+          post_lead: "%{user} указан в «%{topic_title}»:"
+          unsubscribe_instructions: |-
+            Чтобы отписаться от этих писем, обновите свои настройки здесь:
+            %{unsubscribe_url}
+    errors:
+      login_required: Необходимо зайти на форум.
+      not_authorized: Вы не авторизованы.
+      private_topic_create_denied: Вы не авторизованы для создания личных сообщений.
+      private_topic_not_found: Личное сообщение не найдено.
+    form:
+      create_btn_submitting: Создаю...
+      preview: Обзор
+      update: Обновить
+      update_btn_submitting: Обновляю...
+    messageboard:
+      create: Создать форум
+      form:
+        create_btn_submitting: :thredded.form.create_btn_submitting
+        description_label: Описание
+        messageboard_group_id_label: Выбрать группу
+        no_group: Не группировать
+        title_label: Название форума
+        update_btn_submitting: :thredded.form.update_btn_submitting
+      index:
+        page_title: Форумы
+      last_updated_by_html: Обновлено %{time_ago} <cite>пользователем %{user}</cite>
+      topics_and_posts_counts: "%{topics_count} тем / %{posts_count} постов"
+      update: :thredded.form.update
+      updated_notice: Форум обновлен
+    messageboard_group:
+      create: Создать группу форумов
+      form:
+        create_btn_submitting: :thredded.form.create_btn_submitting
+      saved: Группа форумов %{name} создана
+    moderation:
+      approve_btn: Одобрить
+      block_btn: Заблокировать
+      pending:
+        empty:
+          content: Все посты промодерированы.
+          title: Хорошая работа!
+      post_approved_html: Пост одобрен %{moderator} %{time_ago}.
+      post_blocked_html: Пост заблокирован %{moderator} %{time_ago}.
+      post_deleted_notice: Этот пост "удален".
+      posts_content_changed_since_moderation_html: <a href="%{post_url}">пост</a> был изменен с даты последней модерации.
+        Ниже - контент на момент модерации.
+      search_users:
+        form_label: Поиск пользователей
+        form_placeholder: :thredded.moderation.search_users.form_label
+        no_results_message: Не найдено пользователей %{query}
+        results_message: Пользователи, начинающиеся с ... %{query}
+    nav:
+      all_messageboards: Все форумы
+      edit_messageboard: Редактировать форум
+      edit_post: Редактировать пост
+      edit_private_topic: :thredded.nav.edit_topic
+      edit_topic: Редактировать
+      mark_all_read: Пометить все как прочитанное
+      moderation: Модерация
+      moderation_activity: Активность
+      moderation_history: История
+      moderation_pending: В ожидании
+      moderation_users: Пользователи
+      private_topics: Личное
+      settings: Настройки
+    null_user_name: Пользователь удален
+    posts:
+      delete: Удалить пост
+      delete_confirm: Вы уверены что хотите удалить пост?
+      deleted_notice: Пост был удален.
+      edit: :thredded.nav.edit_post
+      form:
+        content_label: Контент
+        create_btn: Ответить
+        create_btn_submitting: Отправляется...
+        title_label: Добавить пост
+        update_btn: Обновить пост
+        update_btn_submitting: :thredded.form.update_btn_submitting
+      pending_moderation_notice: Ваш пост будет опубликован, когда будет одобрен модератором.
+      quote_btn: Цитировать
+    preferences:
+      edit:
+        page_title: :thredded.nav.settings
+      form:
+        auto_follow_topics:
+          hint: Автоматически следовать всем новым темам. Изменение этого параметра будет изменить его для всех
+            messageboards.
+          label: Соблюдайте все новые темы
+        follow_topics_on_mention:
+          hint: 'Когда кто-то упоминает вас на форуме (например: @sam), Вы будете наблюдать за этой темой.'
+          label: Наблюдать за темой, в которой Вы упомянуты
+        messageboard_auto_follow_topics:
+          hint: Автоматически следовать все новые темы в этом ОБЪЯВЛЕНИЯ. Это отменяет соответствующую настройку
+            выше.
+          label: Соблюдайте все новые темы
+        messageboard_follow_topics_on_mention:
+          hint: 'Когда кто-то упоминает вас на форуме (например: @sam), Вы будете наблюдать за этой темой.'
+          label: :thredded.preferences.form.follow_topics_on_mention.label
+        messageboard_notifications_for_followed_topics:
+          label: :thredded.preferences.form.notifications_for_followed_topics.label
+        notifications_for_followed_topics:
+          label: Уведомления для отслеживаемых тем
+        notifications_for_private_topics:
+          label: Уведомления для личных сообщений
+        submit_btn: Сохранить настройки
+        update_btn_submitting: :thredded.form.update_btn_submitting
+      global_preferences_title: Общие настройки
+      messageboard_preferences_nav_title: Настройки форума
+      messageboard_preferences_title_html: Настройки уведомлений для <em>%{messageboard}</em>
+      updated_notice: Ваши настройки были обновлены.
+    private_posts:
+      form:
+        content_label: Сообщение
+        create_btn: Послать сообщение
+        create_btn_submitting: Посылаю...
+        update_btn_submitting: :thredded.form.update_btn_submitting
+    private_topics:
+      edit: Редактировать
+      errors:
+        user_ids_length: Выберите хотя-бы одного пользователя.
+      form:
+        content_label: :thredded.private_posts.form.content_label
+        create_btn: :thredded.private_posts.form.create_btn
+        create_btn_submitting: :thredded.private_posts.form.create_btn_submitting
+        title_label: :thredded.topics.form.title_label
+        title_placeholder_new: Необходимо написать предмет переписки
+        title_placeholder_start: Начать новую переписку
+        update_btn: Обновить
+        update_btn_submitting: :thredded.private_posts.form.update_btn_submitting
+        users_label: Участники
+        users_placeholder: Выберите пользователей для участия в переписке
+      no_private_topics:
+        create_btn: Начать вашу первую приватную переписку
+        title: У вас нет личных сообщений.
+      updated_notice: Заголовок обновлен
+    recent_activity: Активность
+    search:
+      form:
+        btn_submit: :thredded.search.form.label
+        label: Поиск
+        placeholder: Поиск тем или записей
+    time_ago: "%{time} назад"
+    topics:
+      delete_confirm: Вы уверены что хотите удалить эту тему? Это безвозвратно.
+      delete_topic: Удалить тему
+      deleted_notice: Тема "удалена"
+      edit: Редактировать тему
+      follow: Наблюдать за темой
+      followed_by: Наблюдаю
+      followed_by_noone: Никто не наблюдает за этой темой
+      followed_notice: Вы следите за темой
+      following:
+        auto: Вы подписаны на эту тему, потому что автоматическое наблюдение включено.
+        manual: Вы следите за этой темой.
+        mentioned: Вы следите за этой темой, потому что упомянуты в ней.
+        posted: Вы следите за темой, потому что Вы писали в ней.
+      form:
+        categories_placeholder: Категории
+        content_label: :thredded.posts.form.content_label
+        create_btn: Создать новую тему
+        messageboard_label: Форум
+        title_label: Заголовок
+        title_placeholder: :thredded.topics.form.title_label
+        title_placeholder_start: Начать новую тему
+        update_btn: Обновление темы
+      locked:
+        label: Заблокировать тему
+      mark_as_unread: Пометить как непрочитанное
+      not_following: не отслеживаю
+      search:
+        no_results_in_messageboard_message_html: Не найдо результатов по запросу <q>%{query}</q> в %{messageboard}
+        no_results_message_html: Не найдо результатов по запросу <q>%{query}</q>
+        page_title: Результаты поиска
+        results_in_messageboard_message_html: Результаты поиска для <q>%{query}</q> в %{messageboard}
+        results_message_html: Результаты поиска для <q>%{query}</q>
+        search_in_all_messageboards_btn: Искать везде
+      started_by_html: Начат %{user} %{time_ago}
+      sticky:
+        label: Закрепить
+      unfollow: Не следить за темой
+      unfollowed_notice: Вы не следите за темой
+      updated_notice: Тема обновлена
+    users:
+      currently_online: Онлайн
+      last_active_html: Последняя активность %{time_ago}
+      posted_in_topic_html: Сделан пост в %{topic_link}
+      posts_count:
+        few: Сделано %{count} поста
+        many: Сделано %{count} постов
+        one: Сделан %{count} пост
+        other: Сделано %{count} постов
+      recent_activity: :thredded.recent_activity
+      started_topic_html: Начато %{topic_link}
+      started_topics_count:
+        few: Начато %{count} темы
+        many: Начато %{count} тем
+        one: Начата %{count} тема
+        other: Начато %{count} тем
+      user_posted_in_topic_html: "%{user_link} сделал запись в %{topic_link}"
+      user_since_html: Пользователь был %{time_ago}
+      user_started_topic_html: "%{user_link} начал %{topic_link}"

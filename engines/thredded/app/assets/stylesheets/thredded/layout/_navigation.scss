@@ -1,0 +1,87 @@
+.thredded--navigation {
+  position: relative;
+  .thredded--icon {
+    display: none;
+  }
+}
+
+@include thredded-media-tablet-and-down {
+  $icon-nav-item-width: 2.625rem;
+  .thredded--navigation {
+    position: relative;
+    width: 100%;
+  }
+  .thredded--main-navigation {
+    position: relative;
+    border: none;
+  }
+  .thredded--navigation-breadcrumbs {
+    font-size: $thredded-font-size-small;
+    padding-right: $icon-nav-item-width * 2;
+    .thredded--is-moderator & {
+      padding-right: $icon-nav-item-width * 3;
+    }
+  }
+  .thredded--navigation--search-topics {
+    display: none;
+    .thredded--messageboards-index &,
+    .thredded--topics-index &,
+    .thredded--topic-search-results & {
+      @media screen {
+        display: block;
+      }
+    }
+  }
+  .thredded--user-navigation {
+    border-bottom: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    &-standalone {
+      display: block;
+      margin-bottom: 0;
+    }
+    %icon-nav-item {
+      box-sizing: border-box;
+      display: inline-block;
+      margin: 0 0 0 ($thredded-small-spacing/2);
+      padding: 0;
+      vertical-align: top;
+      a {
+        position: relative;
+        display: block;
+        padding: 0.4375rem 0 0.375rem 0;
+      }
+      .thredded--icon {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    %icon-counter {
+      bottom: 0.3125rem;
+      position: absolute;
+      right: -0.1875rem;
+    }
+    .thredded--nav-text {
+      display: none;
+    }
+    &--settings {
+      @extend %icon-nav-item;
+    }
+    &--private-topics {
+      @extend %icon-nav-item;
+      margin-top: 1px;
+      &--unread {
+        @extend %icon-counter;
+      }
+    }
+    &--moderation {
+      @extend %icon-nav-item;
+      &--pending-count {
+        @extend %icon-counter
+      }
+    }
+  }
+}
