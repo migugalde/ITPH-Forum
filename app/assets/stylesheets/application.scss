@@ -21,6 +21,8 @@
 }
 #header {
     background-color: white;
+    padding-left: 14px;
+    padding-right: 14px;
 }
 .header-icon {
     font-size: 1.2em;
@@ -170,4 +172,22 @@ body {
         font-weight: 100;
         line-height: 1.5;
     }
+}
+
+.button1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0 0;
+    font-family: inherit;
+    padding: 0.85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 0;
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+    font-size: 0.9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    color: dodgerblue;
 }
