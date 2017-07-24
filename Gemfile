@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'shoulda-matchers'
+gem 'factory_girl_rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
@@ -39,7 +40,8 @@ group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
+  gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript 
+  
 end
 
 group :development do
@@ -60,7 +62,8 @@ group :test do
   gem 'autotest-rails'
   gem 'factory_girl_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
-  gem "codeclimate-test-reporter", "1.0.0.pre.rc2"
+  gem "codeclimate-test-reporter", "1.0.0.pre.rc2" 
+  
 end
 
 group :production do
