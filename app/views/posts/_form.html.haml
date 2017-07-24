@@ -1,6 +1,9 @@
 = simple_form_for @post do |f|
     = f.input :title, required: "true"
     = f.input :content, required: "true"
+    %h7
+        Tags
+        = f.text_field :all_tags, placeholder: "Tags separated with comma"
     = f.check_box :public
     Check if you want the public to see!
     .right-align

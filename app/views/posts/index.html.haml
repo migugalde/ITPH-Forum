@@ -29,7 +29,8 @@
         #posts
             - @posts.each do |post|
                 .row.post
-                    %h2.title= link_to post.title, post
+                    %h2.title
+                        = link_to post.title, post
                     %p.message
                         = post.content
                     %p.date
@@ -37,5 +38,7 @@
                         = time_ago_in_words(post.created_at)
                         by
                         = post.user.email
-
+                    %p.tag
+                        /= = raw post.all_tags (seems redundant, keeping next line in favor)
+                        = raw tag_links(post.all_tags)
         
