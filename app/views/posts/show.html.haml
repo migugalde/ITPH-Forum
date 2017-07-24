@@ -3,7 +3,9 @@
     %p= @post.content 
     
     #comments
-        %h2= @post.comments.count
+        %h4
+            = @post.comments.count
+            Comments
         = render @post.comments
         
         %h3 Reply to thread
