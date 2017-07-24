@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+gem 'shoulda-matchers'
+gem 'factory_girl_rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use SCSS for stylesheets
@@ -11,7 +12,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'haml'
+gem 'haml', '~> 4.0.5'
+gem 'simple_form', '~> 3.0.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Use foundation framework app with ruby, can also call "rails g foundation:install" locally
@@ -23,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise'
+gem 'devise', '~> 3.5.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -38,7 +40,8 @@ group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
+  gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript 
+  
 end
 
 group :development do
@@ -59,7 +62,8 @@ group :test do
   gem 'autotest-rails'
   gem 'factory_girl_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
-  gem "codeclimate-test-reporter", "1.0.0.pre.rc2"
+  gem "codeclimate-test-reporter", "1.0.0.pre.rc2" 
+  
 end
 
 group :production do

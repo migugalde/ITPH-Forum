@@ -2,12 +2,19 @@
 <head>
     <title>Welcome!</title>
 </head>
+<body>
 <% if flash[:alert] %>
     <p class="alert" id="red"><%= flash[:alert] %></p>
 <% end %>
 <% if flash[:notice] %>
     <p class="alert" id="green"><%= flash[:notice] %></p>
 <% end %>
+<div class="center">
+    <div class="row">
+        <a href=<%=posts_path%> class="button large welcome">Check out our Forum!</a>
+    </div>
+</div>
+
 <div class="login-panel">
     <div class="center">
         <div class="row">
@@ -25,5 +32,6 @@
 
 </div>
 
+</body>
         
 </html>

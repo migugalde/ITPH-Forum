@@ -1,0 +1,44 @@
+%head
+    %title Forum
+    %link{rel: "stylesheet", href: "http://fonts.googleapis.com/css?family=Lato:300,400,700", type: "text/css"}
+    %link{rel: "stylesheet", href: "http://cdnjscloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
+    %script{:src => "https://use.fontawesome.com/647f706861.js"}
+%body
+    #forum-container
+        .row#header
+            .small-6.columns.margT
+                %a.header-text{:href => posts_path} forum
+            .small-6.columns.right-align.marB
+                %a.header-icon{"href" => new_post_path}
+                    %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+                    new post
+            %hr/
+        
+
+    
+        .wrapper
+        =yield
+        
+        #posts
+            %p
+                Sort by:
+                = link_to "Title", posts_path(:sort => "lower(title)") 
+                = link_to "Date", posts_path(:sort => "created_at DESC")
+                
+
+        #posts
+            - @posts.each do |post|
+                .row.post
+                    %h2.title
+                        = link_to post.title, post
+                    %p.message
+                        = post.content
+                    %p.date
+                        Published at
+                        = time_ago_in_words(post.created_at)
+                        by
+                        = post.user.email
+                    %p.tag
+                        /= = raw post.all_tags (seems redundant, keeping next line in favor)
+                        = raw tag_links(post.all_tags)
+        

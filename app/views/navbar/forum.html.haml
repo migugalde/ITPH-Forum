@@ -1,45 +1,10 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Welcome | Log In
-    %script{:src => "https://use.fontawesome.com/647f706861.js"}
-  %body
-    #offCanvas.off-canvas.position-left{"data-off-canvas" => ""}
-      / Your menu or Off-canvas content goes here
-      %ul.menu.vertical
-        %a{"href" => "/community"}
-          %li
-            %i.fa.fa-home{"aria-hidden" => "true"}
-            %label Home 
-        %a{"href" => navbar_forum_path}
-          %li
-            %i.fa.fa-comments-o{"aria-hidden" => "true"}
-            %label Forum
-        %a{"href" => navbar_inbox_path}
-          %li
-            %i.fa.fa-inbox{"aria-hidden" => "true"}
-            %label Inbox
-        %a{"href" => navbar_profile_path}
-          %li
-            %i.fa.fa-user{"aria-hidden" => "true"}
-            %label Profile
-        %a{"href" => navbar_settings_path}
-          %li
-            %i.fa.fa-cogs{"aria-hidden" => "true"}
-            %label Settings
-    .off-canvas-content{"data-off-canvas-content" => ""}
-      / Your page content lives here
-      %button.button{"data-toggle" => "offCanvas", :type => "button"}
-        %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size: 1.9em"}
-      .row
-        -if flash[:alert]
-          %p.alert#red
-            =flash[:alert]
-      
-        %h1 Forum!
-        
-        %p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
-        %p= link_to 'admin?', adminhome_path
-    :javascript
-      $(document).foundation();
+-if flash[:alert]
+  %p.alert#red
+    =flash[:alert]
+
+%h1 Forum!
+
+%p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
+%p= link_to 'admin?', adminhome_path
+:javascript
+  $(document).foundation();
