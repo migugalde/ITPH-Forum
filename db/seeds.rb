@@ -23,3 +23,16 @@ users = [{:first_name => "Allowa", :last_name => "Obo", :username => "allowa", :
 users.each do |user| 
     User.create!(user) 
 end
+
+posts = [{:title => "Apple", :content => "hello", :public => "true", :user_id => "11"}, 
+         {:title => "Banana", :content => "welcome!", :public => "false", :user_id => "11"}, 
+         {:title => "Carrot", :content => "hi there", :public => "false", :user_id => "12"}, 
+         {:title => "Dole", :content => "what's up?!", :public => "false", :user_id => "12"}, 
+         {:title => "Eggplant", :content => "helloo", :public => "true", :user_id => "12"}, 
+         {:title => "Favobean", :content => "hey", :public => "true", :user_id => "12"}, 
+         {:title => "Grapes", :content => "Nice to meet you", :public => "false", :user_id => "12"}, 
+         ]
+         
+posts.each do |post|
+         Post.create!(post)
+end
