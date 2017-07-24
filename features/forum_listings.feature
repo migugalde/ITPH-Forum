@@ -6,7 +6,7 @@ Feature: able to view and reorder forum listings
   
 Scenario: Order by latest
   Given I am on the forum page
-  When I click "latest"
+  When I click "date"
   Then I should see "Post 2" before "Post 1"
   
 Scenario: Order by recent

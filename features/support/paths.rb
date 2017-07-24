@@ -21,6 +21,9 @@ module NavigationHelpers
 
     when /^community page/
       root_path
+    
+    when /the forum page/
+      posts_path
 
 
     # Add more mappings here.
