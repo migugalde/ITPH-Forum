@@ -3,12 +3,6 @@ require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
-module WithinHelpers
-  def with_scope(locator)
-    locator ? within(*selector_for(locator)) { yield } : yield
-  end
-end
-World(WithinHelpers)
 
 
   #now we have a user within this
@@ -29,7 +23,7 @@ Given(/^invalid admin_user_email and a password$/) do
   fill_in('Password', :with => 'ireneaili')
   click_button 'button-cap'
   
-  page.should have_content("Invalid Email or password.")
+  page.should have_content("Invalid email or password.")
   #page.should have_content("Sign in")
   
 end
@@ -37,9 +31,9 @@ end
 Given(/^correct admin_user_email and password$/) do 
     visit "users/sign_up"
 
-  fill_in('Email_login', :with => 'ireneaili@berkeley.edu')
-  fill_in('Password', :with => 'ireneaili')
-  click_button "submit"
+  fill_in('Email', :with => 'ireneaili@berkeley.edu')
+  # fill_in('Password', :with => 'ireneaili') *********MAKE SURE TO FIX THIS********
+  # click_button "submit"
   
   # visit "/"
   # click_button 'sign_out'
@@ -61,7 +55,7 @@ Given(/^correct admin_user_email and incorrect password$/) do
   fill_in('Password', :with => 'ireneaili')
   click_button 'button-cap'
   
-  page.should have_content("Incorrect email and/or password.")
+  page.should have_content("Invalid email or password")
   #page.should have_content("Sign in")
   
 end
