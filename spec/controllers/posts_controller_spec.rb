@@ -14,11 +14,12 @@ describe PostsController do
         expect(Post).to receive(:find).with("100").and_return(@post)
     end
     
-     it 'retrieves the post by the user_id' do
-      get :create, {:id => "100"}
-      end 
+    #  it 'retrieves the post by the user_id' do
+    #   get :create, {:id => "100"}
+    #   end 
   end
 end 
+    
     
 #     it 'Similar Directors' do
 #       get :director, {:movie_id => "199", :movie => @m}
