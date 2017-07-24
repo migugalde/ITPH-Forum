@@ -112,7 +112,7 @@ GEM
     cucumber-wire (0.0.1)
     database_cleaner (1.6.1)
     debug_inspector (0.0.3)
-    devise (3.4.1)
+    devise (3.5.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -414,7 +414,7 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
-  devise (~> 3.4.1)
+  devise (~> 3.5.4)
   factory_girl_rails
   foundation-rails
   guard-rspec
@@ -439,4 +439,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.2
