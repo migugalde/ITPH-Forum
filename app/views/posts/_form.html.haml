@@ -1,5 +1,5 @@
 = simple_form_for @post do |f|
-    = f.input :title
-    = f.input :content
-    = f.text_field :all_tags, placeholder: "Tags separated with comma"
-    = f.submit
+    = simple_form_for([@post, @post.comments.build]) do |f|
+        = f.input :comment, required: "true"
+        = f.text_field :all_tags, placeholder: "Tags separated with comma"
+        = f.submit class: "button"
