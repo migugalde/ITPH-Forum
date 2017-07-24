@@ -1,6 +1,8 @@
 #post_content
     %h1= @post.title
-    %p= @post.content 
+    %p= @post.content
+    - if @post.public
+        %p.right-align#public This post is public!
     
     #comments
         %h4
