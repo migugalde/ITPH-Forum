@@ -11,9 +11,9 @@ end
 World(WithinHelpers)
 #declaritive step definitions to match steps
 
-Given /I go to the (.*) page$/ do |page_name|
-  visit path_to(page_name)
-end 
+# Given /I go to the (.*) page$/ do |page_name|
+#   visit path_to(page_name)
+# end 
 
 When /"(.*)" uses email "(.*)", password "(.*)"/ do |name, email, password|
     full_name = name.split(" ")

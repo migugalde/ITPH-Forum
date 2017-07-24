@@ -72,6 +72,6 @@ Given(/^correct cl_user_email and incorrect password$/) do
   
 end
 
-Then (/^I should see "([^"]*)"$/) do |text|
-  expect(page).to have_text(text)
-end
+# Then (/^I should see "([^"]*)"$/) do |text|
+#   expect(page).to have_text(text)
+# end

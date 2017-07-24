@@ -10,10 +10,10 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Given(/^I am on the forum page$/) do
-  #visit 'navbar/forum'
-  visit 'posts'
-end
+# Given(/^I am on the forum page$/) do
+#   #visit 'navbar/forum'
+#   visit 'posts'
+# end
 
 Then(/^I should see "([^"]*)" before "([^"]*)"$/) do |arg1, arg2|
   pending # Write code here that turns the phrase above into concrete actions
@@ -27,7 +27,7 @@ end
 #   pending # Write code here that turns the phrase above into concrete actions
 # end
 
-Then(/^I should be on the forum post page$/) do
-  # Write code here that turns the phrase above into concrete actions
-  visit 'posts/new'
-end
+# Then(/^I should be on the forum post page$/) do
+#   # Write code here that turns the phrase above into concrete actions
+#   visit 'posts/new'
+# end
