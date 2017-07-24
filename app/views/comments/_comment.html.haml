@@ -1,4 +1,9 @@
 .comment
     %p.move= comment.comment
     %p.right-align= comment.user.email
+    %p.right-align
+        = time_ago_in_words(comment.created_at)
+        ago
+    
+    
     %hr/

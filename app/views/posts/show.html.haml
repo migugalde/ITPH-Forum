@@ -1,10 +1,12 @@
+
 #forum-container
     #post_content
         %h1= @post.title
         %p= @post.content
         %p.right-align
             = @post.comments.count 
-            POSTS
+            COMMENTS
+            
     %hr/
     #comments
         = render @post.comments
