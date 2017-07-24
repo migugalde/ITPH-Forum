@@ -7,7 +7,7 @@ Feature: a functional navagation bar that navigates to the correct pages
     Given I am on the home page
     
     Scenario: click Profile
-      When I click "profile"
+      When I click "Profile"
       Then I should see the text "Profile!"
     
     Scenario: click Home
@@ -19,8 +19,8 @@ Feature: a functional navagation bar that navigates to the correct pages
       Then I should see the text "Inbox!"
     
     Scenario: click Forum
-      When I click "forum"
-      Then I should see the text "Forum!"
+      When I click "Forum"
+      Then I should see the text "Forum"
       
     Scenario: click Settings
       When I click "settings"
