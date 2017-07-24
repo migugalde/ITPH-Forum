@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
     
     before_action :find_post, only: [:show, :edit, :update, :destroy]
-    before_action :authenticate_user!, except: [:index, :show]
+    before_filter :authenticate_user!, except: [:index, :show]
     
     def index
-        @posts = Post.all.order(params[:sort])
-        
+        if current_user
+            @posts = Post.all.order(params[:sort])
+        else
+            @posts = Post.where(public: true).order(params[:sort])
+        end
     end
     
     def show 
@@ -17,6 +20,10 @@ class PostsController < ApplicationController
     end
      
     def edit
+        @post = Post.find(params[:id])
+        if current_user.id != @post.user_id
+            redirect_to post_path(@post)
+        end
     end
     
     def update
@@ -49,7 +56,7 @@ class PostsController < ApplicationController
     end
     
     def post_params
-        params.require(:post).permit(:title, :content)
+        params.require(:post).permit(:title, :content, :public)
     end
 
 end
