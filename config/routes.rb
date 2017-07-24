@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :community
   root 'welcome#index'
   
+  get 'tags/:tag', to: 'posts#index', as: "tag"
+  
   
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.

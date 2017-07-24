@@ -4,6 +4,7 @@
     %link{rel: "stylesheet", href: "http://cdnjscloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
     %script{:src => "https://use.fontawesome.com/647f706861.js"}
 %body.outsideView
+    // remove later if does not work
     #forum-container
         .row#header
             .small-6.columns.margT
@@ -22,7 +23,8 @@
         #posts
             - @posts.each do |post|
                 .row.post
-                    %h2.title= link_to post.title, post
+                    %h2.title
+                        = link_to post.title, post
                     %p.message
                         = post.content
                     %p.date
@@ -30,5 +32,7 @@
                         = time_ago_in_words(post.created_at)
                         by
                         = post.user.email
-
+                    %p.tag
+                        /= = raw post.all_tags (seems redundant, keeping next line in favor)
+                        = raw tag_links(post.all_tags)
         

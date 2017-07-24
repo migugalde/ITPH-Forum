@@ -1,4 +1,5 @@
 = simple_form_for @post do |f|
     = f.input :title
     = f.input :content
+    = f.text_field :all_tags, placeholder: "Tags separated with comma"
     = f.submit
