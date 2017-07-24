@@ -1,5 +1,7 @@
 = simple_form_for @post do |f|
     = f.input :title, required: "true"
     = f.input :content, required: "true"
+    = f.check_box :public
+    Check if you want the public to see!
     .right-align
         = f.submit class: "button"
