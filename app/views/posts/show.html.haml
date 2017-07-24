@@ -1,12 +1,11 @@
-#forum-container
-    #post_content
-        %h1= @post.title
-        %p= @post.content
-        %p.right-align
-            = @post.comments.count 
-            POSTS
-    %hr/
+#post_content
+    %h1= @post.title
+    %p= @post.content 
+    
     #comments
+        %h4
+            = @post.comments.count
+            Comments
         = render @post.comments
         
         %h3 Reply to thread
@@ -15,4 +14,4 @@
 
     = link_to "Edit", edit_post_path(@post)
     = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}
-    = link_to "Forum", posts_path 
+    = link_to "Forum", posts_path
