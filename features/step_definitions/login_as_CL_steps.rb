@@ -3,16 +3,6 @@ require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
-module WithinHelpers
-  def with_scope(locator)
-    locator ? within(*selector_for(locator)) { yield } : yield
-  end
-end
-World(WithinHelpers)
-
-
-
-  
   #now we have a user within this
 Given(/^that I have a user with a valid credentials placed in the correct forms:$/) do
 
@@ -72,6 +62,6 @@ Given(/^correct cl_user_email and incorrect password$/) do
   
 end
 
-Then (/^I should see "([^"]*)"$/) do |text|
-  expect(page).to have_text(text)
-end
+# Then (/^I should see "([^"]*)"$/) do |text|
+#   expect(page).to have_text(text)
+# end

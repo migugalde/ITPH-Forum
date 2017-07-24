@@ -14,15 +14,15 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      community_path
-
-    when /signup$/
-      new_user_registration_path
-      
-    when /community page$/
       '/'
-      
-    
+
+    when /^the signup page/
+      new_user_registration_path
+
+    when /^community page/
+      root_path
+
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
