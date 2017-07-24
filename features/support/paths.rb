@@ -24,6 +24,9 @@ module NavigationHelpers
     
     when /the forum page/
       posts_path
+      
+    when /the new post page/
+      new_post_path
 
 
     # Add more mappings here.

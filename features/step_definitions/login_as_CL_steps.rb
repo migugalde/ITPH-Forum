@@ -28,10 +28,10 @@ Given(/^invalid cl_user_email and a password$/) do
 end
 
 Given(/^correct cl_user_email and password$/) do 
-    visit "users/sign_in"
+  visit "users/sign_in"
 
-  fill_in('Email_login', :with => 'ireneaili@berkeley.edu')
-  fill_in('Password', :with => 'ireneaili')
+  fill_in('Email_login', :with => 'tester@tester.com')
+  fill_in('Password', :with => 'tester')
   click_button "button-cap"
   
   visit "/community"
