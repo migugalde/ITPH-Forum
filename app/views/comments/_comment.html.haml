@@ -8,7 +8,7 @@
             = time_ago_in_words(comment.created_at) 
     .row
         .small-6.columns
-            %p.comment_author= comment.user.email
+            %p.comment_author= link_to comment.user.email, profile_path(comment.user.id)
         .small-6.columns
             .buttons
                 = link_to "Edit", edit_post_comment_path(comment.post, comment)
