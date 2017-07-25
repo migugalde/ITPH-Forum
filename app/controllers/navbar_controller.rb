@@ -13,4 +13,7 @@ class NavbarController < ApplicationController
 
   def settings
   end
+  
+  def resources
+  end
 end
