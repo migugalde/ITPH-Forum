@@ -171,7 +171,8 @@ body {
         font-size: 1.2rem;
         font-weight: 100;
         line-height: 1.5;
-        padding: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     #public {
         font-size: 0.9rem;
@@ -206,8 +207,9 @@ body {
 			}
             .comment_content {
                 margin: 0;
-                padding: 0;
-                font-size: 2em;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 1.2em;
             }
             .comment_author {
                 color: #397CAC;

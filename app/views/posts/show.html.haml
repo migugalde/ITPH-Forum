@@ -17,11 +17,15 @@
         =yield
         
         #post_content
-            %h1= @post.title
-            %p= @post.content
-            - if @post.public
-                %p.right-align#public This post is public!
-            
+            .row
+                .small-12.columns
+                    %h1= @post.title
+            .row
+                .small-12.columns
+                    %p= @post.content
+                    - if @post.public
+                        %p.right-align#public This post is public!
+                    %hr/
             #comments
                 %h5{:style => "text-align: right;"}
                     = @post.comments.count
