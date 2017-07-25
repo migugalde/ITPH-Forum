@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'navbar/profile'
 
   get 'navbar/settings'
+  
+  get 'navbar/resources'
 
   devise_for :users
   # get 'layouts/welcome/index'
