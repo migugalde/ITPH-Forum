@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
+  get 'profile/:id', to: 'profile#show', as: 'profile' 
+  
   
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
