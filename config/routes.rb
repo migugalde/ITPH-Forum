@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'resources/index'
+
+  get 'resources/new'
+
+  get 'resources/create'
+
+  get 'resources/destroy'
+
   get 'navbar/home'
 
   get 'navbar/forum'
@@ -9,7 +17,6 @@ Rails.application.routes.draw do
 
   get 'navbar/settings'
   
-  get 'navbar/resources'
 
   devise_for :users
   # get 'layouts/welcome/index'
@@ -24,6 +31,7 @@ Rails.application.routes.draw do
   resources :community
   root 'welcome#index'
   
+  resources :resources, only: [:index, :new, :create, :destroy]
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
   get 'profile/:id', to: 'profile#show', as: 'profile' 
