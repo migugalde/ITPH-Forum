@@ -4,14 +4,15 @@ class PostsController < ApplicationController
     before_filter :authenticate_user!, except: [:index, :show]
     
     def index
-        # if params[:tag]
-        #     @posts = Post.tagged_with(params[:tag])
-        # else
+        if params[:tag]
+            @posts = Post.tagged_with(params[:tag])
+        else
             if current_user
                 @posts = Post.all.order(params[:sort])
             else
                 @posts = Post.where(public: true).order(params[:sort])
             end
+        end
     end
     
     def show 
