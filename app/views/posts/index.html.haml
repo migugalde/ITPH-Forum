@@ -9,9 +9,12 @@
             .small-6.columns.margT
                 %a.header-text{:href => posts_path} forum
             .small-6.columns.right-align.marB
-                %a.header-icon{"href" => new_post_path}
-                    %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
-                    new post
+                - if !(current_user.nil?)
+                    %a.header-icon{"href" => new_post_path}
+                        %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+                        new post
+                - else
+                    %a.header-text{:href => root_path} sign up
             %hr/
         
 
