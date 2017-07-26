@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-  get 'navbar/home'
+  # get 'navbar/home'
 
-  get 'navbar/forum'
+  # get 'navbar/forum'
 
-  get 'navbar/inbox'
+  # get 'navbar/inbox'
 
-  get 'navbar/profile'
+  # get 'navbar/profile'
 
   get 'navbar/settings'
-  
-  get 'navbar/resources'
 
   devise_for :users
   # get 'layouts/welcome/index'
@@ -27,6 +25,7 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
   get 'profile/:id', to: 'profile#show', as: 'profile' 
+  get 'resources', to: 'resource#index', as: 'resources'
   
   
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
