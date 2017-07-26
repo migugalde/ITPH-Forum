@@ -27,6 +27,7 @@
                 Sort by:
                 = link_to "Title", posts_path(:sort => "lower(title)") 
                 = link_to "Date", posts_path(:sort => "created_at DESC")
+                = link_to "All", posts_path(:all => 'all')
                 
 
         #posts
