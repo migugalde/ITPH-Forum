@@ -2,9 +2,10 @@ branding: false
 image_caption: true
 skin: blueskin
 height: 250
+media_live_embeds: true
 
 toolbar:
-  - styleselect | bold italic | undo redo || forecolor | backcolor| image | link | emoticons | preview 
+  - styleselect | bold italic | undo redo || forecolor | backcolor| image | media | link | emoticons | preview | fullscreen
 plugins:
   - image
   - link
@@ -12,3 +13,4 @@ plugins:
   - preview
   - textcolor
   - media
+  - fullscreen
