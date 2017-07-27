@@ -19,6 +19,7 @@ class PostsController < ApplicationController
         @posts = @posts.order(session[:sort])
         if params[:all]
             session[:tag] = nil
+            session[:sort] = nil
             redirect_to posts_path
         end
         
