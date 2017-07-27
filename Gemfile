@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'shoulda-matchers'
 gem 'factory_girl_rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '= 4.2.9'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,7 +25,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'devise', '~> 3.5.4'
+# gem 'devise', '~> 3.5.4'
+gem 'devise', '~> 4.1.0'
 
 gem 'carrierwave', '~> 0.9'
 gem 'bootstrap-sass', '~> 2.3.2'
