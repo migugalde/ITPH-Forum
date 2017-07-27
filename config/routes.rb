@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
-  # get 'navbar/home'
+  get 'profiles/show'
 
-  # get 'navbar/forum'
+  get 'resources/index'
 
-  # get 'navbar/inbox'
+  get 'resources/new'
 
-  # get 'navbar/profile'
+  get 'resources/create'
+
+  get 'resources/destroy'
+
+  get 'navbar/home'
+
+  get 'navbar/forum'
+
+  get 'navbar/inbox'
+
+  get 'navbar/profile'
 
   get 'navbar/settings'
+  
 
   devise_for :users
   # get 'layouts/welcome/index'
@@ -18,14 +29,16 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  ##############
+  ##############   
   resources :community
   root 'welcome#index'
   
+  resources :resources, only: [:index, :new, :create, :destroy]
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
-  get 'profile/:id', to: 'profile#show', as: 'profile' 
-  get 'resources', to: 'resource#index', as: 'resources'
+  get ':id', to: 'profiles#show', as: 'profile' 
+  get ':id/edit', to: 'profiles#edit', as: :edit_profile 
+  patch ':id/edit', to: 'profiles#update', as: :update_profile
   
   
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
