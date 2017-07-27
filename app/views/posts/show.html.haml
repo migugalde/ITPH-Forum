@@ -1,19 +1,49 @@
-#post_content
-    %h1= @post.title
-    %p= @post.content
-    - if @post.public
-        %p.right-align#public This post is public!
+%head
+    %title Forum
+    %link{rel: "stylesheet", href: "http://fonts.googleapis.com/css?family=Lato:300,400,700", type: "text/css"}
+    %link{rel: "stylesheet", href: "http://cdnjscloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
+    %script{:src => "https://use.fontawesome.com/647f706861.js"}
     
-    #comments
-        %h4
-            = @post.comments.count
-            Comments
-        = render @post.comments
+%body
+    #forum-container
+        .row#header
+            .small-6.columns.margT
+                %a.header-text{:href => posts_path} forum
+            - if current_user.nil?
+                .small-6.columns.right-align.marB
+                    %a.header-text{:href => posts_path} sign up
+            %hr/
         
-        %h3 Reply to thread
-        = render "comments/form"
-    
 
-    = link_to "Edit", edit_post_path(@post)
-    = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}
-    = link_to "Forum", posts_path
+    
+        .wrapper
+        =yield
+        
+        #post_content
+            .row
+                .small-12.columns
+                    %h1= @post.title
+            .row
+                .small-12.columns
+                    %p= @post.content
+                    - if @post.public
+                        %p.right-align#public This post is public!
+                    .date.right-align
+                        published at
+                        = time_ago_in_words(@post.created_at)
+                        by  
+                        = link_to @post.user.email, profile_path(@post.user.id)
+                    %hr/
+            #comments
+                %h5{:style => "text-align: right;"}
+                    = @post.comments.count
+                    Comments
+                = render @post.comments
+                
+                %h4 Reply to thread
+                = render "comments/form"
+            
+        
+            = link_to "Edit", edit_post_path(@post)
+            = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}
+            = link_to "Forum", posts_path

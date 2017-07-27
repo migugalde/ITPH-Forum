@@ -6,7 +6,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  - if current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(new_user_password_path)
+  - if current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(new_user_password_path) || current_user.nil?
     %body.outsideView
       =yield
   - else
@@ -22,11 +22,11 @@
             %li
               %i.fa.fa-comments-o{"aria-hidden" => "true"}
               %label Forum
-          %a{"href" => navbar_inbox_path}
+          %a{"href" => resources_path}
             %li
-              %i.fa.fa-inbox{"aria-hidden" => "true"}
-              %label Inbox
-          %a{"href" => navbar_profile_path}
+              %i.fa.fa-folder-open-o{"aria-hidden" => "true"}
+              %label Resources
+          %a{"href" => profile_path(current_user)}
             %li
               %i.fa.fa-user{"aria-hidden" => "true"}
               %label Profile

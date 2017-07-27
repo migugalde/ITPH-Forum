@@ -4,15 +4,25 @@ class PostsController < ApplicationController
     before_filter :authenticate_user!, except: [:index, :show]
     
     def index
-        if params[:tag]
-            @posts = Post.tagged_with(params[:tag])
-        else
-            if current_user
-                @posts = Post.all.order(params[:sort])
-            else
-                @posts = Post.where(public: true).order(params[:sort])
-            end
+        session[:sort] = params[:sort] if params[:sort] != nil
+        session[:tag] = params[:tag] if params[:tag] != nil
+        @posts = Post.all
+        
+        if current_user.nil?
+            @posts = Post.where(public: true)
         end
+        
+        if session[:tag]
+            @posts = @posts.tagged_with(session[:tag])
+        end
+        
+        @posts = @posts.order(session[:sort])
+        if params[:all]
+            session[:tag] = nil
+            session[:sort] = nil
+            redirect_to posts_path
+        end
+        
     end
     
     def show 
