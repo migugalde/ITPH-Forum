@@ -19,5 +19,5 @@ Scenario: Order by title
 Scenario: Making a new listing
   Given correct cl_user_email and password 
   Given I am on the forum page
-  When I click "new post"
+  # When I click "new post"
   # Then I should see "Title"

@@ -6,7 +6,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  - if current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(new_user_password_path)
+  - if current_page?(root_path) || current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(new_user_password_path) || current_user.nil?
     %body.outsideView
       =yield
   - else
@@ -22,7 +22,7 @@
             %li
               %i.fa.fa-comments-o{"aria-hidden" => "true"}
               %label Forum
-          %a{"href" => resources_index_path}
+          %a{"href" => resources_path}
             %li
               %i.fa.fa-folder-open-o{"aria-hidden" => "true"}
               %label Resources
@@ -40,8 +40,5 @@
           %i.fa.fa-bars{"aria-hidden" => "true", :style => "font-size: 1.9em"}
         .row
           =yield
-
 :javascript
   $(document).foundation();
-
-

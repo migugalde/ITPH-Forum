@@ -9,10 +9,13 @@
             .small-6.columns.margT
                 %a.header-text{:href => posts_path} forum
             .small-6.columns.right-align.marB
-                %a.header-icon{"href" => new_post_path}
-                    %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
-                    new post
-            %hr/
+                - if !(current_user.nil?)
+                    %a.header-icon{"href" => new_post_path}
+                        %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+                        new post
+                - else
+                    %a.header-text{:href => root_path} sign up
+        %hr/
         
 
     
@@ -24,6 +27,10 @@
                 Sort by:
                 = link_to "Title", posts_path(:sort => "lower(title)") 
                 = link_to "Date", posts_path(:sort => "created_at DESC")
+            %p
+                Tags:
+                = link_to "All", posts_path(:all => 'all')
+                %hr/
                 
 
         #posts

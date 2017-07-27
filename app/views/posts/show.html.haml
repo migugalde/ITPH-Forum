@@ -9,6 +9,9 @@
         .row#header
             .small-6.columns.margT
                 %a.header-text{:href => posts_path} forum
+            - if current_user.nil?
+                .small-6.columns.right-align.marB
+                    %a.header-text{:href => posts_path} sign up
             %hr/
         
 
