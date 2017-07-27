@@ -202,7 +202,7 @@ body {
 					padding: .5em 1em;
 					border-radius: 0.2em;
 					text-decoration: none;
-					margin-right: 2%;
+					margin-right: 0.5%;
 				}
 			}
             .comment_content {
@@ -215,10 +215,10 @@ body {
                 color: #397CAC;
                 margin-top: .5rem;
                 font-size: 1rem;
-                font-weight: 700;
+                font-weight: 100;
             }
             .comment_date {
-                font-size: .8rem;
+                font-size: 0.8rem;
             }
             
         }
@@ -256,6 +256,10 @@ body {
     cursor: pointer;
     background-color: transparent;
     color: dodgerblue;
+}
+.button {
+    margin-left: 8px;
+    margin-top: 8px;
 }
 
 

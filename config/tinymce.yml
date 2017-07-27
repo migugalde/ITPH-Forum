@@ -1,0 +1,14 @@
+branding: false
+image_caption: true
+skin: blueskin
+height: 250
+
+toolbar:
+  - styleselect | bold italic | undo redo || forecolor | backcolor| image | link | emoticons | preview 
+plugins:
+  - image
+  - link
+  - emoticons
+  - preview
+  - textcolor
+  - media

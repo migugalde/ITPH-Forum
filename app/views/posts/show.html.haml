@@ -21,19 +21,28 @@
         
         #post_content
             .row
-                .small-12.columns
+                .small-6.columns
                     %h1= @post.title
+                    
             .row
                 .small-12.columns
-                    %p= @post.content
+                    %p= @post.content.html_safe
                     - if @post.public
-                        %p.right-align#public This post is public!
-                    .date.right-align
-                        published at
-                        = time_ago_in_words(@post.created_at)
-                        by  
-                        = link_to @post.user.email, profile_path(@post.user.id)
-                    %hr/
+                        #public This post is public!
+                    
+                    .small-6.columns
+                        - if current_user.id == @post.user_id
+                            = link_to "Edit", edit_post_path(@post)
+                            &nbsp&nbsp
+                            = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}
+                    .small-6.columns
+                        .date.right-align
+                            published at
+                            = time_ago_in_words(@post.created_at)
+                            by&nbsp  
+                            = link_to @post.user.email, profile_path(@post.user.id)
+                    
+                %hr/
             #comments
                 %h5{:style => "text-align: right;"}
                     = @post.comments.count
@@ -46,4 +55,3 @@
         
             = link_to "Edit", edit_post_path(@post)
             = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}
-            = link_to "Forum", posts_path
