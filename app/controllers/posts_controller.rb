@@ -57,6 +57,11 @@ class PostsController < ApplicationController
         @post = current_user.posts.build(post_params)
         #@post = Post.new(post_params)
         if @post.save
+            # rubyJSON = {:title => @post.title, :content => @post.content}.to_json
+            rubyJSON = {:title => "title", :content => "body"}.to_json
+            puts "*"*80
+            puts rubyJSON
+            PostsBroadcastJob.perform_now(rubyJSON)
             redirect_to @post
         else
             render 'new'

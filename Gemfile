@@ -32,6 +32,9 @@ gem 'carrierwave', '~> 0.9'
 gem 'bootstrap-sass', '~> 2.3.2'
  
 gem 'paperclip', '~> 4.2'
+
+gem 'puma', '~> 3.7'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
