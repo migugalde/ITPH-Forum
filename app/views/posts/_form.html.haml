@@ -8,9 +8,10 @@
     %h7
         Tags
         = f.text_field :all_tags, placeholder: "Tags separated with comma"
-    - if current_user.admin
-        = f.check_box :public
-        Check if you want the public to see!
+    -if current_user
+        - if current_user.admin
+            = f.check_box :public
+            Check if you want the public to see!
     .right-align
         = link_to 'Cancel', posts_path, class: "button"
         = f.submit 'Submit', class: "button"

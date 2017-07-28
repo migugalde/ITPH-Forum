@@ -1,23 +1,68 @@
 -if flash[:alert]
-  %p.alert#red
+  .callout.alert{"data-closable" => ""}
     =flash[:alert]
+    %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+
       
-%h1 Welcome to the ITPH Community!
+#header.header-text
+  Welcome
+  = current_user.first_name
+  !
 
 #posts
   .post.title
-    %h3.title ITPH Community Announcements!
-  - @posts.each do |post|
-    .row.post
-      %h2.title= link_to post.title, post
-      %p.message
-        = post.content.html_safe
-      %p.date
-        Published at
-        = time_ago_in_words(post.created_at)
-        by
-        = post.user.email
-        
+    ITPH Community Announcements!
+  
+  .accordionContainer  
+    %ul.accordion{"data-accordion" => ""}
+      -if @post3
+        %li.accordion-item.is-active{"data-accordion-item" => ""}
+          %a.accordion-title{:href => "#"} 
+            .small-6.columns Announcement 1
+            .small-6.columns.right-align
+              #announcement-date
+                posted
+                = time_ago_in_words(@post3.created_at)
+                ago
+            %br
+          .accordion-content{"data-tab-content" => ""}
+            %a{:href => post_path(@post3)}
+              .accordion-post-title= @post3.title
+            .accordion-description= @post3.description
+            %p= @post3.content
+      -if @post2
+        %li.accordion-item{"data-accordion-item" => ""}
+          %a.accordion-title{:href => "#"}
+            .small-6.columns Announcement 2
+            .small-6.columns.right-align
+              #announcement-date
+                posted
+                = time_ago_in_words(@post2.created_at)
+                ago
+            %br
+          .accordion-content{"data-tab-content" => ""}
+            %a{:href => post_path(@post2)}
+              .accordion-post-title= @post2.title
+            .accordion-description= @post2.description
+            %p= @post2.content
+      -if @post1
+        %li.accordion-item{"data-accordion-item" => ""}
+          %a.accordion-title{:href => "#"}
+            .small-6.columns Announcement 3
+            .small-6.columns.right-align
+              #announcement-date
+                posted
+                = time_ago_in_words(@post3.created_at)
+                ago
+            %br
+          .accordion-content{"data-tab-content" => ""}
+            %a{:href => post_path(@post1)}
+              .accordion-post-title= @post1.title
+            .accordion-description= @post1.description
+            %p= @post1.content
+
+
 %p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
 %p= link_to 'admin?', adminhome_path
 :javascript

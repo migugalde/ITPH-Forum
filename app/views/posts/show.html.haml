@@ -32,10 +32,11 @@
                     %p= @post.content.html_safe
                     
                     .small-6.columns
-                        - if current_user.id == @post.user_id || current_user.admin
-                            = link_to "Edit", edit_post_path(@post), class: "button1"
-                            &nbsp&nbsp
-                            = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}, class: "button1"
+                        - if current_user
+                            - if current_user.id == @post.user_id || current_user.admin
+                                = link_to "Edit", edit_post_path(@post), class: "button1"
+                                &nbsp&nbsp
+                                = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}, class: "button1"
                     .small-6.columns
                         .date.right-align
                             published at
@@ -43,20 +44,23 @@
                             by&nbsp  
                             = link_to @post.user.email, profile_path(@post.user.id)
                         %br
-                %hr/   
-            .row
-                .right-align
-                    = @post.comments.count
-                    Comment(s) &nbsp&nbsp 
-                %hr/
-            #comments
-                = render @post.comments
-                
-                %a.header-icon{"href" => "#", id: "yourButton"}
-                    %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
-                    leave a comment
-            %br
-                        
-                %div#my_form.down_click
-                    = render "comments/form"
+                %hr/ 
+            - if current_user
+                .row
+                    .right-align
+                        = @post.comments.count
+                        Comment(s) &nbsp&nbsp 
+                    %hr/
+                #comments
+                    = render @post.comments
+                    
+                    %a.header-icon{"href" => "#/", id: "yourButton"}
+                        %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+                        leave a comment
+                %br
+                            
+                    %div#my_form.down_click
+                        = render "comments/form"
+                    
+                    %div.bottom_page
             

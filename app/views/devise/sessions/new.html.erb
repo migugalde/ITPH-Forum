@@ -5,7 +5,9 @@
 
 <body>
 <% if flash[:notice] %>
-  <p class="alert" id="red"><%= flash[:notice] %></p>
+  <div class="callout warning">
+    <%= flash[:notice] %></p>
+  </div>
 <% end %>
 <div class="login-panel">
   <div class="row">
@@ -14,7 +16,9 @@
   <div class="row">
     <div class="small-12 columns">
       <% if flash[:alert] %>
-      <p class="alert" id="red"><%= flash[:alert] %></p>
+      <div class = "callout alert">
+        <%= flash[:alert] %>
+      </div>
      <% end %>
     </div>
   </div>

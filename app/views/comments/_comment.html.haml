@@ -11,7 +11,8 @@
                 = link_to comment.user.email, profile_path(comment.user.id)
     .row
         .buttons
-            - if current_user.id == comment.user_id || current_user.admin
-                = link_to "Edit", edit_post_comment_path(comment.post, comment)
-                = link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
+            - if current_user
+                - if current_user.id == comment.user_id || current_user.admin
+                    = link_to "Edit", edit_post_comment_path(comment.post, comment)
+                    = link_to "Delete", [comment.post, comment], method: :delete, data: { confirm: "Are you sure?" }
              

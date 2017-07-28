@@ -266,3 +266,39 @@ body {
 #my_form {
     display: none;
 }
+
+.accordion-title {
+    border: 1.2px solid #397CAC;
+    font-family: Avenir;
+    font-size: 150%;
+    
+    #announcement-date {
+    font-size: 60%;
+    color: #527999;
+    margin-right: 20px;
+}
+
+}
+
+.accordion-content {
+    background: #f2f6f9;
+    font-family: Avenir;
+    
+}
+
+.accordion-description {
+    font-size: 90%;
+    font-family: Avenir;
+    margin-left: 20px;
+    color: #527999;
+}
+.accordion-post-title {
+    font-size: 170%;
+}
+
+.callout {
+    border-radius: 15px;
+}
+.devise_message {
+    font-size: 1em;
+}

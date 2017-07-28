@@ -10,13 +10,13 @@
             .small-6.columns.margT
                 %a.header-text{:href => posts_path} forum
             .small-6.columns.right-align.marB
-                - if !(current_user.nil?)
+                - if current_user
                     %a.header-icon{"href" => "#", id: "yourButton"}
                         %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
                         new post
                 - else
                     %a.header-text{:href => root_path} sign up
-        %hr/
+            %hr/
         
 
     
