@@ -11,7 +11,7 @@
                 %a.header-text{:href => posts_path} forum
             .small-6.columns.right-align.marB
                 - if !(current_user.nil?)
-                    %a.header-icon{"href" => new_post_path}
+                    %a.header-icon{"href" => "#", id: "yourButton"}
                         %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
                         new post
                 - else
@@ -22,6 +22,8 @@
     
         .wrapper
         =yield
+        %div#my_form
+            = render 'form'
         
         .row#header
             %p

@@ -52,6 +52,11 @@
             #comments
                 = render @post.comments
                 
-                %h4 Reply to thread
-                = render "comments/form"
+                %a.header-icon{"href" => "#", id: "yourButton"}
+                    %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+                    leave a comment
+            %br
+                        
+                %div#my_form.down_click
+                    = render "comments/form"
             

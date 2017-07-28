@@ -1,5 +1,6 @@
 = tinymce_assets
-= simple_form_for @post do |f|
+
+= simple_form_for Post.new do |f|
     = f.input :title, required: "true"
     = f.input :description, required: 'true', placeholder: "Write a brief description about what your post is about..."
     = f.text_area :content, class: "tinymce" 
