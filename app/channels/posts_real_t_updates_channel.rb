@@ -16,4 +16,9 @@ class PostsRealTUpdatesChannel < ApplicationCable::Channel
     #there is nothing to do so far when a some
     #unscubscribes from the channel
   end
+
+
+  # def renderPartial(data)
+  #   ActionCable.server.broadcast "posts_notifications", message: data['message']
+  # end
 end

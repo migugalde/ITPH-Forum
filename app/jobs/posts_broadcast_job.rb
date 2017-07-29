@@ -1,16 +1,27 @@
 class PostsBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
-    #send json from here to coffeescript
-    jsonData = args
-    ActionCable.server.broadcast(
-    	"posts_notifications",
-      jsonData
-    	)
+  # def perform(*args)
+  #   # Do something later
+  #   #send json from here to coffeescript
+  #   jsonData = args
+  #   ActionCable.server.broadcast(
+  #   	"posts_notifications",
+  #     jsonData
+  #   	)
+  # end
+
+  def perform(message)
+    ActionCable.server.broadcast 'posts_notifications', message: render_message(message)
   end
+
+  def render_message(message)
+    ApplicationController.renderer.render(partial: 'posts/postsUpdate', \
+      locals: { message: message }) 
+  end
+
 end
+
 
 
 # Somewhere in your app this is called, perhaps

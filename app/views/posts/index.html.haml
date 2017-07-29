@@ -32,7 +32,7 @@
                 %hr/
                 
         #posts
-            %h1#messages
+            #messages{remote: true} 
             - @posts.each do |post|
                 .row.post
                     %h2.title

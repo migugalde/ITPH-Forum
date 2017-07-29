@@ -61,7 +61,8 @@ class PostsController < ApplicationController
             rubyJSON = {:title => "title", :content => "body"}.to_json
             puts "*"*80
             puts rubyJSON
-            PostsBroadcastJob.perform_now(rubyJSON)
+            # PostsBroadcastJob.perform_now(rubyJSON)
+            PostsBroadcastJob.perform_now(@post)
             redirect_to @post
         else
             render 'new'
