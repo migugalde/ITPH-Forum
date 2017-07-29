@@ -23,6 +23,8 @@ class PostsController < ApplicationController
             redirect_to posts_path
         end
         
+        @posts = @posts.paginate(:page => params[:page], :per_page => 7)
+        
     end
     
     def show 

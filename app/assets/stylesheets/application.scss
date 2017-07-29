@@ -74,15 +74,21 @@
 }
 
 .off-canvas {
-    background-color: lightskyblue;
+    background-color: #333333;
+}
+
+.label-font {
+    font-family: 'Avenir';
+    font-variant: all-petite-caps;
+    font-size: 105%;
 }
 
 .position-left.is-open ~ .off-canvas-content {
   transform: translateX(150px);
 }
 
-body {
-    font-family: 'Lato' , sans-serif;
+.body {
+    font-family: 'Avenir' , sans-serif;
     
 }
 
@@ -301,4 +307,7 @@ body {
 }
 .devise_message {
     font-size: 1em;
+}
+.pagination{
+    display: flex;
 }

@@ -1,7 +1,7 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Welcome | Log In
+    %title ITPH Community
     %script{:src => "https://use.fontawesome.com/647f706861.js"}
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
@@ -18,23 +18,28 @@
           %a{"href" => "/community"}
             %li
               %i.fa.fa-home{"aria-hidden" => "true"}
-              %label Home 
+              %label.label-font Home 
           %a{"href" => posts_path}
             %li
               %i.fa.fa-comments-o{"aria-hidden" => "true"}
-              %label Forum
+              %label.label-font Forum
           %a{"href" => resources_path}
             %li
               %i.fa.fa-folder-open-o{"aria-hidden" => "true"}
-              %label Resources
+              %label.label-font Resources
           %a{"href" => profile_path(current_user)}
             %li
               %i.fa.fa-user{"aria-hidden" => "true"}
-              %label Profile
+              %label.label-font Profile
           %a{"href" => navbar_settings_path}
             %li
               %i.fa.fa-cogs{"aria-hidden" => "true"}
-              %label Settings
+              %label.label-font Settings
+          -if current_user.admin
+            %a{"href" => adminhome_path}
+              %li
+                %i.fa.fa-life-ring{"aria-hidden" => "true"}
+                %label.label-font Admin
       .off-canvas-content{"data-off-canvas-content" => ""}
         / Your page content lives here
         %button.button1{"data-toggle" => "offCanvas", :type => "button"}

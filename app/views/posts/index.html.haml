@@ -35,8 +35,7 @@
                 = link_to "All", posts_path(:all => 'all')
                 %hr/
                 
-
-        #posts
+        %div#posts
             - @posts.each do |post|
                 .row.post
                     %h2.title
@@ -54,6 +53,9 @@
                     %p.tag
                         /= = raw post.all_tags (seems redundant, keeping next line in favor)
                         = raw tag_links(post.all_tags)
+            =will_paginate @posts
+%br
+%br
 
 = tinymce
         
