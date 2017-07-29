@@ -1,20 +1,41 @@
-%head
-    %title Forum
-    %link{rel: "stylesheet", href: "http://fonts.googleapis.com/css?family=Lato:300,400,700", type: "text/css"}
-    %link{rel: "stylesheet", href: "http://cdnjscloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
-    %script{:src => "https://use.fontawesome.com/647f706861.js"}
+// %head
+//     %title Forum
+//     %link{rel: "stylesheet", href: "http://fonts.googleapis.com/css?family=Lato:300,400,700", type: "text/css"}
+//     %link{rel: "stylesheet", href: "http://cdnjscloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}/
+//     %script{:src => "https://use.fontawesome.com/647f706861.js"}
     
-%body
-    #forum-container
-        .row#header
-            .small-6.columns.margT
-                %a.header-text EDIT POST
-            %hr/
+// %body
+//     #forum-container
+//         .row#header
+//             .small-6.columns.margT
+//                 %a.header-text EDIT POST
+//             %hr/
         
 
     
-        .wrapper
-        =yield
+//         .wrapper
+//         =yield
 
-        = render 'form'
+//         = render 'form'
+
+= tinymce_assets
+
+= simple_form_for @post do |f|
+    = f.input :title, required: "true"
+    = f.input :description, required: 'true', placeholder: "Write a brief description about what your post is about..."
+    = f.text_area :content, class: "tinymce" 
+    %br
+    %h7
+        Tags
+        = f.text_field :all_tags, placeholder: "Tags separated with comma"
+    -if current_user
+        - if current_user.admin
+            = f.check_box :public
+            Check if you want the public to see!
+    .right-align
+        = link_to 'Cancel', posts_path, class: "button"
+        = f.submit 'Submit', class: "button"
+        
+        
+= tinymce
         
