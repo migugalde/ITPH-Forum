@@ -29,6 +29,8 @@ gem 'devise', '~> 3.5.4'
 
 gem 'tinymce-rails'
 
+gem 'mailgun_rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

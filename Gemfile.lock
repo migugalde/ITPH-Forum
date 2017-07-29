@@ -197,6 +197,10 @@ GEM
     lumberjack (1.0.12)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    mailgun_rails (0.9.0)
+      actionmailer (>= 3.2.13)
+      json (>= 1.7.7)
+      rest-client (>= 1.6.7)
     main (6.2.2)
       arrayfields (~> 4.7, >= 4.7.4)
       chronic (~> 0.6, >= 0.6.2)
@@ -421,6 +425,7 @@ DEPENDENCIES
   jasmine-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mailgun_rails
   metric_fu
   pg
   rails (= 4.2.5)
