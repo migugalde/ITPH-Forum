@@ -27,6 +27,8 @@
     </p>
    
     <p class="form">
+      <%= link_to "Cancel", admin_index_path, class: "button large" %>
       <%= f.submit "Update", class: "button large" %>
+      <%= link_to "Delete User", admin_path(@user), method: :delete, data: { confirm: "You sure?" }, class: 'button large' %>
     </p>
 <% end %>

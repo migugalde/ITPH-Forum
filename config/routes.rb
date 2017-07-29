@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'navbar/settings'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "my_registrations" }
   # get 'layouts/welcome/index'
   get '/' => 'welcome#index'
   resources :admin
