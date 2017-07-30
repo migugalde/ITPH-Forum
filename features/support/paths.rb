@@ -27,12 +27,11 @@ module NavigationHelpers
       
     when /^the new post page/
       new_post_path
-      
-    when /the Posts page/
-      posts_path
     
     when /^the profile paage/
       profile_path
+      
+    
 
 
     # Add more mappings here.
