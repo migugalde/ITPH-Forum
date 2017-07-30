@@ -28,7 +28,7 @@
                         #public This post is public!
             .row
                 .small-12.columns
-                    %p= raw @post.content
+                    %p= @post_content
                     
                     .small-6.columns
                         - if current_user
