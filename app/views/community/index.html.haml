@@ -36,7 +36,7 @@
             %a{:href => post_path(@post3)}
               .accordion-post-title= @post3.title
             .accordion-description= @post3.description
-            %p= @post3_content
+            %p= @post3.content.html_safe
       -if @post2
         %li.accordion-item{"data-accordion-item" => ""}
           %a.accordion-title{:href => "#"}
@@ -51,7 +51,7 @@
             %a{:href => post_path(@post2)}
               .accordion-post-title= @post2.title
             .accordion-description= @post2.description
-            %p= @post2_content
+            %p= @post2.content.html_safe
       -if @post1
         %li.accordion-item{"data-accordion-item" => ""}
           %a.accordion-title{:href => "#"}
@@ -66,8 +66,7 @@
             %a{:href => post_path(@post1)}
               .accordion-post-title= @post1.title
             .accordion-description= @post1.description
-
-            %p= @post1_content
+            %p= @post1.content.html_safe
 
 :javascript
   $(document).foundation();

@@ -29,7 +29,6 @@ class PostsController < ApplicationController
     
     def show 
         @post = Post.find(params[:id])
-        @post_content = view_context.raw(@post.content)
     end
     
     def new
