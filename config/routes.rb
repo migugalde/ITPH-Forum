@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pets
   # get 'navbar/home'
 
   # get 'navbar/forum'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   ##############
+  resources :pets
   resources :community
   root 'welcome#index'
   
