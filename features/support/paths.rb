@@ -22,11 +22,17 @@ module NavigationHelpers
     when /^community page/
       root_path
     
-    when /the forum page/
+    when /^the forum page/
       posts_path
       
-    when /the new post page/
+    when /^the new post page/
       new_post_path
+      
+    when /the Posts page/
+      posts_path
+    
+    when /^the profile paage/
+      profile_path
 
 
     # Add more mappings here.
