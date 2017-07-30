@@ -20,10 +20,12 @@ Rails.application.routes.draw do
     resources :comments
   end
   ##############
-  resources :pets
+  #resources :pets
   resources :community
   root 'welcome#index'
   
+  get 'pets', to: 'pets#index', as:'profile'
+  #get 'pets/:id', to: 'pets#index', as: 'profile'
   get 'tags/:tag', to: 'posts#index', as: "tag"
   #get 'profile/:id', to: 'profile#show', as: 'profile' 
   get 'resources', to: 'resource#index', as: 'resources'

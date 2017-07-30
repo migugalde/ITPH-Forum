@@ -48,3 +48,5 @@ posts = [{:title => "Apple", :content => "Lorem ipsum dolor sit amet, consectetu
 posts.each do |post|
          Post.create!(post)
 end
+
+pets = [{:name => "tester tester", :descripition => "Big Boss"}, {:name => "User User", :descripition => "Just User"}]
