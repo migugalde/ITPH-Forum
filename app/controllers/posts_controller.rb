@@ -16,6 +16,10 @@ class PostsController < ApplicationController
             @posts = @posts.tagged_with(session[:tag])
         end
         
+        #testing here
+        @tags = @tags.order(session[:tag])
+        #testing here
+        
         @posts = @posts.order(session[:sort])
         if params[:all]
             session[:tag] = nil

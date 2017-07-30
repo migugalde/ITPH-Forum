@@ -30,6 +30,10 @@
             %p
                 Tags:
                 = link_to "All", posts_path(:all => 'all')
+                %select#e1
+                - @tags.each do |tag|
+                    %option{:value => "#{tag}"} tag
+                    %option{:value => "#{tag}"} tag
                 %hr/
                 
 
@@ -51,4 +55,6 @@
                     %p.tag
                         /= = raw post.all_tags (seems redundant, keeping next line in favor)
                         = raw tag_links(post.all_tags)
+:javascript
+    $(document).ready(function() { $("#e1").select2(); });
         
