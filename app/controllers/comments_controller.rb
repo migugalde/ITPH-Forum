@@ -35,9 +35,8 @@ class CommentsController < ApplicationController
 	def edit
 		@post = Post.find(params[:post_id])
 		@comment = @post.comments.find(params[:id])
-		
 		if current_user.id != @comment.user_id && (!(current_user.admin))
-        	redirect_to post_path(@post)
-        end
+			redirect_to post_path(@post)
+		end
 	end
 end
