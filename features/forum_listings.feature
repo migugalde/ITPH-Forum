@@ -5,19 +5,16 @@ Feature: able to view and reorder forum listings
   So that I can efficiently find and view forum posts that interest me
   
 Scenario: Order by latest
-  Given correct cl_user_email and password 
+  Given I am a user who is approved
   Given I am on the forum page
+  Given there are posts
+  Then I should see "Apple"
   When I click "Date"
-  # Then I should see "E" before "A"
+  Then I should see "Banana" before "Apple"
   
 Scenario: Order by title
-  Given correct cl_user_email and password 
+  Given I am a user who is approved
   Given I am on the forum page
+  Given there are posts
   When I click "Title"
-  # Then I should see "A" before "E"
-    
-Scenario: Making a new listing
-  Given correct cl_user_email and password 
-  Given I am on the forum page
-  # When I click "new post"
-  # Then I should see "Title"
+  Then I should see "Apple" before "Banana"

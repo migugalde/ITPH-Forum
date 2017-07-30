@@ -31,9 +31,8 @@ module NavigationHelpers
     when /the Posts page/
       posts_path
     
-    when /^the profile paage/
+    when /^the profile page/
       profile_path
-
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
