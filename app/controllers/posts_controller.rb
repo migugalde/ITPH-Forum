@@ -28,6 +28,8 @@ class PostsController < ApplicationController
     end
     
     def show 
+        @post = Post.find(params[:id])
+        @post_content = view_context.raw(@post.content)
     end
     
     def new
@@ -72,6 +74,6 @@ class PostsController < ApplicationController
     end
     
     def post_params
-        params.require(:post).permit(:title, :content, :all_tags, :description)
+        params.require(:post).permit(:title, :content, :all_tags, :description, :public)
     end
 end
