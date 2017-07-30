@@ -25,8 +25,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get 'tags/:tag', to: 'posts#index', as: "tag"
-  
-  get 'profile/:id', to: 'profile#show', as: 'profile' 
+  #get 'profile/:id', to: 'profile#show', as: 'profile' 
   get 'resources', to: 'resource#index', as: 'resources'
   
   

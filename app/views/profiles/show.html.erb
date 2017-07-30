@@ -1,0 +1,21 @@
+*app/views/profiles/show.html.erb*
+ 
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+ 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @profile.image.thumb.url %>
+</p>
+ 
+<%= link_to 'Edit', edit_pet_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
