@@ -74,7 +74,7 @@
 
 .off-canvas {
     background-color: lightskyblue;
-    background-image: url('navbarimg.png');
+    background-image: image-url("navbarimg.png");
     background-size: cover;
 }
 
@@ -141,6 +141,19 @@ body {
 #posts {
 	padding: 1em 5%;
 	border-radius: .5em;
+	.alt-post {
+        margin: 1em 0;
+		padding: 1em 0;
+        .title {
+            margin: 0;
+            a {
+                /*color: #397CAC;*/
+                text-decoration: none;
+                /*font-weight: 100;*/
+                font-size: 1.25rem;
+            }
+        }
+	}
     .post {
         margin: 1em 0;
 		padding: 1em 0;
@@ -310,4 +323,20 @@ body {
 }
 .pagination{
     display: flex;
+}
+
+.accordion-title:hover, .accordion-title:focus {
+    background-color: mediumaquamarine;
+    color: white;
+}
+.accordion-title {
+ border: none;   
+ transition: all 0.5s ease-in-out;
+}
+.accordion-content {
+ border: none;
+}
+.accordion-item.is-active {
+    background-color: mediumaquamarine;
+    color: white;
 }

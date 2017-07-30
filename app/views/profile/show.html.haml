@@ -1,2 +1,10 @@
 %h1 PROFILE
 = @name
+%hr/
+
+- if @goal.nil?
+    .row
+        Looks like you haven't set a new goal yet. 
+        = link_to 'Would you like to set a new goal?', goal_profile_path(@user.id)
+- else
+    = @goal.title
