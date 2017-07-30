@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727092149) do
+ActiveRecord::Schema.define(version: 20170730043440) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -24,6 +24,31 @@ ActiveRecord::Schema.define(version: 20170727092149) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "galleries", force: :cascade do |t|
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "step1"
+    t.text     "step2"
+    t.text     "step3"
+    t.text     "step4"
+    t.text     "step5"
+    t.text     "step6"
+    t.text     "step7"
+    t.text     "step8"
+    t.text     "step9"
+    t.text     "step10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id"
+
+  create_table "paintings", force: :cascade do |t|
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -32,6 +57,21 @@ ActiveRecord::Schema.define(version: 20170727092149) do
     t.integer  "user_id"
     t.boolean  "public",      default: false
     t.text     "description"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
