@@ -3,7 +3,7 @@ class Pet < ActiveRecord::Base
     validates_processing_of :image
     validate :image_size_validation
     
-    #belongs_to :user
+    belongs_to :user
     
     private
     def image_size_validation
