@@ -1,4 +1,4 @@
-= simple_form_for @goal, url: create_goal_path do |f|
+= form_for Goal.new, url: profile_index_path(@user, @goal) do |f|
   .goalsForm
     = label_tag 'title'
     = f.text_field :title, required: 'true', placeholder: "Write your long term goal here"
@@ -75,5 +75,5 @@
       .small-6.columns  
         %a.removeNewStep x
     .right-align
-      = link_to 'Cancel', profile_path, class: "button"
+      = link_to 'Cancel', profile_index_path, class: "button"
       = f.submit 'Submit', class: "button"

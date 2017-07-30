@@ -24,10 +24,12 @@ Rails.application.routes.draw do
   
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
-  get 'profile/:id', to: 'profile#show', as: 'profile'
-  get 'profile/:id', to: 'profile#create', as: :create_goal
-  get ':id/goal', to: 'profile#goal', as: :goal_profile 
-  resources :profile
+  # get 'profile/:id', to: 'profile#show', as: 'profile'
+  # get 'profile/:id', to: 'profile#create', as: :create_goal
+  # get ':id/goal', to: 'profile#goal', as: :goal_profile 
+  resources :profile do
+    #get 'profile/:goal', to: 'profile#goal', as: :goal_profile
+  end
   get 'resources', to: 'resource#index', as: 'resources'
   
   
