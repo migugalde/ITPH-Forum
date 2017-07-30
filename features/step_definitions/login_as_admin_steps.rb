@@ -5,17 +5,10 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "sel
 
 
 Given /^I am an admin$/ do
-  email = 'testing@man.net'
-  password = 'secretpass'
-  admin = 'true'
-  approved = 'true'
-  first_name = 'Admin'
-  User.new(:email => email, :password => password, :admin => admin, :approved => approved, :first_name => first_name).save!
-  visit '/users/sign_in'
-  fill_in "Email_login", :with => email
-  fill_in "Password", :with => password
+  visit new_user_session_path
+  fill_in('Email_login', :with => 'testing@man.net')
+  fill_in('Password', :with => 'secretpass')
   click_button "Log in"
-
 end
 
 Given /^invalid email and password$/ do
@@ -23,4 +16,25 @@ Given /^invalid email and password$/ do
   visit "users/sign_in"
   fill_in('Email_login', :with => 'admin@admin.com')
   fill_in('Password', :with => 'wronggg')
+end
+
+When /^I change the approval status to true$/ do
+   find('#user_approved').find(:xpath, 'option[1]').select_option
+end
+
+When /^I change the approval status to false$/ do
+   find('#user_approved').find(:xpath, 'option[2]').select_option
+end
+
+Given /^there is an unapproved user$/ do
+  visit new_user_registration_path
+  first_name = "User"
+  last_name = "User"
+  email = "user@domain.com"
+  password = "password"
+  fill_in 'firstName', :with => first_name
+  fill_in "lastName", :with => last_name
+  fill_in "Email", :with => email
+  fill_in "Password", :with => password
+  click_button "Sign up"
 end
