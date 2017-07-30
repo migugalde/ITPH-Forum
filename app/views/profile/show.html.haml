@@ -41,3 +41,7 @@
                 = @goal.step10
         .right-align
             = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+:javascript
+$(document).ready(function() {
+    $('body').addClass('friendly2');
+});
