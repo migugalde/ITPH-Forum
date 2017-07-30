@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # get 'navbar/profile'
 
-  get 'navbar/settings'
+  # get 'navbar/settings'
 
   devise_for :users, :controllers => { :registrations => "my_registrations" }
   # get 'layouts/welcome/index'

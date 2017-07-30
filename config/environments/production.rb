@@ -29,8 +29,7 @@ Rails.application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
-
+  
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 
@@ -39,4 +38,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.default_url_options = { host: 'whispering-peak-99132.herokuapp.com' }
+  
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_options = {from: 'admin@itphcommunity.com'}
+  
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+		api_key: 'key-e796c3d50e04aaaa1c1a96d5bba9a427',
+		domain: 'sandbox7d55082f254c4626bd71d56bbe0dd9a7.mailgun.org'
+  }
 end

@@ -34,15 +34,15 @@
             %li
               %i.fa.fa-user{"aria-hidden" => "true"}
               %label.label-font Profile
-          %a{"href" => navbar_settings_path}
-            %li
-              %i.fa.fa-cogs{"aria-hidden" => "true"}
-              %label.label-font Settings
           -if current_user.admin
             %a{"href" => admin_index_path}
               %li
                 %i.fa.fa-life-ring{"aria-hidden" => "true"}
                 %label.label-font Admin
+          %a{"data-method" => "delete", :href => destroy_user_session_path, :rel => "nofollow"}
+            %li
+              %i.fa.fa-sign-out{"aria-hidden" => "true"}
+              %label.label-font Sign Out
       .off-canvas-content{"data-off-canvas-content" => ""}
         / Your page content lives here
         %button.button1{"data-toggle" => "offCanvas", :type => "button"}
