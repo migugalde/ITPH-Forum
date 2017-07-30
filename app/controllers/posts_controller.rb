@@ -23,19 +23,21 @@ class PostsController < ApplicationController
             redirect_to posts_path
         end
         
+        @posts = @posts.paginate(:page => params[:page], :per_page => 7)
+        
     end
     
     def show 
     end
     
     def new
-        #@post = Post.new
-        @post = current_user.posts.build
+        @post = Post.new
+        # @post = current_user.posts.build
     end
      
     def edit
         @post = Post.find(params[:id])
-        if current_user.id != @post.user_id
+        if current_user.id != @post.user_id && (!(current_user.admin))
             redirect_to post_path(@post)
         end
     end
@@ -70,6 +72,6 @@ class PostsController < ApplicationController
     end
     
     def post_params
-        params.require(:post).permit(:title, :content, :all_tags)
+        params.require(:post).permit(:title, :content, :all_tags, :description)
     end
 end
