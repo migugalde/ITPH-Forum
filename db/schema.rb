@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20170730091328) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "galleries", force: :cascade do |t|
+  end
+
+  create_table "paintings", force: :cascade do |t|
+  end
+
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -35,11 +41,30 @@ ActiveRecord::Schema.define(version: 20170730091328) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "user_id"
-    t.boolean  "public",      default: false
+    t.boolean  "public",             default: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.text     "description"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -77,6 +102,15 @@ ActiveRecord::Schema.define(version: 20170730091328) do
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                  default: false
     t.boolean  "approved",               default: false, null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.text     "bio"
   end
 
   add_index "users", ["approved"], name: "index_users_on_approved"
