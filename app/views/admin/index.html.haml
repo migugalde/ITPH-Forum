@@ -22,5 +22,4 @@
         %td= user.approved
         %td= link_to 'EDIT', edit_admin_path(user)
         
-%br= link_to "Admin Index", adminhome_path
 %br= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy

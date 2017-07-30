@@ -20,7 +20,6 @@
     max-width: 1200px;
 }
 #header {
-    background-color: white;
     padding-left: 14px;
     padding-right: 14px;
 }
@@ -74,7 +73,9 @@
 }
 
 .off-canvas {
-    background-color: #333333;
+    background-color: lightskyblue;
+    background-image: url('http://i602.photobucket.com/albums/tt110/cherryhugs-hana/dashboard_3.png');
+    background-size: cover;
 }
 
 .label-font {
@@ -138,7 +139,6 @@ body {
 }
 
 #posts {
-    background: rgba(255,255,255,0.95);
 	padding: 1em 5%;
 	border-radius: .5em;
     .post {

@@ -4,11 +4,17 @@
     %button.close-button{"aria-label" => "Dismiss alert", "data-close" => "", :type => "button"}
       %span{"aria-hidden" => "true"} ×
 
-      
-#header.header-text
-  Welcome
-  = current_user.first_name
-  !
+.row#header
+  .small-6.columns.margT
+    %p.header-text 
+      welcome
+      = current_user.first_name.downcase
+  .small-6.columns.right-align.marB
+    %a.header-icon{"href" => "#"}
+      %i.fa.fa-power-off{"aria-hidden" => "true"}
+      &nbsp
+      = link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
+              
 
 #posts
   .post.title
@@ -62,7 +68,5 @@
             .accordion-description= @post1.description
             %p= @post1.content.html_safe
 
-
-%p= link_to 'sign out', destroy_user_session_path, :method => :delete, :action => :destroy
 :javascript
   $(document).foundation();
