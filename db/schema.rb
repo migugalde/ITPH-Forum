@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730043440) do
+ActiveRecord::Schema.define(version: 20170730220603) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 20170730043440) do
     t.text     "content"
     t.integer  "user_id"
     t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "repages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

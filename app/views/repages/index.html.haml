@@ -1,0 +1,21 @@
+- if !flash[:notice].blank?
+  .alert.alert-info
+    = flash[:notice]
+%br/
+= link_to "New File", new_repage_path, class: "btn btn-primary"
+%br/
+%br/
+%table.table.table-bordered.table-striped
+  %thead
+    \.
+    %tr
+      %th Name
+      %th Download Link
+      %th
+  %tbody
+    - @repages.each do |res|
+      %tr
+        %td= res.name
+        %td= link_to "Download File", res.attachment_url
+        - if current_user.admin?
+          %td= button_to "Delete",  res, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{res.name}?"
