@@ -7,6 +7,8 @@ Feature: able to login as cl_user
 Scenario: able to login with valid username and correct password when I am approved
   Given I am a user who is approved
   Then I should see "welcome user"
+  When I go to the home page
+  Then I should see "welcome user"
   
 Scenario: not able to login even with valid credentials if I am not approved
   Given I am a user who is not approved
