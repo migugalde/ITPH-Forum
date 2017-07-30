@@ -11,6 +11,9 @@
     %body.outsideView
       =yield
   - else
+    -if current_page?(community_index_path)
+      %body.friendly
+    -else
     %body
       #offCanvas.off-canvas.position-left{"data-off-canvas" => ""}
         / Your menu or Off-canvas content goes here
@@ -36,7 +39,7 @@
               %i.fa.fa-cogs{"aria-hidden" => "true"}
               %label.label-font Settings
           -if current_user.admin
-            %a{"href" => adminhome_path}
+            %a{"href" => admin_index_path}
               %li
                 %i.fa.fa-life-ring{"aria-hidden" => "true"}
                 %label.label-font Admin

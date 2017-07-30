@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # get 'layouts/welcome/index'
   get '/' => 'welcome#index'
   resources :admin
-  get 'adminhome' => 'admin#home'
+  # get 'adminhome' => 'admin#home'
   ##############
   resources :posts do
     resources :comments
