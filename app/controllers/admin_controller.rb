@@ -30,4 +30,12 @@ class AdminController < ApplicationController
             redirect_to admin_index_path
         end
     end
+    
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        if @user.destroy
+            redirect_to admin_index_path
+        end
+    end
 end

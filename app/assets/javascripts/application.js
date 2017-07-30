@@ -12,7 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+//= require tinymce
 
 $(function(){ $(document).foundation(); });
+$(document).on("click","#yourButton",function(){
+  $("#my_form").slideToggle();
+  $('html,body').animate({
+        scrollTop: $(".bottom_page").offset().top},
+        'slow');
+});

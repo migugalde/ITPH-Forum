@@ -3,12 +3,18 @@
     <title>Welcome!</title>
 </head>
 <body>
+    <br/>
 <% if flash[:alert] %>
-    <p class="alert" id="red"><%= flash[:alert] %></p>
+    <div class="callout alert" data-closable>
+        <%= flash[:alert] %>
+    </div>
 <% end %>
 <% if flash[:notice] %>
-    <p class="alert" id="green"><%= flash[:notice] %></p>
+    <div class="callout success" data-closable>
+        <%= flash[:notice] %>
+    </div>
 <% end %>
+
 <div class="center">
     <div class="row">
         <a href=<%=posts_path%> class="button large welcome">Check out our Forum!</a>
