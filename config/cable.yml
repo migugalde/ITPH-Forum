@@ -6,5 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: workspace_production
+  url: redis://redistogo:8b286643017af4b554619c3af87d432b@barreleye.redistogo.com:10140/
