@@ -4,7 +4,7 @@ class MyRegistrationsController < Devise::RegistrationsController
         super
         if @user.persisted?
           @admin = User.where(admin: true).first
-          UserMailer.user_created_email(@admin).deliver
+          UserMailer.user_created_email(@admin).deliver_now
         end
     end
     

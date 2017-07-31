@@ -55,6 +55,13 @@ body {
     background-image: url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape1.svg), url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape2.svg), url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape3.svg), url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape4.svg);
     background-size: cover;
 }
+.friendly2 {
+    background-image: image-url("hilling2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right 0px top;
+    background-color: #E2F8FC;
+}
 
 .centerContent {
     margin-top: 5%;
