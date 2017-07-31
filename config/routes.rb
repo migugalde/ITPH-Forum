@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'repages/index'
+
+  get 'repages/new'
+
+  get 'repages/create'
+
+  get 'repages/destroy'
+
   # get 'navbar/home'
 
   # get 'navbar/forum'
@@ -7,7 +15,7 @@ Rails.application.routes.draw do
 
   # get 'navbar/profile'
 
-  get 'navbar/settings'
+  # get 'navbar/settings'
 
   devise_for :users, :controllers => { :registrations => "my_registrations" }
   # get 'layouts/welcome/index'
@@ -24,8 +32,17 @@ Rails.application.routes.draw do
   
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
-  get 'profile/:id', to: 'profile#show', as: 'profile' 
+  # get 'profile/:id', to: 'profile#show', as: 'profile'
+  # get 'profile/:id', to: 'profile#create', as: :create_goal
+  # get ':id/goal', to: 'profile#goal', as: :goal_profile 
+  resources :profile do
+    #get 'profile/:goal', to: 'profile#goal', as: :goal_profile
+  end
   get 'resources', to: 'resource#index', as: 'resources'
+  
+  ###
+  resources :repages, only: [:index, :new, :create, :destroy]
+  ###
   
   
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
     
     has_many :posts
     has_many :comments
+    has_many :goals
          
     def active_for_authentication? 
         super && approved? 
