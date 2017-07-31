@@ -18,7 +18,6 @@
                     %a.header-text{:href => root_path} sign up
             %hr/
         
-
     
         .wrapper
         =yield
@@ -34,8 +33,9 @@
                 Tags:
                 = link_to "All", posts_path(:all => 'all')
                 %hr/
-                
+
         %div#posts
+            #messages{remote: true} 
             - @posts.each do |post|
                 .row.post
                     %h2.title
@@ -49,13 +49,34 @@
                         %a
                             = link_to post.user.email, profile_path(post.user.id)
                             
-
                     %p.tag
                         /= = raw post.all_tags (seems redundant, keeping next line in favor)
                         = raw tag_links(post.all_tags)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             =will_paginate @posts
 %br
 %br
 
 = tinymce
         
+
