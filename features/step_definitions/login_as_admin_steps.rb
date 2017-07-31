@@ -26,6 +26,19 @@ When /^I change the approval status to false$/ do
    find('#user_approved').find(:xpath, 'option[2]').select_option
 end
 
+Given(/^correct admin user_email and incorrect password$/) do
+  visit "users/sign_in"
+  fill_in('Email_login', :with => 'ireneaili@berkeley.edu')
+  fill_in('Password', :with => 'ireneaili')
+  click_button 'button-cap'
+  
+  page.should have_content("Invalid email or password")
+  #page.should have_content("Sign in")
+  
+end
+
+
+
 Given /^there is an unapproved user$/ do
   visit new_user_registration_path
   first_name = "User"

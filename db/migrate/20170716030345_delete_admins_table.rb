@@ -1,4 +1,4 @@
-class DeleteAdminsTable < ActiveRecord::Migration
+class DeleteAdminsTable < ActiveRecord::Migration[5.1]
   def up
     drop_table :admins
   end

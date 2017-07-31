@@ -11,7 +11,7 @@ Background: users in the database
 Scenario: unable to login with invalid username
   Given invalid email and password
   When I press "button-cap"
-  Then I should see "Invalid email or password."
+  Then I should see "Invalid Email or password."
   
 Scenario: able to login with valid username and correct password
   Given there is an admin
