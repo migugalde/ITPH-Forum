@@ -1,5 +1,5 @@
 class RepagesController < ApplicationController
-  def index
+   def index
       @repages = Repage.all
    end
    
@@ -26,7 +26,7 @@ class RepagesController < ApplicationController
    
    private
       def repage_params
-      params.require(:repage).permit(:name, :attachment)
-   end
+         params.require(:repage).permit(:name, :attachment)
+      end
    
 end
