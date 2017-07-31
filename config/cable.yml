@@ -2,7 +2,7 @@
 
 production:
   adapter: redis
-  url: redis://redistogo:d0d845b769f02c95b747fb044aab8d2f@angelfish.redistogo.com:10993/
+  url: redis://redistogo:8b286643017af4b554619c3af87d432b@barreleye.redistogo.com:10140/
 
 development:
   adapter: async

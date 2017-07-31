@@ -22,15 +22,15 @@ Rails.application.routes.draw do
   get '/' => 'welcome#index'
   resources :admin
   # get 'adminhome' => 'admin#home'
-  ##############
+  
   resources :posts do
     resources :comments
   end
-  ##############
+  
   resources :community
   root 'welcome#index'
   
-  get 'tags/:tag', to: 'posts#index', as: "tag"
+  get 'posts/tag/:tag', to: 'posts#index', as: "tag"
   
   # get 'profile/:id', to: 'profile#show', as: 'profile'
   # get 'profile/:id', to: 'profile#create', as: :create_goal
