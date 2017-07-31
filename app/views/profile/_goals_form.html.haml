@@ -1,0 +1,79 @@
+= form_for Goal.new, url: profile_index_path(@user, @goal) do |f|
+  .goalsForm
+    = label_tag 'title'
+    = f.text_field :title, required: 'true', placeholder: "Write your long term goal here"
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step1, required: 'true'
+      .small-6.columns  
+        %a.removeNewStep x
+        
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step2
+      .small-6.columns  
+        %a.removeNewStep x
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step3
+      .small-6.columns  
+        %a.removeNewStep x
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step4
+      .small-6.columns  
+        %a.removeNewStep x
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step5
+      .small-6.columns  
+        %a.removeNewStep x
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step6
+      .small-6.columns  
+        %a.removeNewStep x
+        
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step7
+      .small-6.columns  
+        %a.removeNewStep x
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step8
+      .small-6.columns  
+        %a.removeNewStep x
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step9
+      .small-6.columns  
+        %a.removeNewStep x
+    .stepForm
+    .row
+      .small-6.columns
+        = label_tag 'steps'
+        = f.text_field :step10
+      .small-6.columns  
+        %a.removeNewStep x
+    .right-align
+      = link_to 'Cancel', profile_index_path, class: "button"
+      = f.submit 'Submit', class: "button"

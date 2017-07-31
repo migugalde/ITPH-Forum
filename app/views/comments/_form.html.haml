@@ -1,5 +1,7 @@
+= tinymce_assets
 = simple_form_for([@post, @post.comments.build]) do |f|
-    = f.input :comment, required: "true"
-    = f.submit class: "button"
-
+    = f.text_area :comment, class: "tinymce"
+    .right-align
+        = f.submit "Comment", class: "button large"
+= tinymce
 

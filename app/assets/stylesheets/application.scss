@@ -16,42 +16,11 @@
  *= require select2
 
  */
-.profile-header {
-  padding: 20px 0;
-}
-
-.profile-image {
-  margin: 20px auto;
-  height: 152px;
-  width: 152px;
-}
-
-.user-name-and-follow {
-  display: inline;
-}
-
-.profile-user-name {
-  display: inline;
-}
-
-.edit-button {
-  border-color: #818488;
-  color: #818488;
-  margin-left: 20px;
-}
-
-.profile-bio {
-  margin-top: 20px;
-}
-#user_avatar {
-  margin: 20px auto;
-}
 #forum-container {
     margin: 0 auto;
     max-width: 1200px;
 }
 #header {
-    background-color: white;
     padding-left: 14px;
     padding-right: 14px;
 }
@@ -106,6 +75,14 @@
 
 .off-canvas {
     background-color: lightskyblue;
+    background-image: image-url("navbarimg.png");
+    background-size: cover;
+}
+
+.label-font {
+    font-family: 'Avenir';
+    font-variant: all-petite-caps;
+    font-size: 105%;
 }
 
 .position-left.is-open ~ .off-canvas-content {
@@ -113,7 +90,7 @@
 }
 
 body {
-    font-family: 'Lato' , sans-serif;
+    font-family: 'Avenir' , sans-serif;
     
 }
 
@@ -163,9 +140,21 @@ body {
 }
 
 #posts {
-    background: white;
 	padding: 1em 5%;
 	border-radius: .5em;
+	.alt-post {
+        margin: 1em 0;
+		padding: 1em 0;
+        .title {
+            margin: 0;
+            a {
+                /*color: #397CAC;*/
+                text-decoration: none;
+                /*font-weight: 100;*/
+                font-size: 1.25rem;
+            }
+        }
+	}
     .post {
         margin: 1em 0;
 		padding: 1em 0;
@@ -207,7 +196,7 @@ body {
     }
     #public {
         font-size: 0.9rem;
-        color: grey;
+        color: #90e08f;
     }
     #comments {
         .comment {
@@ -233,7 +222,7 @@ body {
 					padding: .5em 1em;
 					border-radius: 0.2em;
 					text-decoration: none;
-					margin-right: 2%;
+					margin-right: 0.5%;
 				}
 			}
             .comment_content {
@@ -246,10 +235,11 @@ body {
                 color: #397CAC;
                 margin-top: .5rem;
                 font-size: 1rem;
-                font-weight: 700;
+                font-weight: 100;
             }
             .comment_date {
-                font-size: .8rem;
+                font-size: 0.9rem;
+                color: #B2BAC2;
             }
             
         }
@@ -288,9 +278,74 @@ body {
     background-color: transparent;
     color: dodgerblue;
 }
-
-.res {
-    padding-top: 20px;
+.button {
+    margin-left: 8px;
+    margin-top: 8px;
 }
 
+#my_form {
+    display: none;
+}
 
+.accordion-title {
+    border: 1.2px solid #397CAC;
+    font-family: Avenir;
+    font-size: 150%;
+    
+    #announcement-date {
+    font-size: 60%;
+    color: #527999;
+    margin-right: 20px;
+}
+
+}
+
+.accordion-content {
+    background: #f2f6f9;
+    font-family: Avenir;
+    
+}
+
+.accordion-description {
+    font-size: 90%;
+    font-family: Avenir;
+    margin-left: 20px;
+    color: #527999;
+}
+.accordion-post-title {
+    font-size: 170%;
+}
+
+.callout {
+    border-radius: 15px;
+}
+.devise_message {
+    font-size: 1em;
+}
+.pagination{
+    display: flex;
+}
+
+.accordion-title:hover, .accordion-title:focus {
+    background-color: mediumaquamarine;
+    color: white;
+}
+.accordion-title {
+ border: none;   
+ transition: all 0.5s ease-in-out;
+}
+.accordion-content {
+ border: none;
+}
+.accordion-item.is-active {
+    background-color: mediumaquamarine;
+    color: white;
+}
+
+.tab {
+    margin-left: 40px;
+}
+
+.tabList {
+    margin-left: 60px;
+}

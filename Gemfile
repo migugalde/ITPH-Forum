@@ -19,7 +19,7 @@ gem 'jquery-rails'
 # Use foundation framework app with ruby, can also call "rails g foundation:install" locally
 gem 'foundation-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -34,6 +34,13 @@ gem 'paperclip', '~> 4.2'
 
 #gem to make a search bar ui
 gem 'select2-rails'
+
+gem 'tinymce-rails'
+
+gem 'mailgun_rails'
+
+gem 'will_paginate', '~> 3.1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

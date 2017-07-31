@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -38,5 +38,15 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'itph-community-ireneaili.c9users.io' }
+  
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+		api_key: 'key-e796c3d50e04aaaa1c1a96d5bba9a427',
+		domain: 'sandbox7d55082f254c4626bd71d56bbe0dd9a7.mailgun.org'
+}
 end

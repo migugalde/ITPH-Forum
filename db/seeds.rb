@@ -24,13 +24,25 @@ users.each do |user|
     User.create!(user) 
 end
 
-posts = [{:title => "Apple", :content => "hello", :public => "true", :user_id => "11"}, 
-         {:title => "Banana", :content => "welcome!", :public => "false", :user_id => "11"}, 
-         {:title => "Carrot", :content => "hi there", :public => "false", :user_id => "12"}, 
-         {:title => "Dole", :content => "what's up?!", :public => "false", :user_id => "12"}, 
-         {:title => "Eggplant", :content => "helloo", :public => "true", :user_id => "12"}, 
-         {:title => "Favobean", :content => "hey", :public => "true", :user_id => "12"}, 
-         {:title => "Grapes", :content => "Nice to meet you", :public => "false", :user_id => "12"}, 
+posts = [{:title => "Apple", :content => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus laoreet, 
+                                             fringilla massa ac, aliquet turpis. Mauris pretium ligula non ex consequat ultrices. 
+                                             Sed egestas magna nec ex pretium, nec congue odio ornare. Pellentesque volutpat mi sit 
+                                             amet felis hendrerit volutpat et sit amet nibh. Integer elementum maximus feugiat. Mauris 
+                                             tempor turpis non magna faucibus ultrices. Nam congue nisl eget sodales sagittis. Nunc
+                                             ultrices, nulla eu semper consequat, dolor tortor placerat urna, id accumsan justo leo ut
+                                             est. In lacinia, dui a tristique eleifend, tellus nisl cursus augue, nec volutpat turpis 
+                                             nibh vel dolor. Ut arcu erat, euismod ac tortor sed, cursus facilisis odio. Maecenas 
+                                             egestas sodales dolor, sed hendrerit sapien malesuada in. Donec et dignissim eros. 
+                                             In hac habitasse platea dictumst. Nulla a laoreet dolor. Sed faucibus eget dolor 
+                                             vel semper.", 
+                                             :description => "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, 
+                                             consectetur, adipisci velit...", :public => "true", :user_id => "11"}, 
+         {:title => "Banana", :content => "welcome!", :description => "bananas are berries", :public => "false", :user_id => "11"}, 
+         {:title => "Carrot", :content => "hi there", :description => "carrots are roots", :public => "false", :user_id => "12"}, 
+         {:title => "Dole", :content => "what's up?!", :description => "Dole is a fruit brand", :public => "false", :user_id => "12"}, 
+         {:title => "Eggplant", :content => "helloo", :description => "Eggplants are squashes", :public => "true", :user_id => "12"}, 
+         {:title => "Favobean", :content => "hey", :description => "Are favobeans even real?", :public => "true", :user_id => "12"}, 
+         {:title => "Grapes", :content => "Nice to meet you", :description => "Grapes are fruits", :public => "false", :user_id => "12"}, 
          ]
          
 posts.each do |post|

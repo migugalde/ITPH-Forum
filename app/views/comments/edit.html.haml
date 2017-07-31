@@ -1,6 +1,10 @@
 %h1 Edit Reply
-
+= tinymce_assets
 = simple_form_for([@post, @comment]) do |f|
-    = f.input :comment
-    = f.submit
+    = f.text_area :comment, class: "tinymce"
+    .right-align
+        = link_to 'Cancel', post_path(@post), class: "button"
+        = f.submit "Update", class: "button"
+    
+= tinymce
     
