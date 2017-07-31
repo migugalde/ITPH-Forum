@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   get '/' => 'welcome#index'
   resources :admin
   # get 'adminhome' => 'admin#home'
-  ##############
+  
   resources :posts do
     resources :comments
   end
-  ##############
+  
   resources :community
   root 'welcome#index'
   

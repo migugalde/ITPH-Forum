@@ -33,10 +33,11 @@
             %p
                 Tags:
                 = link_to "All", posts_path(:all => 'all')
-                // %select#tag-search
-                //     - @tags.each do |tag|
-                //         %option{:value => "#{tag}"} 
-                //             = tag.name
+                %select#tag-search
+                    %option
+                    - @tags.each do |tag|
+                        %option{:value => "#{tag}"} 
+                            = tag.name
                 //         // %option{:value => "#{tag}"} 
                 //         //     = tag.name
                 %hr
@@ -63,6 +64,8 @@
             =will_paginate @posts
 %br
 %br
+%div#post-var 
+    
 
 = tinymce
 
@@ -74,7 +77,30 @@
         $(document).ready ->
             $('#tag-search').select2 placeholder: 'Search by tag'
             return
+            
         
         $eventSelect.on 'select2:select', (e) ->
-            console.log e
+            console.log "MADE IT IN"
+            tag_name = e.params.data.text.trim()
+            console.log '/tags/' + tag_name
+            $.ajax
+                type: 'GET'
+                url: '/tags/' + tag_name
+                data: JSON.stringify(tag: tag_name)
+                contentType: 'application/json'
+                dataType: 'json'
+                success: (data) ->
+                    console.log "SUCCESS", data
+                    # $('#pet-screen .name').text data.name
+                    # $('#pet-screen .animal').text data.animal
+                    # $('#pet-screen .age').text data.age
+                    # $('#pet-screen .picture').attr 'src', data.picture
+                    # if data.age < 3
+                    #   $('#pet-screen .warning').text 'Please take care of this wittle guy :)'
+                    # $('#pet-screen').show()
+                    return
+                error: (error) ->
+                    console.log "ERROR"
+                    #location.reload()
+                    return
             return
