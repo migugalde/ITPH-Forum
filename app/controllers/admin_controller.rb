@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-    before_filter :authenticate_admin!
+    before_action :authenticate_admin!
     
     def user_params
         params.require(:user).permit(:first_name, :last_name, :email, :admin, :approved)

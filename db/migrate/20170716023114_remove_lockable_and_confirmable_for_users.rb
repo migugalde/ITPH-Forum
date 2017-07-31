@@ -1,4 +1,4 @@
-class RemoveLockableAndConfirmableForUsers < ActiveRecord::Migration
+class RemoveLockableAndConfirmableForUsers < ActiveRecord::Migration[5.1]
   def change
     change_table :users do |t|
       t.remove :confirmation_token

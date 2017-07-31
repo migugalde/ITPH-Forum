@@ -1,5 +1,5 @@
 class CommunityController < ApplicationController
-    before_filter :authenticate_user!
+    before_action :authenticate_user!
     def index
         @user = User.where(admin: true)
         @posts = Post.where(user_id: @user).order('created_at DESC').last(3)

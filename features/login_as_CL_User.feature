@@ -18,7 +18,7 @@ Scenario: not able to login even with valid credentials if I am not approved
 Scenario: unable to login with valid username and incorrect password
   Given correct cl_user_email and incorrect password
   When I press "button-cap"
-  Then I should see "Invalid email or password."
+  Then I should see "Invalid Email or password."
   
 # I should not be able to visit the admin page
 Scenario: unable to visit the admin page as a user
