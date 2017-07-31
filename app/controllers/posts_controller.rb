@@ -7,6 +7,7 @@ class PostsController < ApplicationController
         session[:sort] = params[:sort] if params[:sort] != nil
         session[:tag] = params[:tag] if params[:tag] != nil
         @posts = Post.all
+        @tags = Tag.all
         
         if current_user.nil?
             @posts = Post.where(public: true)
@@ -17,7 +18,9 @@ class PostsController < ApplicationController
         end
         
         #testing here
-        @tags = @tags.order(session[:tag])
+        # unless @tags.nil?
+        #     @tags = @tags.order(session[:sort])
+        # end
         #testing here
         
         @posts = @posts.order(session[:sort])

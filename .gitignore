@@ -20,3 +20,5 @@
 vendor/bundle/
 
 coverage
+
+.byebug_history
