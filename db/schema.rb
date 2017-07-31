@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727012622) do
+ActiveRecord::Schema.define(version: 20170730220603) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
@@ -27,26 +27,49 @@ ActiveRecord::Schema.define(version: 20170727012622) do
   create_table "galleries", force: :cascade do |t|
   end
 
+  create_table "goals", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "title"
+    t.text     "step1"
+    t.text     "step2"
+    t.text     "step3"
+    t.text     "step4"
+    t.text     "step5"
+    t.text     "step6"
+    t.text     "step7"
+    t.text     "step8"
+    t.text     "step9"
+    t.text     "step10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id"
+
   create_table "paintings", force: :cascade do |t|
   end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
-    t.boolean  "public",             default: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.boolean  "public",      default: false
+    t.text     "description"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
     t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "repages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,15 +116,6 @@ ActiveRecord::Schema.define(version: 20170727012622) do
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                  default: false
     t.boolean  "approved",               default: false, null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.text     "bio"
   end
 
   add_index "users", ["approved"], name: "index_users_on_approved"

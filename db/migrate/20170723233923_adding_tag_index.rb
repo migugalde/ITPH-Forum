@@ -1,4 +1,4 @@
-class AddingTagIndex < ActiveRecord::Migration
+class AddingTagIndex < ActiveRecord::Migration[5.1]
   def change
   end
 end

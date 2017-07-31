@@ -20,29 +20,45 @@
         =yield
         #post_content
             .row
-                .small-12.columns
+                .small-6.columns
                     %h1= @post.title
+                .small-6.columns.right-align.marB
+                    - if @post.public
+                        #public This post is public!
             .row
                 .small-12.columns
-                    %p= @post.content
-                    - if @post.public
-                        %p.right-align#public This post is public!
-                    .date.right-align
-                        published at
-                        = time_ago_in_words(@post.created_at)
-                        by  
-                        = link_to @post.user.email, profile_path(@post.user.id)
+                    %p= @post.content.html_safe
+                    
+                    .small-6.columns
+                        - if current_user
+                            - if current_user.id == @post.user_id || current_user.admin
+                                = link_to "Edit", edit_post_path(@post), class: "button1"
+                                &nbsp&nbsp
+                                = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}, class: "button1"
+                    .small-6.columns
+                        .date.right-align
+                            published at
+                            = time_ago_in_words(@post.created_at)
+                            by&nbsp  
+                            = link_to @post.user.email, profile_path(@post.user.id)
+                        %br
+                %hr/ 
+            - if current_user
+                .row
+                    .right-align
+                        = @post.comments.count
+                        Comment(s) &nbsp&nbsp 
                     %hr/
-            #comments
-                %h5{:style => "text-align: right;"}
-                    = @post.comments.count
-                    Comments
-                = render @post.comments
-                
-                %h4 Reply to thread
-                = render "comments/form"
+                #comments
+                    = render @post.comments
+                    
+                    %a.header-icon{"href" => "#/", id: "yourButton"}
+                        %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
+                        leave a comment
+                %br
+                            
+                    %div#my_form.down_click
+                        = render "comments/form"
+                    
+                    %div.bottom_page
             
-        
-            = link_to "Edit", edit_post_path(@post)
-            = link_to "Delete", post_path(@post), method: :delete, data: { confirm:  "Are you sure"}
-            = link_to "Forum", posts_path

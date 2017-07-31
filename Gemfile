@@ -3,32 +3,44 @@ source 'https://rubygems.org'
 gem 'shoulda-matchers'
 # gem 'factory_girl_rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '= 5.0'
+
+gem 'rails', '5.1.3.rc2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'haml', '~> 4.0.5'
-gem 'simple_form'#, '~> 3.0.2'
+
+gem 'haml'
+gem 'simple_form'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Use foundation framework app with ruby, can also call "rails g foundation:install" locally
 gem 'foundation-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# gem 'devise', '~> 3.5.4'
-gem 'devise', '~> 4.1.0'
+
+gem 'devise'
+
+gem 'tinymce-rails'
+
+gem 'mailgun_rails'
+
+gem 'will_paginate', '~> 3.1.0'
+
 
 gem 'carrierwave', '~> 0.9'
+
 gem 'bootstrap-sass', '~> 2.3.2'
  
 gem 'paperclip', '~> 4.2'
@@ -37,6 +49,7 @@ gem 'puma', '~> 3.7'
 gem 'redis', '~> 3.0'
 gem 'sqlite3'
 gem 'pg'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

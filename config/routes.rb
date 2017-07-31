@@ -1,44 +1,48 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
+  get 'repages/index'
 
-  get 'resources/index'
+  get 'repages/new'
 
-  get 'resources/new'
+  get 'repages/create'
 
-  get 'resources/create'
+  get 'repages/destroy'
 
-  get 'resources/destroy'
+  # get 'navbar/home'
 
-  get 'navbar/home'
+  # get 'navbar/forum'
 
-  get 'navbar/forum'
+  # get 'navbar/inbox'
 
-  get 'navbar/inbox'
+  # get 'navbar/profile'
 
-  get 'navbar/profile'
+  # get 'navbar/settings'
 
-  get 'navbar/settings'
-  
-
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "my_registrations" }
   # get 'layouts/welcome/index'
   get '/' => 'welcome#index'
   resources :admin
-  get 'adminhome' => 'admin#home'
+  # get 'adminhome' => 'admin#home'
   ##############
   resources :posts do
     resources :comments
   end
-  ##############   
+  ##############
   resources :community
   root 'welcome#index'
   
-  resources :resources, only: [:index, :new, :create, :destroy]
   get 'tags/:tag', to: 'posts#index', as: "tag"
   
-  get ':id', to: 'profiles#show', as: 'profile' 
-  get ':id/edit', to: 'profiles#edit', as: :edit_profile 
-  patch ':id/edit', to: 'profiles#update', as: :update_profile
+  # get 'profile/:id', to: 'profile#show', as: 'profile'
+  # get 'profile/:id', to: 'profile#create', as: :create_goal
+  # get ':id/goal', to: 'profile#goal', as: :goal_profile 
+  resources :profile do
+    #get 'profile/:goal', to: 'profile#goal', as: :goal_profile
+  end
+  get 'resources', to: 'resource#index', as: 'resources'
+  
+  ###
+  resources :repages, only: [:index, :new, :create, :destroy]
+  ###
   
   
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)

@@ -69,12 +69,21 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+
+  # Tell Action Mailer not to deliver emails to the real world.
+  # The :test delivery method accumulates sent emails in the
+  # ActionMailer::Base.deliveries array.
+  
+  # Randomize the order test cases are executed.
+  config.active_support.test_order = :random
+
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
@@ -84,4 +93,22 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Raises error for missing translations
+  # config.action_view.raise_on_missing_translations = true
+  
+  config.action_mailer.raise_delivery_errors = true
+  
+  config.action_mailer.default_url_options = { host: 'whispering-peak-99132.herokuapp.com' }
+  
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.default_options = {from: 'admin@itphcommunity.com'}
+  
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+		api_key: 'key-e796c3d50e04aaaa1c1a96d5bba9a427',
+		domain: 'sandbox7d55082f254c4626bd71d56bbe0dd9a7.mailgun.org'
+  }
 end
+>>>>>>> bed6e8920a30af65dadb583a11310b5d8a398b8c

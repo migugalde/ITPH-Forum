@@ -1,11 +1,20 @@
-= simple_form_for @post do |f|
+= tinymce_assets
+
+= simple_form_for Post.new do |f|
     = f.input :title, required: "true"
-    = f.input :content, required: "true"
+    = f.input :description, required: 'true', placeholder: "Write a brief description about what your post is about..."
+    = f.text_area :content, class: "tinymce" 
+    %br
     %h7
         Tags
         = f.text_field :all_tags, placeholder: "Tags separated with comma"
-    - if current_user.admin
-        = f.check_box :public
-        Check if you want the public to see!
+    -if current_user
+        - if current_user.admin
+            = f.check_box :public
+            Check if you want the public to see!
     .right-align
-        = f.submit class: "button"
+        = link_to 'Cancel', posts_path, class: "button"
+        = f.submit 'Submit', class: "button"
+        
+        
+= tinymce
