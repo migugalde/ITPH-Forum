@@ -27,11 +27,12 @@ module NavigationHelpers
       
     when /^the new post page/
       new_post_path
+      
+    when /the Posts page/
+      posts_path
     
     when /^the profile page/
       profile_path
-      
-    
 
     when /^the resource page/
       repages_path
