@@ -33,6 +33,19 @@ module NavigationHelpers
     
     when /^the profile page/
       profile_path
+
+    when /^the resource page/
+      repages_path
+      
+    when /^the New resource page/
+      new_repage_path
+    
+    when /^the admin page/
+      admin_index_path
+    
+    when /^the new resource page/
+      new_repage_path
+      
     
     when /^the admin edit page for "([^"]*)"$/
       edit_admin_path(User.find_by_email($1))

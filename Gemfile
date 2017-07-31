@@ -33,6 +33,10 @@ gem 'mailgun_rails'
 
 gem 'will_paginate', '~> 3.1.0'
 
+gem 'carrierwave', '~> 0.9'
+
+gem 'bootstrap-sass', '~> 2.3.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

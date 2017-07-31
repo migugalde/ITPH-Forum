@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'repages/index'
+
+  get 'repages/new'
+
+  get 'repages/create'
+
+  get 'repages/destroy'
+
   # get 'navbar/home'
 
   # get 'navbar/forum'
@@ -31,6 +39,10 @@ Rails.application.routes.draw do
     #get 'profile/:goal', to: 'profile#goal', as: :goal_profile
   end
   get 'resources', to: 'resource#index', as: 'resources'
+  
+  ###
+  resources :repages, only: [:index, :new, :create, :destroy]
+  ###
   
   
   # mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
