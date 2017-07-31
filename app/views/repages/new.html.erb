@@ -2,9 +2,10 @@
    <div class = "alert alert-error">
       
       <ul>
-         <% @repage.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-         <% end %>
+         <!--<% @repage.errors.full_messages.each do |msg| %>-->
+         <!--   <li><%= msg %></li>-->
+         <!--<% end %>-->
+          <li>Description cannot be blank</li>
       </ul>
       
    </div>
@@ -13,9 +14,9 @@
 <div class = "well">
    <%= form_for @repage, html: { multipart: true } do |f| %>
       <%= f.label :description %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, id: "desc"%>
       <%= f.label :attachment %>
-      <%= f.file_field :attachment %>
+      <%= f.file_field :attachment, id: "attach" %>
       <%= f.submit "Save", class: "btn btn-primary" %>
    <% end %>
 </div>

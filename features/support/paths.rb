@@ -34,7 +34,18 @@ module NavigationHelpers
     when /^the profile paage/
       profile_path
 
-
+    when /^the resource page/
+      repages_path
+      
+    when /^the New resource page/
+      new_repage_path
+    
+    when /^the admin page/
+      admin_index_path
+    
+    when /^the new resource page/
+      new_repage_path
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

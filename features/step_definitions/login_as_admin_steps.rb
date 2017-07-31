@@ -49,7 +49,7 @@ Given(/^correct admin_user_email and password$/) do
 
 end
 
-Given(/^correct admin_user_email and incorrect password$/) do
+Given(/^correct admin user_email and incorrect password$/) do
   visit "users/sign_in"
   fill_in('Email_login', :with => 'ireneaili@berkeley.edu')
   fill_in('Password', :with => 'ireneaili')
@@ -59,3 +59,6 @@ Given(/^correct admin_user_email and incorrect password$/) do
   #page.should have_content("Sign in")
   
 end
+
+
+

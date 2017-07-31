@@ -18,4 +18,4 @@
         %td= res.name
         %td= link_to "Download File", res.attachment_url
         - if current_user.admin?
-          %td= button_to "Delete",  res, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{res.name}?"
+          %td= button_to "Delete",  res, method: :delete, class: "btn btn-danger", id: "delta", confirm: "Are you sure that you wish to delete #{res.name}?"
