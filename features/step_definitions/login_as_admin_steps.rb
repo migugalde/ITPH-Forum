@@ -59,6 +59,3 @@ Given(/^correct admin user_email and incorrect password$/) do
   #page.should have_content("Sign in")
   
 end
-
-
-
