@@ -1,9 +1,11 @@
+# config/cable.yml
+
+production:
+  adapter: redis
+  url: redis://redistogo:8b286643017af4b554619c3af87d432b@barreleye.redistogo.com:10140/
+
 development:
   adapter: async
 
 test:
   adapter: async
-
-production:
-  adapter: redis
-  url: redis://redistogo:8b286643017af4b554619c3af87d432b@barreleye.redistogo.com:10140/

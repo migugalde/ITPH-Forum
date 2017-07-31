@@ -22,3 +22,5 @@ vendor/bundle/
 coverage
 
 .byebug_history
+config/.DS_Store
+.DS_Store

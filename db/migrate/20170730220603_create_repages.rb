@@ -1,4 +1,4 @@
-class CreateRepages < ActiveRecord::Migration
+class CreateRepages < ActiveRecord::Migration[5.1]
   def change
     create_table :repages do |t|
       t.string :name
