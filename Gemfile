@@ -35,6 +35,9 @@ gem 'paperclip', '~> 4.2'
 
 gem 'puma', '~> 3.7'
 gem 'redis', '~> 3.0'
+gem 'sqlite3'
+gem 'pg'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -45,7 +48,8 @@ gem 'redis', '~> 3.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
+  gem 'pg'  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript 
