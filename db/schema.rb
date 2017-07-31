@@ -22,9 +22,6 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "galleries", force: :cascade do |t|
-  end
-
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
     t.text "title"
@@ -43,9 +40,6 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
-  create_table "paintings", force: :cascade do |t|
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -53,29 +47,10 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.boolean "public", default: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.text "description"
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id"
-    t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "repages", force: :cascade do |t|
-    t.string "name"
-    t.string "attachment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "resources", force: :cascade do |t|
     t.string "name"
     t.string "attachment"
     t.datetime "created_at", null: false
@@ -103,8 +78,8 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.string "username"
     t.string "password"
     t.string "email", default: "", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -116,15 +91,6 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.string "last_sign_in_ip"
     t.boolean "admin", default: false
     t.boolean "approved", default: false, null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
-    t.text "bio"
     t.index ["approved"], name: "index_users_on_approved"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

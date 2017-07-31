@@ -47,7 +47,7 @@ gem 'paperclip', '~> 4.2'
 
 gem 'puma', '~> 3.7'
 gem 'redis', '~> 3.0'
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'pg'
 
 
