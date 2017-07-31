@@ -61,8 +61,8 @@ gem 'pg'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # gem 'sqlite3'
-  gem 'pg'  
+  gem 'sqlite3'
+  # gem 'pg'  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript 
