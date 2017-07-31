@@ -113,4 +113,3 @@ Rails.application.configure do
 		domain: 'sandbox7d55082f254c4626bd71d56bbe0dd9a7.mailgun.org'
   }
 end
->>>>>>> bed6e8920a30af65dadb583a11310b5d8a398b8c
