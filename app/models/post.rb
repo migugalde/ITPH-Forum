@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
     has_many :tags, through: :taggings
     belongs_to :user 
     has_many :comments
+
+    # after_commit :broadcastToPosts, on: :create
     
     def all_tags=(names)
         self.tags = names.split(",").map do |name|
@@ -16,5 +18,9 @@ class Post < ActiveRecord::Base
     
     def self.tagged_with(name)
         Tag.find_by_name!(name).posts
+    end
+
+    def broadcastToPosts
+        PostsBroadcastJob.perform_now(@post)
     end
 end

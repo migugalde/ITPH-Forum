@@ -18,7 +18,6 @@
                     %a.header-text{:href => root_path} sign up
             %hr/
         
-
     
         .wrapper
         =yield
@@ -33,9 +32,17 @@
             %p
                 Tags:
                 = link_to "All", posts_path(:all => 'all')
-                %hr/
+                %select#tag-search{:style => "width: 25%"}
+                    %option
+                    - @tags.each do |tag|
+                        %option{:value => "#{tag}"} 
+                            = tag.name
+                //         // %option{:value => "#{tag}"} 
+                //         //     = tag.name
+                %hr
                 
         %div#posts
+            #messages{remote: true} 
             - @posts.each do |post|
                 .row.post
                     %h2.title
@@ -49,13 +56,52 @@
                         %a
                             = link_to post.user.email, profile_path(post.user.id)
                             
-
                     %p.tag
                         /= = raw post.all_tags (seems redundant, keeping next line in favor)
                         = raw tag_links(post.all_tags)
+
             =will_paginate @posts
 %br
 %br
 
 = tinymce
-        
+
+:coffeescript
+    $ ->
+    
+        $eventSelect = $("#tag-search")
+    
+        $(document).ready ->
+            $('#tag-search').select2 placeholder: 'Search by tag'
+            return
+            
+        $eventSelect.on 'select2:select', (e) ->
+            tag_name = e.params.data.text.trim()
+            $('#tag_link').href = tag_name
+            location.href = "/posts/tag/" +tag_name;
+            
+        # $eventSelect.on 'select2:select', (e) ->
+            # tag_name = e.params.data.text.trim()
+            # params = '{"tag":' + tag_name +'}'
+            # $.get '/tags/' + tag_name, params, (data) ->
+                # alert data, "SUCCESS"
+                # return
+                
+        # $eventSelect.on 'select2:select', (e) ->
+            # console.log "MADE IT IN"
+            # tag_name = e.params.data.text.trim()
+            # console.log '/tags/' + tag_name
+            # $.ajax
+                # type: 'GET'
+                # url: '/tags/' + tag_name
+                # data: JSON.stringify(tag: tag_name)
+                # contentType: 'application/json'
+                # dataType: 'json'
+                # success: (data) ->
+                    # console.log "SUCCESS", data
+                    # return
+                # error: (error) ->
+                    # console.log "ERROR"
+                    # location.reload()
+                    # return
+            # return

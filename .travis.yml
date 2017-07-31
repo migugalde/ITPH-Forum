@@ -3,6 +3,8 @@ rvm:
     - 2.3.0
 env:
   CODECLIMATE_REPO_TOKEN: "9d667e577d77ea5119363d40c20cb59aeb5a4cb004caa2d405bf5d7516b33843"
+services:
+  - redis-server
 # regular test configuration
 after_success:
   - bundle exec codeclimate-test-reporter
