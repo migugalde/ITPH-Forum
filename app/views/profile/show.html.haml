@@ -14,9 +14,11 @@
     %br
     %br
     
-    = image_tag @user.avatar.url(:thumb) if @user.avatar?
+    // = avatar_for(@user)
+    = image_tag @user.avatar.url(:thumb), class: 'avatarmain-image'
 
-
+    %br
+    %br
 - if @goal.nil?
     .row#header
         Looks like you haven't set a new goal yet. 

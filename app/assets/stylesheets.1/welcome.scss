@@ -1,0 +1,68 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login-panel {
+    margin-top: 15% !important;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 5%;
+}
+
+.outsideView {
+    background-color: aliceblue;
+}
+
+body {
+    background: white;
+}
+
+#form1 {
+    margin-top: 10px;
+}
+
+[type='text'],[type='password'] {
+    border: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px cornflowerblue solid !important;
+    transition: all 0.5s ease-in-out;
+}
+[type='text']:focus, [type='password']:focus {
+    background-color: aliceblue !important;
+}
+
+.button.large.welcome {
+    margin: 20px;
+}
+.center {
+    margin: auto;
+    width: 100%;
+}
+
+#in_box_align {
+    text-align: center;
+}
+
+#red {
+    color: red;
+}
+
+#green {
+    color: green;
+}
+.friendly {
+    background-image: url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape1.svg), url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape2.svg), url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape3.svg), url(https://treehouse-codepen.s3.amazonaws.com/multiplane/landscape4.svg);
+    background-size: cover;
+}
+.friendly2 {
+    background-image: image-url("hilling2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right 0px bottom;
+    background-color: #E2F8FC;
+}
+
+.centerContent {
+    margin-top: 5%;
+}

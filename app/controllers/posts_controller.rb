@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     
     def index
+        @user = User.all
         session[:sort] = params[:sort] if params[:sort] != nil
         session[:tag] = params[:tag] if params[:tag] != nil
         @posts = Post.all
@@ -35,6 +36,7 @@ class PostsController < ApplicationController
     end
     
     def show 
+        @user = User.find(params[:id])
         @post = Post.find(params[:id])
     end
     

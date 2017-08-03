@@ -1,6 +1,6 @@
 class ProfileController < ApplicationController
     before_action :authenticate_user!
-    # before_action :check_authorization, only: [:edit, :update]
+    before_action :check_authorization, only: [:edit, :update]
     before_action :set_user
     
     def show
@@ -44,11 +44,12 @@ class ProfileController < ApplicationController
         params.require(:goal).permit(:title, :step1, :step2, :step3, :step4, :step5, :step6, :step7, :step8, :step9, :step10)
     end
     
-    # def check_authorization
-    #     unless current_user.id == params[:id].to_i
-    #         redirect_to root_url
-    #     end
-    # end
+    def check_authorization
+        unless current_user.id == params[:id].to_i
+            # flash.now[:alert] = "You cannot edit someone else's profile"
+            redirect_to root_url
+        end
+    end
     
     def set_user
         @user = User.find_by(id: params[:id])
