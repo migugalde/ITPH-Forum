@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :profile do
     #get 'profile/:goal', to: 'profile#goal', as: :goal_profile
   end
+
   get 'resources', to: 'resource#index', as: 'resources'
   
   ###

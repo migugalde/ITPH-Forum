@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :comments
     has_many :goals
+    
+    validates :username, presence: true
          
     def active_for_authentication? 
         super && approved? 

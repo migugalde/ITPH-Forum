@@ -1,10 +1,12 @@
 .row#header
     .small-6.columns.margT
         %a.header-text{:href => posts_path}
-            = @name
+            // = @name
+            profile for 
+            = @user.username
     .small-6.columns.right-align.marB
         - if current_user
-            %a.header-icon{"href" => "#", id: "yourButton"}
+            %a.header-icon{"href" => edit_profile_path(), id: "yourButton"}
                 %i.fa.fa-sliders{"aria-hidden" => "true"}
                 edit
     %hr/
@@ -41,8 +43,11 @@
                 = @goal.step10
     .right-align
         = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+        = link_to @user.username, profile_path(@user.id)
 
 :javascript
     $(document).ready(function() {
         $('body').addClass('friendly2');
     });
+
+

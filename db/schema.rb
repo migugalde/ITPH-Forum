@@ -22,6 +22,9 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "galleries", force: :cascade do |t|
+  end
+
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
     t.text "title"
@@ -40,6 +43,9 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
+  create_table "paintings", force: :cascade do |t|
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -50,7 +56,22 @@ ActiveRecord::Schema.define(version: 20170730220603) do
     t.text "description"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "repages", force: :cascade do |t|
+    t.string "name"
+    t.string "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resources", force: :cascade do |t|
     t.string "name"
     t.string "attachment"
     t.datetime "created_at", null: false
