@@ -29,3 +29,19 @@ end
 Then(/^I should see "([^"]*)" in the drop down$/) do |arg1|
   pending # Write code here that turns the phrase above into concrete actions
 end
+
+Given(/^I am logged in as an admin$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I create a post$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^tag it as admin$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should see it on the homepage$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
