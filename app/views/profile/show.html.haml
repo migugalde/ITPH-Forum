@@ -3,7 +3,7 @@
         %a.header-text{:href => posts_path}
             // = @name
             profile for 
-            = @user.username
+            = @name
     .small-6.columns.right-align.marB
         - if current_user
             %a.header-icon{"href" => edit_profile_path(), id: "yourButton"}
@@ -14,8 +14,8 @@
     %br
     %br
     
-    // = avatar_for(@user)
-    = image_tag @user.avatar.url(:thumb), class: 'avatarmain-image'
+    = avatar_for(@user)
+    // = image_tag @user.avatar.url(:thumb), class: 'avatarmain-image'
 
     %br
     %br
