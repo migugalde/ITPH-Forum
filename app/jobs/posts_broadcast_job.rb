@@ -17,7 +17,7 @@ class PostsBroadcastJob < ApplicationJob
 
   def render_message(message)
     ApplicationController.renderer.render(partial: 'posts/postsUpdate', \
-      locals: { message: message }) 
+      locals: { post: message }) 
   end
 
 end
