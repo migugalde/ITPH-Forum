@@ -44,7 +44,7 @@
                 %li
                     = @goal.step10
         .small-6.columns.right-align
-            = avatar_for(@user)
+            = big_avatar_for(@user)
     .right-align
         = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
         = link_to @user.username, profile_path(@user.id)
