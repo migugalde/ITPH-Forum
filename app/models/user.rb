@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base 
+  has_merit
+
     #attr_accessible :first_name, :last_name, :username, :password, :email, :privilege
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

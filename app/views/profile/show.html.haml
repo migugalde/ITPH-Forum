@@ -41,6 +41,12 @@
                 = @goal.step10
     .right-align
         = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+        
+%ul
+    - current_user.badges.each do |badge|
+        %li
+            = badge.name 
+            = badge.description
 
 :javascript
     $(document).ready(function() {
