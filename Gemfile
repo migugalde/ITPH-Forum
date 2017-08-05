@@ -34,8 +34,6 @@ gem 'devise'
 
 gem 'carrierwave', '~> 0.9'
 gem 'bootstrap-sass', '~> 2.3.2'
- 
-gem 'paperclip', '~> 4.2'
 
 #gem to make a search bar ui
 gem 'select2-rails'
