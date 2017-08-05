@@ -22,7 +22,7 @@
         - else
             Looks like #{@user.first_name} hasn't set a new goal yet!
         .large-2.columns
-            = image_tag @user.avatar.url(:medium)
+            = image_tag @user.avatar.url(:medium), :class => "prof-icon"
             = render 'profile_upload'
 - else
     .row#header.pushDown
