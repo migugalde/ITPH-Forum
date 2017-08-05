@@ -33,6 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'carrierwave', '~> 0.9'
+gem 'mini_magick', '3.8.0'
+
+
 gem 'bootstrap-sass', '~> 2.3.2'
  
 gem 'paperclip', '~> 4.2'

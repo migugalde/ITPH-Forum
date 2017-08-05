@@ -45,20 +45,30 @@
             #messages{remote: true} 
             - @posts.each do |post|
                 .row.post
-                    %h2.title
-                        = link_to post.title, post
-                    %p.message
-                        = post.description
-                    %p.date
-                        Published at
-                        = time_ago_in_words(post.created_at)
-                        by
-                        %a
+                    .small-1.columns
+                        = link_to avatar_for(post.user, size: 50), profile_path(post.user.id)
+                    .small-11.columns
+                        %h2.title
+                            = link_to post.title, post
+                        %p.message
+                            = post.description
+                    .small-1.columns.centerText
+                        = post.user.first_name
+                    .small-8.columns
+                        %p.date
+                            Published at
+                            = time_ago_in_words(post.created_at)
+                            by 
                             = link_to post.user.email, profile_path(post.user.id)
-                            
-                    %p.tag
-                        /= = raw post.all_tags (seems redundant, keeping next line in favor)
-                        = raw tag_links(post.all_tags)
+                        // by
+                        // %br
+                        // %a
+                        //     = link_to avatar_for(post.user, size: 50), profile_path(post.user.id)
+                        //     = link_to post.user.email, profile_path(post.user.id)
+                    .small-3.columns.right-align        
+                        %p.tag
+                            /= = raw post.all_tags (seems redundant, keeping next line in favor)
+                            = raw tag_links(post.all_tags)
 
             =will_paginate @posts
 %br
