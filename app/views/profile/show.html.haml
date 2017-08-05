@@ -8,6 +8,11 @@
                 %i.fa.fa-sliders{"aria-hidden" => "true"}
                 edit
     %hr/
+.row
+    = render 'profile_upload'
+.row
+    = image_tag @user.avatar.url(:medium)
+
 - if @goal.nil?
     .row#header
         Looks like you haven't set a new goal yet. 
