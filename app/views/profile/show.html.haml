@@ -3,47 +3,49 @@
         %a.header-text{:href => posts_path}
             = @name
     .small-6.columns.right-align.marB
-        - if current_user
+        - if current_user.id == @user.id
             %a.header-icon{"href" => "#", id: "yourButton"}
                 %i.fa.fa-sliders{"aria-hidden" => "true"}
                 edit
     %hr/
-.row
-    = render 'profile_upload'
-.row
-    = image_tag @user.avatar.url(:medium)
+// .row
+//     = render 'profile_upload'
+// .row
+//     = image_tag @user.avatar.url(:medium)
 
 - if @goal.nil?
     .row#header
-        Looks like you haven't set a new goal yet. 
-        = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+        .large-10.columns
+        - if current_user.id == @user.id
+            Looks like you haven't set a new goal yet. 
+            = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+        - else
+            Looks like #{@user.first_name} hasn't set a new goal yet!
+        .large-2.columns
+            = image_tag @user.avatar.url(:medium)
+            = render 'profile_upload'
 - else
-    .row#header.centerContent
-        %h5 My Goal
-        %p.tab 
-            = @goal.title
-        %h6 Steps to reach my goal
-        %ol.tabList
-            %li
-                = @goal.step1
-            %li
-                = @goal.step2
-            %li
-                = @goal.step3
-            %li
-                = @goal.step4
-            %li
-                = @goal.step5
-            %li
-                = @goal.step6
-            %li
-                = @goal.step7
-            %li
-                = @goal.step8
-            %li
-                = @goal.step9
-            %li
-                = @goal.step10
+    .row#header.pushDown
+        .large-10.columns
+            - if current_user.id == @user.id
+                %h5 My Task
+            -else
+                %h5 #{@user.first_name}'s goal
+            %p.tab 
+                = @goal.title
+            %h6 Goals to complete my task
+            %ol.tabList
+                %li
+                    = @goal.step1
+                %li
+                    = @goal.step2
+                %li
+                    = @goal.step3
+        .large-2.columns
+            .edit-badge
+                %i.fa.fa-pencil{"aria-hidden" => "true"}
+            = image_tag @user.avatar.url(:medium), :class => "prof-icon"
+            = render 'profile_upload'
     .right-align
         = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
 

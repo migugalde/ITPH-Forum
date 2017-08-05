@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20170805082159) do
     t.string "last_sign_in_ip"
     t.boolean "admin", default: false
     t.boolean "approved", default: false, null: false
+    t.string "avatar"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
