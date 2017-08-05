@@ -4,7 +4,7 @@ class ProfileController < ApplicationController
     before_action :set_user
     
     def show
-        # @user = User.find_by(id: params[:id])
+        @user = User.find_by(id: params[:id])
         @name = "#{User.find(params[:id]).first_name} #{User.find(params[:id]).last_name}"
         @goal = @user.goals.last
         p @goal

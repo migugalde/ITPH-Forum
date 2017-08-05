@@ -2,10 +2,11 @@
     .small-6.columns.margT
         %a.header-text{:href => posts_path}
             // = @name
-            profile for 
+            - if current_user.id != @user.id
+                profile for 
             = @name
     .small-6.columns.right-align.marB
-        - if current_user
+        - if current_user.id == @user.id
             %a.header-icon{"href" => edit_profile_path(), id: "yourButton"}
                 %i.fa.fa-sliders{"aria-hidden" => "true"}
                 edit
@@ -18,10 +19,10 @@
 - else
     .row#header.centerContent
         .small-6.columns
-            %h5 My Goal
+            %h5 Task
             %p.tab 
                 = @goal.title
-            %h6 Steps to reach my goal
+            %h6 My Goals to Complete my Task
             %ol.tabList
                 %li
                     = @goal.step1
@@ -29,25 +30,15 @@
                     = @goal.step2
                 %li
                     = @goal.step3
-                %li
-                    = @goal.step4
-                %li
-                    = @goal.step5
-                %li
-                    = @goal.step6
-                %li
-                    = @goal.step7
-                %li
-                    = @goal.step8
-                %li
-                    = @goal.step9
-                %li
-                    = @goal.step10
         .small-6.columns.right-align
             = big_avatar_for(@user)
+    .row
+        .small-12-columns
+            %hr/
+            BADGE
+            %hr/
     .right-align
         = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
-        = link_to @user.username, profile_path(@user.id)
 
 :javascript
     $(document).ready(function() {
