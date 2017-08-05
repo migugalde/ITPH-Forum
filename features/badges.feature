@@ -1,5 +1,14 @@
 Feature: Users will be awarded a badge upon completing their set goals
 
+Background: The user will automatically be logged in
+Given the user is already logged into the site and they are approved
+
+
+Scenario: The user will post their first post
+Given that the user successfuly posts their first Post
+Then the user will be awarded a badge
+
+
 Scenario: Given that the user accomplishes their first goal
 Given that the user finishes their first goal
 Then the user will have a badge appear on their profile

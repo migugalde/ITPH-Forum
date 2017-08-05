@@ -45,6 +45,7 @@ GEM
       memoizable (~> 0.4.0)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    ambry (1.0.0)
     arel (8.0.0)
     arrayfields (4.9.2)
     ast (2.3.0)
@@ -223,6 +224,8 @@ GEM
     map (6.6.0)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
+    merit (3.0.0)
+      ambry (~> 1.0.0)
     method_source (0.8.2)
     metric_fu (4.12.0)
       cane (~> 2.5, >= 2.5.2)
@@ -458,6 +461,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mailgun_rails
+  merit
   metric_fu
   paperclip (~> 4.2)
   pg
