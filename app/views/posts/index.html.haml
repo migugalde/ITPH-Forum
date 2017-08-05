@@ -54,6 +54,7 @@
                         = time_ago_in_words(post.created_at)
                         by
                         %a
+                            // =image_tag User.find(post.user_id).avatar.url(:medium)
                             = link_to post.user.email, profile_path(post.user.id)
                             
                     %p.tag
