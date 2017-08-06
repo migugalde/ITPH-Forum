@@ -1,4 +1,9 @@
-%h1 Edit Reply
+.row#header
+    .small-6.columns.margT
+        %a.header-text edit comment
+    .small-6.columns.right-align.marB
+        %a.header-text{:href => posts_path} back to the forum
+    %hr/
 = tinymce_assets
 = simple_form_for([@post, @comment]) do |f|
     = f.text_area :comment, class: "tinymce"

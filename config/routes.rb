@@ -7,21 +7,9 @@ Rails.application.routes.draw do
 
   get 'repages/destroy'
 
-  # get 'navbar/home'
-
-  # get 'navbar/forum'
-
-  # get 'navbar/inbox'
-
-  # get 'navbar/profile'
-
-  # get 'navbar/settings'
-
   devise_for :users, :controllers => { :registrations => "my_registrations" }
-  # get 'layouts/welcome/index'
   get '/' => 'welcome#index'
   resources :admin
-  # get 'adminhome' => 'admin#home'
   
   resources :posts do
     resources :comments
@@ -31,6 +19,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get 'posts/tag/:tag', to: 'posts#index', as: "tag"
+  get 'directory', to: 'directory#index', as: 'directory'
   
   # get 'profile/:id', to: 'profile#show', as: 'profile'
   # get 'profile/:id', to: 'profile#create', as: :create_goal

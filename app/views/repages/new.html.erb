@@ -10,13 +10,28 @@
       
    </div>
 <% end %>
+<div class="row" id="header">
+  <div class="small-6 columns margT">
+    <a class="header-text">upload resource</a>
+  </div>
+  <div class="small-6 columns right-align marB">
+    <a class="header-icon" href="<%= repages_path %>">
+      <i aria-hidden="true" class="fa fa-pencil-square-o"></i>
+      back to resources
+    </a>
+  </div>
+  <hr/>
+</div>
 
 <div class = "well">
    <%= form_for @repage, html: { multipart: true } do |f| %>
-      <%= f.label :description %>
-      <%= f.text_field :name, id: "desc"%>
+      <%= f.label :description%>
+      <%= f.text_field :name, id: "desc", :required => 'true' %>
       <%= f.label :attachment %>
-      <%= f.file_field :attachment, id: "attach" %>
-      <%= f.submit "Save", class: "btn btn-primary" %>
+      <br/>
+      <%= f.file_field :attachment, id: "attach"%>
+      <div class="large-12 columns right-align">
+         <%= f.submit "Save", class: "button large"%>
+      </div>
    <% end %>
 </div>

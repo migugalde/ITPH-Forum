@@ -400,3 +400,40 @@ body {
     -o-transition: all 500ms ease-in-out;
     transition: all 500ms ease-in-out;
 }
+
+.directoryColumns {
+    columns: 3;
+    margin: 0 auto;
+    text-align: -webkit-center;
+}
+    
+.directoryItems{
+    list-style-type: none;
+    margin-bottom: 30px;
+    
+}
+.directoryPics {
+    width:150px;
+    height:150px;
+    border-radius:100%;
+}
+
+.prof-icon-forum {
+    width:70px;
+    height:70px;
+    border-radius:100%;
+    border: 3px solid white;
+    margin-left: 15px;
+}
+// .box{
+//     display: none;
+//     width: 100%;
+//     position: absolute;
+// }
+
+// a:hover + .box,.box:hover{
+//     display: block;
+//     z-index: 1;
+//     position: absolute;
+//     left: -20px;
+// }
