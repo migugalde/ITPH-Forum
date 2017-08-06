@@ -1,0 +1,259 @@
+%canvas#confetti.moveAround
+.row#header
+    .small-6.columns.margT
+        %a.header-text{:href => posts_path}
+            = @name
+    .small-6.columns.right-align.marB
+        - if current_user.id == @user.id
+            %a.header-icon{"href" => "#", id: "yourButton"}
+                %i.fa.fa-sliders{"aria-hidden" => "true"}
+                edit
+    %hr/
+// .row
+//     = render 'profile_upload'
+// .row
+//     = image_tag @user.avatar.url(:medium)
+
+- if @goal.nil? || @goal.graduation
+    .row#header
+        .large-10.columns
+        - if current_user.id == @user.id
+            Congratulations on completing your goal, #{@user.first_name}!! 
+            - if @goal.graduation
+                = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
+            - else
+                = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+        - else
+            Looks like #{@user.first_name} hasn't set a new goal yet!
+        .large-2.columns
+            - if current_user.id == @user.id
+                .edit-badge
+                    %i.fa.fa-pencil{"aria-hidden" => "true"}
+            = image_tag @user.avatar.url(:medium), :class => "prof-icon"
+            - if current_user.id == @user.id
+                = render 'profile_upload'
+- else
+    .row#header.pushDown
+        .large-10.columns
+            - if current_user.id == @user.id
+                %h5 My Task
+            -else
+                %h5 #{@user.first_name}'s goal
+            %p.tab 
+                = @goal.title
+            %h6 Goals to complete my task
+            %ol.tabList
+                %li
+                    = @goal.step1
+                %li
+                    = @goal.step2
+                %li
+                    = @goal.step3
+        .large-2.columns
+            - if current_user.id == @user.id
+                .edit-badge
+                    %i.fa.fa-pencil{"aria-hidden" => "true"}
+            = image_tag @user.avatar.url(:medium), :class => "prof-icon"
+            - if current_user.id == @user.id
+                = render 'profile_upload'
+    .row
+        .large-4.columns
+            - if current_user.id == @user.id
+                - if @goal.graduation
+                    %p Congratulations, you've graduated!
+                -else
+                    // %a.button.success Graduate From This Task
+                    = link_to "Graduate From This Task", profile_flop_path(@user.id, @goal), :class => "button limegreen expanded"
+                
+.row#header.graduated
+    .large-12.columns
+        - if current_user.id == @user.id
+            %h5 My Completed Tasks
+        -else
+            %h5 #{@user.first_name}'s Completed Tasks
+        #badgeList
+            - @goals.each do |g|
+                -if g.graduation
+                    %h6 
+                        = g.title
+                    %ol.tabList
+                        %li
+                            = g.step1
+                        %li
+                            = g.step2
+                        %li
+                            = g.step3
+        .alt.hide
+            - if current_user.id == @user.id
+                %p You haven't finished any tasks, yet! Let's change that.
+            - else
+                %p Looks like #{@user.first_name} hasn't completed any tasks yet.
+    
+.right-align
+    = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+
+:javascript
+    $(document).ready(function() {
+        $('body').addClass('friendly2');
+        
+        $('#user_avatar').click(function(){
+            $("#save-button").css("display", "block");
+            $("#save-button").css("opacity", "1");
+        });
+        
+        
+        var check = function(){
+            if( !($('#badgeList').text().length > 1 )) {
+                console.log("empty");
+                $('.alt').removeClass('hide');
+            }
+            else {
+                $('.alt').addClass('hide');
+                setTimeout(check, 1000); // check again in a second
+            }
+        }
+        
+        check();
+        
+        var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, drawCircle2, drawCircle3, i, range, xpos;
+
+        NUM_CONFETTI = 120;
+        
+        COLORS = [[255,227,60], [255,144,0], [239,180,0], [255,144,0], [0,121,255]]
+        
+        PI_2 = 2 * Math.PI;
+        
+        canvas = document.getElementById("confetti");
+        
+        context = canvas.getContext("2d");
+        
+        window.w = 0;
+        
+        window.h = 0;
+        
+        window.resizeWindow = function() {
+          window.w = canvas.width = window.innerWidth;
+          return window.h = canvas.height = window.innerHeight;
+        };
+        
+        window.addEventListener('resize', resizeWindow, false);
+        
+        window.onload = function() {
+          return setTimeout(resizeWindow, 0);
+        };
+        
+        range = function(a, b) {
+          return (b - a) * Math.random() + a;
+        };
+        
+        drawCircle = function(x, y, r, style) {
+          context.beginPath();
+          context.moveTo(x, y);
+          context.bezierCurveTo(x - 17, y + 14, x + 13, y + 5, x - 5, y + 22);
+          context.lineWidth = 3;
+          context.strokeStyle = style;
+          return context.stroke();
+        };
+        
+        drawCircle2 = function(x, y, r, style) {
+          context.beginPath();
+          context.moveTo(x, y);
+          context.lineTo(x + 10, y + 10);
+          context.lineTo(x + 10, y);
+          context.closePath();
+          context.fillStyle = style;
+          return context.fill();
+        };
+        
+        drawCircle3 = function(x, y, r, style) {
+          context.beginPath();
+          context.moveTo(x, y);
+          context.lineTo(x + 10, y + 10);
+          context.lineTo(x + 10, y);
+          context.closePath();
+          context.fillStyle = style;
+          return context.fill();
+        };
+        
+        xpos = 0.9;
+        
+        document.onmousemove = function(e) {
+          return xpos = e.pageX / w;
+        };
+        
+        window.requestAnimationFrame = (function() {
+          return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
+            return window.setTimeout(callback, 100 / 20);
+          };
+        })();
+        
+        Confetti = (function() {
+          function Confetti() {
+            this.style = COLORS[~~range(0, 5)];
+            this.rgb = "rgba(" + this.style[0] + "," + this.style[1] + "," + this.style[2];
+            this.r = ~~range(2, 6);
+            this.r2 = 2 * this.r;
+            this.replace();
+          }
+        
+          Confetti.prototype.replace = function() {
+            this.opacity = 0;
+            this.dop = 0.03 * range(1, 4);
+            this.x = range(-this.r2, w - this.r2);
+            this.y = range(-20, h - this.r2);
+            this.xmax = w - this.r;
+            this.ymax = h - this.r;
+            this.vx = range(0, 2) + 8 * xpos - 5;
+            return this.vy = 0.7 * this.r + range(-1, 1);
+          };
+        
+          Confetti.prototype.draw = function() {
+            var ref;
+            this.x += this.vx;
+            this.y += this.vy;
+            this.opacity += this.dop;
+            if (this.opacity > 1) {
+              this.opacity = 1;
+              this.dop *= -1;
+            }
+            if (this.opacity < 0 || this.y > this.ymax) {
+              this.replace();
+            }
+            if (!((0 < (ref = this.x) && ref < this.xmax))) {
+              this.x = (this.x + this.xmax) % this.xmax;
+            }
+            drawCircle(~~this.x, ~~this.y, this.r, this.rgb + "," + this.opacity + ")");
+            drawCircle3(~~this.x * 0.5, ~~this.y, this.r, this.rgb + "," + this.opacity + ")");
+            return drawCircle2(~~this.x * 1.5, ~~this.y * 1.5, this.r, this.rgb + "," + this.opacity + ")");
+          };
+        
+          return Confetti;
+        
+        })();
+        
+        confetti = (function() {
+          var j, ref, results;
+          results = [];
+          for (i = j = 1, ref = NUM_CONFETTI; 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
+            results.push(new Confetti);
+          }
+          return results;
+        })();
+        
+        window.step = function() {
+          var c, j, len, results;
+          requestAnimationFrame(step);
+          context.clearRect(0, 0, w, h);
+          results = [];
+          for (j = 0, len = confetti.length; j < len; j++) {
+            c = confetti[j];
+            results.push(c.draw());
+          }
+          return results;
+        };
+        
+        step();
+        
+        // ---
+        // generated by coffee-script 1.9.2
+    });
