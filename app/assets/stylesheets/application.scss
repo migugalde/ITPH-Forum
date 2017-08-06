@@ -417,15 +417,15 @@ body {
     height:150px;
     border-radius:100%;
 }
-.box{
-    display: none;
-    width: 100%;
-    position: absolute;
-}
+// .box{
+//     display: none;
+//     width: 100%;
+//     position: absolute;
+// }
 
-a:hover + .box,.box:hover{
-    display: block;
-    z-index: 1;
-    position: absolute;
-    left: -20px;
-}
+// a:hover + .box,.box:hover{
+//     display: block;
+//     z-index: 1;
+//     position: absolute;
+//     left: -20px;
+// }
