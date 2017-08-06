@@ -25,8 +25,12 @@
         - else
             Looks like #{@user.first_name} hasn't set a new goal yet!
         .large-2.columns
+            - if current_user.id == @user.id
+                .edit-badge
+                    %i.fa.fa-pencil{"aria-hidden" => "true"}
             = image_tag @user.avatar.url(:medium), :class => "prof-icon"
-            = render 'profile_upload'
+            - if current_user.id == @user.id
+                = render 'profile_upload'
 - else
     .row#header.pushDown
         .large-10.columns
@@ -45,10 +49,12 @@
                 %li
                     = @goal.step3
         .large-2.columns
-            .edit-badge
-                %i.fa.fa-pencil{"aria-hidden" => "true"}
+            - if current_user.id == @user.id
+                .edit-badge
+                    %i.fa.fa-pencil{"aria-hidden" => "true"}
             = image_tag @user.avatar.url(:medium), :class => "prof-icon"
-            = render 'profile_upload'
+            - if current_user.id == @user.id
+                = render 'profile_upload'
     .row
         - if current_user.id == @user.id
             - if @goal.graduation
