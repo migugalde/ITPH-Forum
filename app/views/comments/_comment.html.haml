@@ -4,11 +4,14 @@
             %p.comment_content= comment.comment.html_safe
     .row
         .small-12.columns.right-align
-            .comment_date
-                commented
-                = time_ago_in_words(comment.created_at) 
-                ago by
-                = link_to comment.user.email, profile_path(comment.user.id)
+            %a{:href => profile_path(comment.user_id)}
+                %img= image_tag User.find(comment.user_id).avatar.url(:thumb), :class => 'prof-icon-forum'
+                
+        %p.comment_date.right-align
+            commented
+            = time_ago_in_words(comment.created_at) 
+            ago by
+            = link_to comment.user.email, profile_path(comment.user.id)
     .row
         .buttons
             - if current_user
