@@ -56,7 +56,7 @@
                     %p.date{:align => "right"}
                         Published at
                         = time_ago_in_words(post.created_at)
-                        by
+                        ago by
                         %a
                             =link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user.id)
                             

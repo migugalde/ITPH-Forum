@@ -10,7 +10,7 @@
         %p.comment_date.right-align
             commented
             = time_ago_in_words(comment.created_at) 
-            ago by
+            ago by &nbsp
             = link_to comment.user.email, profile_path(comment.user.id)
     .row
         .buttons

@@ -42,7 +42,7 @@
                         .date.right-align
                             published at
                             = time_ago_in_words(@post.created_at)
-                            by&nbsp  
+                            ago by&nbsp  
                             = link_to @post.user.email, profile_path(@post.user.id)
                         %br
                 %hr/ 
