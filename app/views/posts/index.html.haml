@@ -53,16 +53,18 @@
                     %p.right-align.small-6.columns
                         %a{:href => profile_path(post.user_id)}
                             %img= image_tag User.find(post.user_id).avatar.url(:thumb), :class => 'prof-icon-forum'
-                    %p.date{:align => "right"}
-                        Published at
-                        = time_ago_in_words(post.created_at)
-                        ago by
-                        %a
-                            =link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user.id)
-                            
-                    %p.tag
-                        /= = raw post.all_tags (seems redundant, keeping next line in favor)
-                        = raw tag_links(post.all_tags)
+                    .row
+                        .small-6.columns           
+                            %p.tag.marL
+                                /= = raw post.all_tags (seems redundant, keeping next line in favor)
+                                = raw tag_links(post.all_tags)
+                        .small-6.columns.right-align
+                            %p.date.marR{:align => "right"}
+                                Published at
+                                = time_ago_in_words(post.created_at)
+                                ago by
+                                %a
+                                    =link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user.id)
 
             =will_paginate @posts
 %br
