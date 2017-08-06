@@ -15,10 +15,9 @@ class ProfileController < ApplicationController
     
     def celebrate
         @user = User.find(params[:id])
-        @name = "#{User.find(params[:id]).first_name} #{User.find(params[:id]).last_name}"
         @goal = @user.goals.last
         @goals = @user.goals
-        # p @goal
+        @name = "#{User.find(params[:id]).first_name} #{User.find(params[:id]).last_name}"
     end
     
     def new
