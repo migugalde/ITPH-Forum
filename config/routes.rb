@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   # get 'profile/:id', to: 'profile#show', as: 'profile'
   # get 'profile/:id', to: 'profile#create', as: :create_goal
   # get ':id/goal', to: 'profile#goal', as: :goal_profile 
+  get 'profile/:id/celebrate', to: 'profile#celebrate', as: :profile_celebrate
   resources :profile do
     get :flop
     #get 'profile/:goal', to: 'profile#goal', as: :goal_profile

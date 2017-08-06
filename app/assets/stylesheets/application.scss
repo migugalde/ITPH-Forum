@@ -449,3 +449,17 @@ body {
 .graduated {
     margin-top: 25px;
 }
+
+.limegreen {
+    background-color: limegreen;
+    border: 2px solid white;
+    color: white;
+    font-weight: 500;
+}
+
+.moveAround {
+    position: absolute;
+    margin-top: -120px;
+    margin-left: -200px;
+    z-index: -3;
+}

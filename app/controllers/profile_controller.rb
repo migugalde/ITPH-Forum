@@ -13,6 +13,14 @@ class ProfileController < ApplicationController
         # p @goal
     end
     
+    def celebrate
+        @user = User.find(params[:id])
+        @name = "#{User.find(params[:id]).first_name} #{User.find(params[:id]).last_name}"
+        @goal = @user.goals.last
+        @goals = @user.goals
+        # p @goal
+    end
+    
     def new
         @user = User.find_by(id: params[:id])
         @goal = Goal.new
@@ -40,7 +48,7 @@ class ProfileController < ApplicationController
         @goal.graduation = !@goal.graduation
         @goal.save
         if @goal.save
-            redirect_to profile_path(current_user)
+            redirect_to profile_celebrate_path(current_user)
         end
     end
     
