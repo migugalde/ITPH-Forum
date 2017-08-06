@@ -39,6 +39,11 @@
               %li
                 %i.fa.fa-life-ring{"aria-hidden" => "true"}
                 %label.label-font Admin
+          -unless current_user.admin
+            %a{"href" => directory_path}
+              %li
+                %i.fa.fa-address-book-o{"aria-hidden" => "true"}
+                %label.label-font Directory
           %a{"data-method" => "delete", :href => destroy_user_session_path, :rel => "nofollow"}
             %li
               %i.fa.fa-sign-out{"aria-hidden" => "true"}
