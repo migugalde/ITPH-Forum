@@ -21,7 +21,6 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-        
 
         grant_on 'comments#create', badge: "Novice Commenter", temporary: true do |comment|
             @allComments = Comment.where(user_id: comment.user_id)
@@ -52,70 +51,32 @@ module Merit
             countComments = @allComments.count
             countComments > 49
         end
-
-
-
-        # grant_on 'comments#create', badge: "Novice Commenter", to: :current_user, temporary: true do |comment|
-        #     @allComments = Comment.where(user_id: comment.user_id)
-        #     countComments = @allComments.count
-        #     countComments > 0 and countComments < 5
-        # end
-
-        # grant_on 'comments#create', badge: "Intermediate Commenter", to: :current_user, temporary: true do |comment|
-        #     @allComments = Comment.where(user_id: comment.user_id)
-        #     countComments = @allComments.count
-        #     countComments > 4 and countComments < 15
-        # end
-
-        # grant_on 'comments#create', badge: "Experienced Commenter", to: :current_user, temporary: true do |comment|
-        #     @allComments = Comment.where(user_id: comment.user_id)
-        #     countComments = @allComments.count
-        #     countComments > 14 and countComments < 25
-        # end
-
-        # grant_on 'comments#create', badge: "Pro Commenter", to: :current_user, temporary: true do |comment|
-        #     @allComments = Comment.where(user_id: comment.user_id)
-        #     countComments = @allComments.count
-        #     countComments > 24 and countComments < 50
-        # end
-
-        # grant_on 'comments#create', badge: "Ultimate Commenter", to: :current_user, temporary: true do |comment|
-        #     @allComments = Comment.where(user_id: comment.user_id)
-        #     countComments = @allComments.count
-        #     countComments > 49
-        # end
-
-
-
-
-  
-
-      # If it creates user, grant badge
-      # Should be "current_user" after registration for badge to be granted.
-      # Find badge by badge_id, badge_id takes presidence over badge
-      # grant_on 'users#create', badge_id: 7, badge: 'just-registered', to: :itself
-
-      # If it has 10 comments, grant commenter-10 badge
-      # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|
-      #   comment.user.comments.count == 10
-      # end
       
+        grant_on 'posts#create', badge: 'Novice Poster', temporary: true do |post|
+        @allPosts = Post.where(user_id: post.user_id)
+        @allPosts.count >= 1 && @allPosts.count < 2
+        end
 
+        grant_on 'posts#create', badge: 'Intermediate Poster', temporary: true do |post|
+        @allPosts = Post.where(user_id: post.user_id)
+        @allPosts.count >= 2 && @allPosts.count < 5
+        end
 
+        grant_on 'posts#create', badge: 'Experienced Poster', temporary: true do |post|
+        @allPosts = Post.where(user_id: post.user_id)
+        @allPosts.count >= 5 && @allPosts.count < 10
+        end
 
-      # If it has 5 votes, grant relevant-commenter badge
-      # grant_on 'comments#vote', badge: 'relevant-commenter',
-      #   to: :user do |comment|
-      #
-      #   comment.votes.count == 5
-      # end
+        grant_on 'posts#create', badge: 'Pro Poster', temporary: true do |post|
+        @allPosts = Post.where(user_id: post.user_id)
+        @allPosts.count >= 10 && @allPosts.count < 25
+        end
 
-      # Changes his name by one wider than 4 chars (arbitrary ruby code case)
-      # grant_on 'registrations#update', badge: 'autobiographer',
-      #   temporary: true, model_name: 'User' do |user|
-      #
-      #   user.name.length > 4
-      # end
+        grant_on 'posts#create', badge: 'Ultimate Poster', temporary: true do |post|
+        @allPosts = Post.where(user_id: post.user_id)
+        @allPosts.count >= 25
+        end
+
     end
   end
 end

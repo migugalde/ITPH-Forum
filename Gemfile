@@ -48,17 +48,14 @@ gem 'mailgun_rails'
 
 gem 'will_paginate', '~> 3.1.0'
 
-
-gem 'carrierwave', '~> 0.9'
-
-gem 'bootstrap-sass', '~> 2.3.2'
- 
 gem 'paperclip', '~> 4.2'
 
 gem 'puma', '~> 3.7'
 gem 'redis', '~> 3.0'
 # gem 'sqlite3'
 gem 'pg'
+
+gem 'merit'
 
 
 # Use ActiveModel has_secure_password

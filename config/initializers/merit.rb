@@ -13,25 +13,42 @@ Merit.setup do |config|
   # `:to` option is given. Default is 'User'.
   config.user_model_name = 'User'
 
+
   # Define :current_user_method. Similar to previous option. It will be used
   # to retrieve :user_model_name object if no `:to` option is given. Default
   # is "current_#{user_model_name.downcase}".
   config.current_user_method = 'current_user'
 end
 
-# Create application badges (uses https://github.com/norman/ambry)
-# badge_id = 0
-# [{
-#   id: (badge_id = badge_id+1),
-#   name: 'just-registered'
-# }, {
-#   id: (badge_id = badge_id+1),
-#   name: 'best-unicorn',
-#   custom_fields: { category: 'fantasy' }
-# }].each do |attrs|
-#   Merit::Badge.create! attrs
-# end
+Merit::Badge.create!(
+  id: 1,
+  name: 'Novice Poster',
+  description: "You have written a post!"
+)
 
+Merit::Badge.create!(
+  id: 2,
+  name: 'Intermediate Poster',
+  description: "You have created 2 or more posts!"
+)
+
+Merit::Badge.create!(
+  id: 3,
+  name: 'Experienced Poster',
+  description: "You have created 5 or more posts!"
+)
+
+Merit::Badge.create!(
+  id: 4,
+  name: 'Pro Poster',
+  description: "You have created 10 or more posts!"
+)
+
+Merit::Badge.create!(
+  id: 5,
+  name: 'Ultimate Poster',
+  description: "You have created 25 or more posts!"
+)
 
 Merit::Badge.create!(
   id: 6,
@@ -62,7 +79,3 @@ Merit::Badge.create!(
   name: "Ultimate Commenter",
   description: "You have commented more than 50 times"
   )
-
-
-
-
