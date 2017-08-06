@@ -13,12 +13,12 @@ class ProfileController < ApplicationController
     end
     
     def new
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
         @goal = Goal.new
     end
     
     def create
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
         # @goal = Goal.new(goal: params[:goal])
         @goal = current_user.goals.build(goal_params)
         @goal.save

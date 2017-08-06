@@ -1,3 +1,5 @@
 = simple_form_for @user, url: profile_path do |form|
-        = form.input :avatar, as: :file
-        = form.submit 'Submit', class: "button"
+        .slideUp
+                = form.input :avatar, as: :file
+        #save-button
+                = form.submit 'Save Changes', class: "button slideDown hollow success"
