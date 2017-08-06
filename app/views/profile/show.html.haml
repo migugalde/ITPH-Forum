@@ -46,6 +46,38 @@
                 %i.fa.fa-pencil{"aria-hidden" => "true"}
             = image_tag @user.avatar.url(:medium), :class => "prof-icon"
             = render 'profile_upload'
+    .row
+        - if current_user.id == @user.id
+            - if @goal.graduation
+                %p Congratulations, you've graduated!
+            -else
+                // %a.button.success Graduate From This Task
+                = link_to "Graduation", profile_flop_path(@user.id, @goal)
+                
+    .row#header.graduated
+        .large-12.columns
+            - if current_user.id == @user.id
+                %h5 My Completed Tasks
+            -else
+                %h5 #{@user.first_name}'s Completed Tasks
+            #badgeList
+                - @goals.each do |g|
+                    -if g.graduation
+                        %h6 
+                            = g.title
+                        %ol.tabList
+                            %li
+                                = g.step1
+                            %li
+                                = g.step2
+                            %li
+                                = g.step3
+            .alt.hide
+                - if current_user.id == @user.id
+                    %p You haven't finished any tasks, yet! Let's change that.
+                - else
+                    %p Looks like #{@user.first_name} hasn't completed any tasks yet.
+        
     .right-align
         = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
 
@@ -58,4 +90,17 @@
             $("#save-button").css("opacity", "1");
         });
         
+        
+        var check = function(){
+            if( !($('#badgeList').text().length > 1 )) {
+                console.log("empty");
+                $('.alt').removeClass('hide');
+            }
+            else {
+                $('.alt').addClass('hide');
+                setTimeout(check, 1000); // check again in a second
+            }
+        }
+        
+        check();
     });

@@ -9,7 +9,8 @@ class ProfileController < ApplicationController
         @user = User.find(params[:id])
         @name = "#{User.find(params[:id]).first_name} #{User.find(params[:id]).last_name}"
         @goal = @user.goals.last
-        p @goal
+        @goals = @user.goals
+        # p @goal
     end
     
     def new
@@ -21,6 +22,7 @@ class ProfileController < ApplicationController
         @user = User.find_by(id: params[:id])
         # @goal = Goal.new(goal: params[:goal])
         @goal = current_user.goals.build(goal_params)
+        @goal.graduation = false;
         @goal.save
         if @goal.save
             redirect_to profile_path(current_user)
@@ -31,6 +33,15 @@ class ProfileController < ApplicationController
         @user = User.find(params[:id])
         @user.update(user_params)
         redirect_to profile_path(current_user)
+    end
+    
+    def flop
+        @goal = current_user.goals.last
+        @goal.graduation = !@goal.graduation
+        @goal.save
+        if @goal.save
+            redirect_to profile_path(current_user)
+        end
     end
     
     private
