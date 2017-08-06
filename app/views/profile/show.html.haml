@@ -18,10 +18,11 @@
         .large-10.columns
         - if current_user.id == @user.id
             Looks like you haven't set a new goal yet. 
-            - if @goal.graduation
-                = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
-            - else
-                = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+            - if !@goal.nil?
+                - if @goal.graduation
+                    = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
+                - else
+                    = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
         - else
             Looks like #{@user.first_name} hasn't set a new goal yet!
         .large-2.columns
