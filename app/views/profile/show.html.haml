@@ -13,7 +13,7 @@
 // .row
 //     = image_tag @user.avatar.url(:medium)
 
-- if @goal.nil?
+- if @goal.nil? || @goal.graduation
     .row#header
         .large-10.columns
         - if current_user.id == @user.id
@@ -54,32 +54,32 @@
                 // %a.button.success Graduate From This Task
                 = link_to "Graduation", profile_flop_path(@user.id, @goal)
                 
-    .row#header.graduated
-        .large-12.columns
+.row#header.graduated
+    .large-12.columns
+        - if current_user.id == @user.id
+            %h5 My Completed Tasks
+        -else
+            %h5 #{@user.first_name}'s Completed Tasks
+        #badgeList
+            - @goals.each do |g|
+                -if g.graduation
+                    %h6 
+                        = g.title
+                    %ol.tabList
+                        %li
+                            = g.step1
+                        %li
+                            = g.step2
+                        %li
+                            = g.step3
+        .alt.hide
             - if current_user.id == @user.id
-                %h5 My Completed Tasks
-            -else
-                %h5 #{@user.first_name}'s Completed Tasks
-            #badgeList
-                - @goals.each do |g|
-                    -if g.graduation
-                        %h6 
-                            = g.title
-                        %ol.tabList
-                            %li
-                                = g.step1
-                            %li
-                                = g.step2
-                            %li
-                                = g.step3
-            .alt.hide
-                - if current_user.id == @user.id
-                    %p You haven't finished any tasks, yet! Let's change that.
-                - else
-                    %p Looks like #{@user.first_name} hasn't completed any tasks yet.
-        
-    .right-align
-        = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+                %p You haven't finished any tasks, yet! Let's change that.
+            - else
+                %p Looks like #{@user.first_name} hasn't completed any tasks yet.
+    
+.right-align
+    = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
 
 :javascript
     $(document).ready(function() {
