@@ -32,17 +32,35 @@ end
 #   Merit::Badge.create! attrs
 # end
 
+
 Merit::Badge.create!(
-  id: 1,
-  name: "year-member",
-  description: "Active member for a year",
-  custom_fields: {difficulty: :silver}
+  id: 6,
+  name: "Novice Commenter",
+  description: "You have commented more than Once!"
   )
 
 Merit::Badge.create!(
-  id: 2,
-  name: "New User",
-  description: "Users has added a their first post"
+  id: 7,
+  name: "Intermediate Commenter",
+  description: "You have commented more than 5 times"
+  )
+
+Merit::Badge.create!(
+  id: 8,
+  name: "Experienced Commenter",
+  description: "You have commented more than 15 times"
+  )
+
+Merit::Badge.create!(
+  id: 9,
+  name: "Pro Commenter",
+  description: "You have commented more than 25 times"
+  )
+
+Merit::Badge.create!(
+  id: 10,
+  name: "Ultimate Commenter",
+  description: "You have commented more than 50 times"
   )
 
 

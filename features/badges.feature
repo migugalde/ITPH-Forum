@@ -23,3 +23,9 @@ Then they will see a new row
 Scenario: Admin revokes a badge
 Given that a user lies about their accomplishment
 Then the admin will revoke the badge
+
+
+Scenario: The user is going to post their first comment
+Given that user writes and posts a comment
+When the user visits profiles
+Then I will see a new badge

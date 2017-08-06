@@ -21,14 +21,75 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-        grant_on 'comments#create', badge: "year-member", level: 10 do |comment|
-            comment.user.comments.count == 10
+        
+
+        grant_on 'comments#create', badge: "Novice Commenter", temporary: true do |comment|
+            @allComments = Comment.where(user_id: comment.user_id)
+            countComments = @allComments.count
+            countComments > 0 and countComments < 5
         end
 
-        grant_on 'posts@create', badge: "New User" do |post|
-            # I am not sure if this is going to work
-            Post.where(user_id: current_user.id)
+        grant_on 'comments#create', badge: "Intermediate Commenter", temporary: true do |comment|
+            @allComments = Comment.where(user_id: comment.user_id)
+            countComments = @allComments.count
+            countComments > 4 and countComments < 15
         end
+
+        grant_on 'comments#create', badge: "Experienced Commenter", temporary: true do |comment|
+            @allComments = Comment.where(user_id: comment.user_id)
+            countComments = @allComments.count
+            countComments > 14 and countComments < 25
+        end
+
+        grant_on 'comments#create', badge: "Pro Commenter", temporary: true do |comment|
+            @allComments = Comment.where(user_id: comment.user_id)
+            countComments = @allComments.count
+            countComments > 24 and countComments < 50
+        end
+
+        grant_on 'comments#create', badge: "Ultimate Commenter", temporary: true do |comment|
+            @allComments = Comment.where(user_id: comment.user_id)
+            countComments = @allComments.count
+            countComments > 49
+        end
+
+
+
+        # grant_on 'comments#create', badge: "Novice Commenter", to: :current_user, temporary: true do |comment|
+        #     @allComments = Comment.where(user_id: comment.user_id)
+        #     countComments = @allComments.count
+        #     countComments > 0 and countComments < 5
+        # end
+
+        # grant_on 'comments#create', badge: "Intermediate Commenter", to: :current_user, temporary: true do |comment|
+        #     @allComments = Comment.where(user_id: comment.user_id)
+        #     countComments = @allComments.count
+        #     countComments > 4 and countComments < 15
+        # end
+
+        # grant_on 'comments#create', badge: "Experienced Commenter", to: :current_user, temporary: true do |comment|
+        #     @allComments = Comment.where(user_id: comment.user_id)
+        #     countComments = @allComments.count
+        #     countComments > 14 and countComments < 25
+        # end
+
+        # grant_on 'comments#create', badge: "Pro Commenter", to: :current_user, temporary: true do |comment|
+        #     @allComments = Comment.where(user_id: comment.user_id)
+        #     countComments = @allComments.count
+        #     countComments > 24 and countComments < 50
+        # end
+
+        # grant_on 'comments#create', badge: "Ultimate Commenter", to: :current_user, temporary: true do |comment|
+        #     @allComments = Comment.where(user_id: comment.user_id)
+        #     countComments = @allComments.count
+        #     countComments > 49
+        # end
+
+
+
+
+  
+
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # Find badge by badge_id, badge_id takes presidence over badge

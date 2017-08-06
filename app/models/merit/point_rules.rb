@@ -13,6 +13,8 @@ module Merit
     include Merit::PointRulesMethods
 
     def initialize
+      # score 5, :on => ''
+
       # score 10, :on => 'users#create' do |user|
       #   user.bio.present?
       # end

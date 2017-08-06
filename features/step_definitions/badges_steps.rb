@@ -28,15 +28,21 @@ Given(/^that the user successfuly posts their first Post$/) do
 end
 
 Then(/^the user will be awarded a badge$/) do
-	title = "Apple"
-    description = "Apples are sweet"
-    visit new_post_path
-    fill_in "post_title", :with => title
-    fill_in "post_description", :with => description
-    click_button "Submit"
-    visit posts_path
-	email = 'testing@man.net'
-	@current_user = User.find_by email: email
+	# title = "Apple"
+ #    description = "Apples are sweet"
+ #    visit new_post_path
+ #    fill_in "post_title", :with => title
+ #    fill_in "post_description", :with => description
+ #    click_button "Submit"
+ #    visit posts_path
+	# email = 'testing@man.net'
+	# @current_user = User.find_by email: email
+
+	# puts @current_user.badges
+	# puts @current_user.id
+	# puts @current_user.badges
+	
+
 	# expect(@current_user.badges.length).to eq(10)
 
 end
@@ -70,6 +76,27 @@ Then(/^the admin will revoke the badge$/) do
 end
 
 Given(/^that I have a user with a valid credentials placed in the correct forms:$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+
+Given(/^that user writes and posts a comment$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+  
+  # go here Processing by PostsController#show as HTML
+  #maybe we can force all comments that belong to that user to be dropped
+  #fill out form
+  # visit CommentsController#create as HTML
+  #post
+  #visit profile
+  #check if there is a badge for comments
+end
+
+When(/^the user visits profiles$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I will see a new badge$/) do
   pending # Write code here that turns the phrase above into concrete actions
 end
 

@@ -30,6 +30,7 @@ class ProfileController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(user_params)
+        puts "****** PICTURE ********"
         redirect_to profile_path(current_user)
     end
     
