@@ -44,12 +44,19 @@ class ProfileController < ApplicationController
     end
     
     def flop
-        @goal = current_user.goals.last
-        @goal.graduation = !@goal.graduation
-        @goal.save
-        if @goal.save
-            redirect_to profile_celebrate_path(current_user)
+        @index = params[:index].to_i
+        @user = User.find_by(id: params[:profile_id])
+        @goals = @user.goals
+        @goal = @user.goals.first
+        @goals.each.with_index do |g, i|
+            if @index == i
+                @goal = g
+                @goal.graduation = true
+                @goal.save
+            end
         end
+                
+        redirect_to profile_celebrate_path(current_user)
     end
     
     private

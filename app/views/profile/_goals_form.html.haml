@@ -8,7 +8,7 @@
         = label_tag 'goal'
         = f.text_field :step1, required: 'true', placeholder: "A goal to complete your task"
       .small-6.columns  
-        %a.removeNewStep x
+        // %a.removeNewStep x
         
     .stepForm
     .row
@@ -16,14 +16,14 @@
         = label_tag 'goal'
         = f.text_field :step2, placeholder: "A goal to complete your task"
       .small-6.columns  
-        %a.removeNewStep x
+        // %a.removeNewStep x
     .stepForm
     .row
       .small-6.columns
         = label_tag 'goal'
         = f.text_field :step3, placeholder: "A goal to complete your task"
       .small-6.columns  
-        %a.removeNewStep x
+        // %a.removeNewStep x
     .right-align
       = link_to 'Cancel', community_index_path, class: "button"
       = f.submit 'Submit', class: "button"

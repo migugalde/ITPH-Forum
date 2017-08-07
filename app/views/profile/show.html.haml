@@ -1,6 +1,6 @@
 .row#header
     .small-6.columns.margT
-        %a.header-text{:href => posts_path}
+        %a.header-text{:href => posts_path, id: "name_user"}
             = @name
     .small-6.columns.right-align.marB
         - if current_user.id == @user.id
@@ -21,8 +21,8 @@
             - if !@goal.nil?
                 - if @goal.graduation
                     = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
-                - else
-                    = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+            - else
+                = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
         - else
             Looks like #{@user.first_name} hasn't set a new goal yet!
         .large-2.columns
@@ -39,16 +39,22 @@
                 %h5 My Task
             -else
                 %h5 #{@user.first_name}'s goal
-            %p.tab 
-                = @goal.title
-            %h6 Goals to complete my task
-            %ol.tabList
-                %li
-                    = @goal.step1
-                %li
-                    = @goal.step2
-                %li
-                    = @goal.step3
+            - @goals.each.with_index do |g, i|
+                - if !g.graduation
+                    %p.tab 
+                        = g.title
+                    %h6 Goals to complete my task
+                    %ol.tabList
+                        %li
+                            = g.step1
+                        %li
+                            = g.step2
+                        %li
+                            = g.step3
+                            
+                    - if current_user.id == @user.id
+                        - if !g.graduation
+                            = link_to "Graduate From This Task", profile_flop_path(index: i, profile_id: @user.id), :class => "button limegreen expanded"
         .large-2.columns
             - if current_user.id == @user.id
                 .edit-badge
@@ -56,14 +62,7 @@
             = image_tag @user.avatar.url(:medium), :class => "prof-icon"
             - if current_user.id == @user.id
                 = render 'profile_upload'
-    .row
-        .large-4.columns
-            - if current_user.id == @user.id
-                - if @goal.graduation
-                    %p Congratulations, you've graduated!
-                -else
-                    // %a.button.success Graduate From This Task
-                    = link_to "Graduate From This Task", profile_flop_path(@user.id, @goal), :class => "button limegreen expanded"
+    
                 
 .row#header.graduated
     .large-12.columns
@@ -96,7 +95,9 @@
                 = "#{badge.name}"
     
 .right-align
-    = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+    - if current_user.id == @user.id
+        = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+
 :javascript
     $(document).ready(function() {
         $('body').addClass('friendly2');

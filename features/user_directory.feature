@@ -5,16 +5,10 @@ Feature: directory page for users
   I want to be able to view the profiles of the users
   I want to connect with.
   
-Scenario: view a list of all of the users
+Scenario: view a list of all of the users and be able to view their profile
   Given I am a user who is approved
-#   When I go to the directory page
-  Then I should see a list of all users
-  When I hover over the image of user
-  Then I should preview their profile page
-  
-Scenario: view the profile of a user I want to connect with
-  Given I am a user who is approved
-#   When I go to the directory page
-  Then I should see a list of all users
-  When I click on a user
-  Then I should be on their profile page
+  When I go to the directory page
+  Then I should see "User"
+  When I click "User"
+  Then I should see "goal"
+  Then I should see "My Completed Tasks"
