@@ -23,13 +23,19 @@ end
 Merit::Badge.create!(
   id: 1,
   name: 'Novice Poster',
+  # name: 'badge-icon.png',
   description: "You have written a post!"
+  # custom_fields: { url: "badge-icon.png" }
 )
 
 Merit::Badge.create!(
   id: 2,
-  name: 'Intermediate Poster',
-  description: "You have created 2 or more posts!"
+  name: 'Intermediate Poster: You have created 2 or more posts!',
+  # name: 'badge-icon.png',
+  level: "90",
+  description: "badge-icon.png",
+  custom_fields: { url: "badge-icon.png" }
+
 )
 
 Merit::Badge.create!(
