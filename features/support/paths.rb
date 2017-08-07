@@ -52,6 +52,8 @@ module NavigationHelpers
       
     when /^the post page for "([^"]*)"$/
       post_path($1)
+      
+    
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
