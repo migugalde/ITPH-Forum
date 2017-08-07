@@ -31,9 +31,9 @@ module NavigationHelpers
     when /the Posts page/
       posts_path
     
-    when /^the profile page/
-      profile_path
-
+    when /^the profile page for "([^"]*)"$/
+      profile_path(User.find_by_email($1))
+      
     when /^the resource page/
       repages_path
       
@@ -52,11 +52,6 @@ module NavigationHelpers
     when /^the post page for "([^"]*)"$/
       post_path($1)
       
-    
-
-    when /^the post page for "([^"]*)"$/
-      post_path($1)
-
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

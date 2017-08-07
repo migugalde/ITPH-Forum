@@ -49,12 +49,12 @@ Feature: able to upload files and images
     Then I shall see "Name"
     And I shall see "Download Link"
     When I follow the link "upload"
-    Then I am on the New resource page
+    Then I will be on the New resource page
     Then I proceed to the New resource page
     When I fill in the "desc" with "something"
     When I upload a file
     When I press the button "Save"
-    Then I am on the resource page
+    Then I will be on the resource page
     Then I shall see "something"
     When I follow the link "Download File"
     Then I proceed to the resource page
