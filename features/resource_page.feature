@@ -61,6 +61,10 @@ Feature: able to upload files and images
     When I press the button "Delete"
     Then I proceed to the resource page
     Then I shall not see "something"
+    When I follow the link "upload"
+    When I follow the link "back to resources"
+    Then I should be on the resource page
+
 
     
     # When I go to the admin page
