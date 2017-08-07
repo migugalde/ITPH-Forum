@@ -28,7 +28,7 @@ module Merit
             countComments > 0 and countComments < 5
         end
 
-        grant_on 'comments#create', badge: "Intermediate Commenter", temporary: true do |comment|
+        grant_on 'comments#create', badge: "Intermediate Poster", temporary: true do |comment|
             @allComments = Comment.where(user_id: comment.user_id)
             countComments = @allComments.count
             countComments > 4 and countComments < 15

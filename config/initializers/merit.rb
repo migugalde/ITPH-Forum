@@ -30,7 +30,8 @@ Merit::Badge.create!(
 
 Merit::Badge.create!(
   id: 2,
-  name: 'Intermediate Poster: You have created 2 or more posts!',
+  name: 'Intermediate Poster',
+  # name: 'Intermediate Poster: You have created 2 or more posts!',
   # name: 'badge-icon.png',
   level: "90",
   description: "badge-icon.png",

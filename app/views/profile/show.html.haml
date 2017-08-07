@@ -95,7 +95,7 @@
                 / = badge.name
                 / { :style => "position: absolute; left: 300px; top: 300px;" }
                 / filter: grayscale(100%)                
-                = image_tag("#{badge.description}", id: 12, style: "filter: hue-rotate(#{badge.level}deg)") 
+                = image_tag("#{badge.description}", style: "filter: hue-rotate(#{badge.level}deg)") 
                 = "#{badge.name}"
     
 .right-align
