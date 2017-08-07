@@ -5,9 +5,11 @@ Feature: a system for Community Life Members to organize and find posts on speci
   so that I can see what tags already exist.
   
   Scenario: A user can associate their post with a tag
-    Given I am on the new post page
-    Given I have filled out title
-    Given I have filled out content
+    Given there is an admin
+    Given I am an admin
+    Given I go to the new post page
+    Then I should see "public"
+    Given I fill in a new post
     Given I fill out tags with "#CS"
     When I click the Create Post button
     Then I should see the "#CS" tag

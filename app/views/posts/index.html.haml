@@ -29,6 +29,11 @@
                 Sort by:
                 = link_to "Title", posts_path(:sort => "lower(title)") 
                 = link_to "Date", posts_path(:sort => "created_at DESC")
+                %select#title-search{:style => "width: 25%"}
+                    %option
+                    - @posts.each do |post|
+                        %option{:value => "#{post.title}"} 
+                            = post.title
             %p
                 Tags:
                 = link_to "All", posts_path(:all => 'all')
@@ -37,8 +42,6 @@
                     - @tags.each do |tag|
                         %option{:value => "#{tag}"} 
                             = tag.name
-                //         // %option{:value => "#{tag}"} 
-                //         //     = tag.name
                 %hr
                 
         %div#posts
@@ -75,25 +78,36 @@
 :coffeescript
     $ ->
     
-        $eventSelect = $("#tag-search")
+        $tag_event = $("#tag-search")
+        
+        $title_event = $("#title-search")
     
         $(document).ready ->
+            $('#title-search').select2 placeholder: 'Search by title'
             $('#tag-search').select2 placeholder: 'Search by tag'
             return
             
-        $eventSelect.on 'select2:select', (e) ->
+            
+        $title_event.on 'select2:select', (e) ->
+            title_name = e.params.data.text.trim()
+            $('#title_link').href = title_name
+            location.href = "/posts/title/" + title_name;
+            return
+            
+        $tag_event.on 'select2:select', (e) ->
             tag_name = e.params.data.text.trim()
             $('#tag_link').href = tag_name
             location.href = "/posts/tag/" +tag_name;
+            return
             
-        # $eventSelect.on 'select2:select', (e) ->
+        # $tag_event.on 'select2:select', (e) ->
             # tag_name = e.params.data.text.trim()
             # params = '{"tag":' + tag_name +'}'
             # $.get '/tags/' + tag_name, params, (data) ->
                 # alert data, "SUCCESS"
                 # return
                 
-        # $eventSelect.on 'select2:select', (e) ->
+        # $tag_event.on 'select2:select', (e) ->
             # console.log "MADE IT IN"
             # tag_name = e.params.data.text.trim()
             # console.log '/tags/' + tag_name

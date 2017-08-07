@@ -20,53 +20,41 @@
   .alt-post.title
     ITPH Community Announcements!
   
-  .accordionContainer  
+  .accordionContainer
     %ul.accordion{"data-accordion" => ""}
-      -if @post3
-        %li.accordion-item.is-active{"data-accordion-item" => ""}
-          %a.accordion-title{:href => "#"} 
-            .small-6.columns Announcement 1
-            .small-6.columns.right-align
-              #announcement-date
-                posted
-                = time_ago_in_words(@post3.created_at)
-                ago
-            %br
-          .accordion-content{"data-tab-content" => ""}
-            %a{:href => post_path(@post3)}
-              .accordion-post-title= @post3.title
-            .accordion-description= @post3.description
-            %p= @post3.content.html_safe
-      -if @post2
-        %li.accordion-item{"data-accordion-item" => ""}
-          %a.accordion-title{:href => "#"}
-            .small-6.columns Announcement 2
-            .small-6.columns.right-align
-              #announcement-date
-                posted
-                = time_ago_in_words(@post2.created_at)
-                ago
-            %br
-          .accordion-content{"data-tab-content" => ""}
-            %a{:href => post_path(@post2)}
-              .accordion-post-title= @post2.title
-            .accordion-description= @post2.description
-            %p= @post2.content.html_safe
-      -if @post1
-        %li.accordion-item{"data-accordion-item" => ""}
-          %a.accordion-title{:href => "#"}
-            .small-6.columns Announcement 3
-            .small-6.columns.right-align
-              #announcement-date
-                posted
-                = time_ago_in_words(@post3.created_at)
-                ago
-            %br
-          .accordion-content{"data-tab-content" => ""}
-            %a{:href => post_path(@post1)}
-              .accordion-post-title= @post1.title
-            .accordion-description= @post1.description
-            %p= @post1.content.html_safe
+      - post_num = 0
+      - @posts.each do |post|
+        - post_num += 1
+        - if post_num == 1
+          %li.accordion-item.is-active{"data-accordion-item" => ""}
+            %a.accordion-title{:href => "#"} 
+              .small-6.columns Announcement #{post_num}
+              .small-6.columns.right-align
+                #announcement-date
+                  posted
+                  = time_ago_in_words(post.created_at)
+                  ago
+              %br
+            .accordion-content{"data-tab-content" => ""}
+              %a{:href => post_path(post)}
+                .accordion-post-title= post.title
+              .accordion-description= post.description
+              %p= post.content.html_safe
+        -else
+          %li.accordion-item{"data-accordion-item" => ""}
+            %a.accordion-title{:href => "#"} 
+              .small-6.columns Announcement #{post_num}
+              .small-6.columns.right-align
+                #announcement-date
+                  posted
+                  = time_ago_in_words(post.created_at)
+                  ago
+              %br
+            .accordion-content{"data-tab-content" => ""}
+              %a{:href => post_path(post)}
+                .accordion-post-title= post.title
+              .accordion-description= post.description
+              %p= post.content.html_safe
 
 :javascript
   $(document).foundation();
