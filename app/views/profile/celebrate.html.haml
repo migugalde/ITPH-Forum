@@ -1,96 +1,106 @@
 %canvas#confetti.moveAround
 .row#header
     .small-6.columns.margT
-        %a.header-text{:href => posts_path}
+        %a.header-text{:href => profile_path(@user.id), id: "name_user"}
             = @name
     .small-6.columns.right-align.marB
         - if current_user.id == @user.id
             %a.header-icon{"href" => "#", id: "yourButton"}
                 %i.fa.fa-sliders{"aria-hidden" => "true"}
-                edit
+                new goal
     %hr/
-// .row
-//     = render 'profile_upload'
-// .row
-//     = image_tag @user.avatar.url(:medium)
-
-- if @goal.nil? || @goal.graduation
-    .row#header
-        .large-10.columns
-        - if current_user.id == @user.id
-            Congratulations on completing your goal, #{@user.first_name}!! 
-            - if !@goal.nil?
-                - if @goal.graduation
-                    = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
-            - else
-                = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
-        - else
-            Looks like #{@user.first_name} hasn't set a new goal yet!
-        .large-2.columns
-            - if current_user.id == @user.id
-                .edit-badge
-                    %i.fa.fa-pencil{"aria-hidden" => "true"}
-            = image_tag @user.avatar.url(:medium), :class => "prof-icon"
-            - if current_user.id == @user.id
-                = render 'profile_upload'
-- else
-    .row#header.pushDown
-        .large-10.columns
-            - if current_user.id == @user.id
-                %h5 My Task
-            -else
-                %h5 #{@user.first_name}'s goal
-            - @goals.each.with_index do |g, i|
-                - if !g.graduation
-                    %p.tab 
-                        = g.title
-                    %h6 Goals to complete my task
-                    %ol.tabList
-                        %li
-                            = g.step1
-                        %li
-                            = g.step2
-                        %li
-                            = g.step3
-                            
-                    - if current_user.id == @user.id
-                        - if !g.graduation
-                            = link_to "Graduate From This Task", profile_flop_path(index: i, profile_id: @user.id), :class => "button limegreen expanded"
-        .large-2.columns
-            - if current_user.id == @user.id
-                .edit-badge
-                    %i.fa.fa-pencil{"aria-hidden" => "true"}
-            = image_tag @user.avatar.url(:medium), :class => "prof-icon"
-            - if current_user.id == @user.id
-                = render 'profile_upload'
+%div#my_form
+    = render 'goals_form'
+    %hr
     
-                
-.row#header.graduated
-    .large-12.columns
+.row#header
+    .large-2.columns
         - if current_user.id == @user.id
-            %h5 My Completed Tasks
-        -else
-            %h5 #{@user.first_name}'s Completed Tasks
-        #badgeList
-            - @goals.each do |g|
-                -if g.graduation
-                    %h6 
-                        = g.title
-                    %ol.tabList
-                        %li
-                            = g.step1
-                        %li
-                            = g.step2
-                        %li
-                            = g.step3
-        .alt.hide
-            - if current_user.id == @user.id
-                %p You haven't finished any tasks, yet! Let's change that.
-            - else
-                %p Looks like #{@user.first_name} hasn't completed any tasks yet.
-    
-.right-align
-    = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+            .edit-badge
+                %i.fa.fa-pencil{"aria-hidden" => "true"}
+        = image_tag @user.avatar.url(:medium), :class => "prof-icon"
+        - if current_user.id == @user.id
+            = render 'profile_upload'
+        %br
+        %br
+        - current_user.badges.each do |badge|
+            %p              
+                = image_tag("#{badge.description}", style: "filter: hue-rotate(#{badge.level}deg); width: 110")
+                .date
+                    = "#{badge.name}"
+        
+    .large-10.columns 
+        .accordionContainer  
+            %ul.accordion{"data-accordion" => ""}
+                %li.accordion-item.is-active{"data-accordion-item" => ""}
+                    %a.accordion-title{:href => "#"} 
+                        Current Goals
+                        %br
+                    .accordion-content{"data-tab-content" => ""}
+                        - if @goal.nil? || @goal.graduation
+                            .row#header
+                                .large-10.columns
+                                - if current_user.id == @user.id
+                                    Congratulations on completing your task!
+                                    - if !@goal.nil?
+                                        - if @goal.graduation
+                                            = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
+                                    - else
+                                        = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
+                                - else
+                                    Looks like #{@user.first_name} hasn't set a new goal yet!
+                        - else
+                            .row#header.pushDown
+                                .large-10.columns
+                                    - if current_user.id == @user.id
+                                        %h4 My Tasks
+                                        %hr
+                                    -else
+                                        %h5 #{@user.first_name}'s goal
+                                    - @goals.each.with_index do |g, i|
+                                        - if !g.graduation
+                                            %h5
+                                                = g.title
+                                            %h6 Goals to complete my task
+                                            %ol.tabList
+                                                %li
+                                                    = g.step1
+                                                %li
+                                                    = g.step2
+                                                %li
+                                                    = g.step3
+                                                    
+                                            - if current_user.id == @user.id
+                                                - if !g.graduation
+                                                    = link_to "Graduate From This Task", profile_flop_path(index: i, profile_id: @user.id), :class => "button limegreen expanded"
+                %li.accordion-item{"data-accordion-item" => ""}    
+                    %a.accordion-title{:href => "#"} 
+                        Graduated Goals
+                        %br
+                    .accordion-content{"data-tab-content" => ""}            
+                        .row#header.graduated
+                            .large-12.columns
+                                - if current_user.id == @user.id
+                                    %h5 My Completed Tasks
+                                -else
+                                    %h5 #{@user.first_name}'s Completed Tasks
+                                #badgeList
+                                    - @goals.each do |g|
+                                        -if g.graduation
+                                            %h6 
+                                                = g.title
+                                            %ol.tabList
+                                                %li
+                                                    = g.step1
+                                                %li
+                                                    = g.step2
+                                                %li
+                                                    = g.step3
+                                .alt.hide
+                                    - if current_user.id == @user.id
+                                        %p You haven't finished any tasks, yet! Let's change that.
+                                    - else
+                                        %p Looks like #{@user.first_name} hasn't completed any tasks yet.
 
 :javascript
     $(document).ready(function() {

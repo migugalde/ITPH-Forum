@@ -24,3 +24,6 @@ coverage
 .byebug_history
 config/.DS_Store
 .DS_Store
+
+public/system/users/avatars/**/
+.gitignore~
