@@ -55,11 +55,11 @@ Feature: able to upload files and images
     Given correct admin email and password
     # Then I should see "Admin?"
     # Then I follow "linkd"
-    When I go to the resource page
-    Then I should see "Name"
-    And I should see "Download Link"
-    Then I follow "New File"
-    When I fill in "desc" with "something"
+    # When I go to the resource page
+    # Then I should see "Name"
+    # And I should see "Download Link"
+    # Then I follow "New File"
+    # When I fill in "desc" with "something"
     
     
     #When I press "delta" 

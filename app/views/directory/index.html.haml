@@ -11,8 +11,8 @@
         %li.directoryItems
             %a{:href => profile_path(user.id)}
                 %img= image_tag user.avatar.url(:medium), :class => 'directoryPics'
-            .box
-                %iframe{:height => "500px", :src => profile_path(user.id), :width => "500px"}
+            // .box
+            //     %iframe{:height => "500px", :src => profile_path(user.id), :width => "500px"}
             %a{:href => profile_path(user.id)}
                 %p
                     = user.first_name

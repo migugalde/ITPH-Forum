@@ -417,15 +417,49 @@ body {
     height:150px;
     border-radius:100%;
 }
-.box{
-    display: none;
-    width: 100%;
-    position: absolute;
+
+.prof-icon-forum {
+    width:70px;
+    height:70px;
+    border-radius:100%;
+    border: 3px solid white;
+    margin-left: 15px;
+}
+// .box{
+//     display: none;
+//     width: 100%;
+//     position: absolute;
+// }
+
+// a:hover + .box,.box:hover{
+//     display: block;
+//     z-index: 1;
+//     position: absolute;
+//     left: -20px;
+// }
+
+.marR {
+    margin-right: 15px;
 }
 
-a:hover + .box,.box:hover{
-    display: block;
-    z-index: 1;
+.marL {
+    margin-left: 15px;
+}
+
+.graduated {
+    margin-top: 25px;
+}
+
+.limegreen {
+    background-color: limegreen;
+    border: 2px solid white;
+    color: white;
+    font-weight: 500;
+}
+
+.moveAround {
     position: absolute;
-    left: -20px;
+    margin-top: -120px;
+    margin-left: -200px;
+    z-index: -3;
 }

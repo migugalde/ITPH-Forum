@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805082159) do
+ActiveRecord::Schema.define(version: 20170806181918) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -20,9 +20,6 @@ ActiveRecord::Schema.define(version: 20170805082159) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "galleries", force: :cascade do |t|
   end
 
   create_table "goals", force: :cascade do |t|
@@ -40,10 +37,8 @@ ActiveRecord::Schema.define(version: 20170805082159) do
     t.text "step10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "graduation"
     t.index ["user_id"], name: "index_goals_on_user_id"
-  end
-
-  create_table "paintings", force: :cascade do |t|
   end
 
   create_table "posts", force: :cascade do |t|
@@ -56,22 +51,7 @@ ActiveRecord::Schema.define(version: 20170805082159) do
     t.text "description"
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id"
-    t.string "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "repages", force: :cascade do |t|
-    t.string "name"
-    t.string "attachment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "resources", force: :cascade do |t|
     t.string "name"
     t.string "attachment"
     t.datetime "created_at", null: false
@@ -99,8 +79,8 @@ ActiveRecord::Schema.define(version: 20170805082159) do
     t.string "username"
     t.string "password"
     t.string "email", default: "", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -112,7 +92,6 @@ ActiveRecord::Schema.define(version: 20170805082159) do
     t.string "last_sign_in_ip"
     t.boolean "admin", default: false
     t.boolean "approved", default: false, null: false
-    t.string "avatar"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
