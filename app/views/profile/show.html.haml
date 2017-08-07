@@ -1,6 +1,6 @@
 .row#header
     .small-6.columns.margT
-        %a.header-text{:href => posts_path}
+        %a.header-text{:href => posts_path, id: "name_user"}
             = @name
     .small-6.columns.right-align.marB
         - if current_user.id == @user.id
