@@ -15,7 +15,8 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.first_name
+        %td
+          %a{:href => profile_path(user.id)}= user.first_name
         %td= user.last_name
         %td= user.email 
         %td= user.admin

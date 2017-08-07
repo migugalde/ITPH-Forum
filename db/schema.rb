@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805082159) do
+ActiveRecord::Schema.define(version: 20170806181918) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer "badge_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170805082159) do
     t.text "step10"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "graduation"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 

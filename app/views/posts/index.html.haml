@@ -50,21 +50,26 @@
             #messages{remote: true} 
             - @posts.each do |post|
                 .row.post
-                    %h2.title
-                        = link_to post.title, post
-                    %p.message
-                        = post.description
-                    %p.date
-                        Published at
-                        = time_ago_in_words(post.created_at)
-                        by
-                        %a
-                            // =image_tag User.find(post.user_id).avatar.url(:medium)
-                            = link_to post.user.email, profile_path(post.user.id)
-                            
-                    %p.tag
-                        /= = raw post.all_tags (seems redundant, keeping next line in favor)
-                        = raw tag_links(post.all_tags)
+                    .small-6.columns
+                        %h2.title
+                            = link_to post.title, post
+                        %p.message
+                            = post.description
+                    %p.right-align.small-6.columns
+                        %a{:href => profile_path(post.user_id)}
+                            %img= image_tag User.find(post.user_id).avatar.url(:thumb), :class => 'prof-icon-forum'
+                    .row
+                        .small-6.columns           
+                            %p.tag.marL
+                                /= = raw post.all_tags (seems redundant, keeping next line in favor)
+                                = raw tag_links(post.all_tags)
+                        .small-6.columns.right-align
+                            %p.date.marR{:align => "right"}
+                                Published at
+                                = time_ago_in_words(post.created_at)
+                                ago by
+                                %a
+                                    =link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user.id)
 
             =will_paginate @posts
 %br
