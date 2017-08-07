@@ -18,6 +18,10 @@ gem 'coffee-rails'
 gem 'haml'
 gem 'simple_form'
 
+
+#merit gem, used for badges
+gem 'merit'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Use foundation framework app with ruby, can also call "rails g foundation:install" locally

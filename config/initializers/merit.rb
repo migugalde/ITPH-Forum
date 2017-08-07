@@ -1,52 +1,94 @@
 # Use this hook to configure merit parameters
 Merit.setup do |config|
   # Check rules on each request or in background
-  # config.checks_on_each_request = true
+  config.checks_on_each_request = true
 
   # Define ORM. Could be :active_record (default) and :mongoid
-  # config.orm = :active_record
+  config.orm = :active_record
 
   # Add application observers to get notifications when reputation changes.
   # config.add_observer 'MyObserverClassName'
 
   # Define :user_model_name. This model will be used to grand badge if no
   # `:to` option is given. Default is 'User'.
-  # config.user_model_name = 'User'
+  config.user_model_name = 'User'
+
 
   # Define :current_user_method. Similar to previous option. It will be used
   # to retrieve :user_model_name object if no `:to` option is given. Default
   # is "current_#{user_model_name.downcase}".
-  # config.current_user_method = 'current_user'
+  config.current_user_method = 'current_user'
 end
 
 Merit::Badge.create!(
   id: 1,
   name: 'Novice Poster',
-  description: "You have written a post!"
+  level: "1",
+  description: "badge1.png"
 )
 
 Merit::Badge.create!(
   id: 2,
   name: 'Intermediate Poster',
-  description: "You have created 2 or more posts!"
+  level: "82",
+  description: "badge1.png"
 )
 
 Merit::Badge.create!(
   id: 3,
   name: 'Experienced Poster',
-  description: "You have created 5 or more posts!"
+  level: "164",
+  description: "badge1.png"
 )
 
 Merit::Badge.create!(
   id: 4,
   name: 'Pro Poster',
-  description: "You have created 10 or more posts!"
+  level: "246",
+  description: "badge1.png"
 )
 
 Merit::Badge.create!(
   id: 5,
   name: 'Ultimate Poster',
-  description: "You have created 25 or more posts!"
+  level: "328",
+  description: "badge1.png"
+)
+
+
+Merit::Badge.create!(
+  id: 6,
+  name: "Novice Commenter",
+  level: "1",
+  description: "badge2.png"
+  )
+
+Merit::Badge.create!(
+  id: 7,
+  name: "Intermediate Commenter",
+  level: "82",
+  description: "badge2.png"
+  )
+
+Merit::Badge.create!(
+  id: 8,
+  name: "Experienced Commenter",
+  level: "164",
+  description: "badge2.png"
+  )
+
+Merit::Badge.create!(
+  id: 9,
+  name: "Pro Commenter",
+  level: "246",
+  description: "badge2.png"
+  )
+
+Merit::Badge.create!(
+  id: 10,
+  name: "Ultimate Commenter",
+  level: "328",
+  description: "badge2.png"
 )
 
 # Create application badges (uses https://github.com/norman/ambry)
