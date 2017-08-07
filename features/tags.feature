@@ -17,6 +17,7 @@ Feature: a system for Community Life Members to organize and find posts on speci
     When I click on the tag search bar
     And type "#CS"
     Then I should see "#CS" in the drop down
+
     
   Scenario: A user searches by title
     Given I am on the Posts page
@@ -29,4 +30,3 @@ Feature: a system for Community Life Members to organize and find posts on speci
     When I create a post
     And tag it as admin
     Then I should see it on the homepage
-    

@@ -87,6 +87,12 @@
                 %p You haven't finished any tasks, yet! Let's change that.
             - else
                 %p Looks like #{@user.first_name} hasn't completed any tasks yet.
+
+    %ul
+        - current_user.badges.each do |badge|
+            %li               
+                = image_tag("#{badge.description}", style: "filter: hue-rotate(#{badge.level}deg); width: 159") 
+                = "#{badge.name}" 
     
 .right-align
     - if current_user.id == @user.id
