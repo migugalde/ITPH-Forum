@@ -22,7 +22,7 @@ Feature: Able to access and edit profile page(s) and goal(s)
     When I press "life"
     Then I am on the profile page for "tester@tester.com"
     When I follow "name_user"
-    Then I should be on the forum page
+    Then I should be on the profile page for "tester@tester.com"
     
  
   # Scenario: Able to see the goals
