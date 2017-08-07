@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   
   get 'posts/tag/:tag', to: 'posts#index', as: "tag"
   
+  get 'posts/title/:title', to: 'posts#index', as: "title"
+  
   # get 'profile/:id', to: 'profile#show', as: 'profile'
   # get 'profile/:id', to: 'profile#create', as: :create_goal
   # get ':id/goal', to: 'profile#goal', as: :goal_profile 

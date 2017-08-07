@@ -6,7 +6,14 @@ class PostsController < ApplicationController
     def index
         session[:sort] = params[:sort] if params[:sort] != nil
         session[:tag] = params[:tag] if params[:tag] != nil
-        @posts = Post.all
+        
+        if params[:title] != nil
+            search_title = params[:title]
+            @posts = Post.where(title: search_title)
+        else
+            @posts = Post.all
+        end
+        
         @tags = Tag.all
         
         if current_user.nil?
