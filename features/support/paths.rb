@@ -31,27 +31,27 @@ module NavigationHelpers
     when /the Posts page/
       posts_path
     
-    # when /^the profile page/
-    #   profile_path
-
-    # when /^the resource page/
-    #   repages_path
+    when /^the profile page for "([^"]*)"$/
+      profile_path(User.find_by_email($1))
       
-    # when /^the New resource page/
-    #   new_repage_path
+    when /^the resource page/
+      repages_path
+      
+    when /^the New resource page/
+      new_repage_path
     
-    # when /^the admin page/
-    #   admin_index_path
+    when /^the admin page/
+      admin_index_path
     
-    # when /^the new resource page/
-    #   new_repage_path
+    when /^the new resource page/
+      new_repage_path
     
     when /^the admin edit page for "([^"]*)"$/
       edit_admin_path(User.find_by_email($1))
       
-    # when /^the post page for "([^"]*)"$/
-    #   post_path($1)
-
+    when /^the post page for "([^"]*)"$/
+      post_path($1)
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
