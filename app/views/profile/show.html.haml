@@ -91,11 +91,8 @@
 
     %ul
         - current_user.badges.each do |badge|
-            %li
-                / = badge.name
-                / { :style => "position: absolute; left: 300px; top: 300px;" }
-                / filter: grayscale(100%)                
-                = image_tag("#{badge.description}", style: "filter: hue-rotate(#{badge.level}deg)") 
+            %li               
+                = image_tag("#{badge.description}", style: "filter: hue-rotate(#{badge.level}deg); width: 160") 
                 = "#{badge.name}"
     
 .right-align
