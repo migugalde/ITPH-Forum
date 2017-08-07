@@ -32,6 +32,7 @@ Merit::Badge.create!(
   name: 'Intermediate Poster',
   level: "82",
   description: "badge1.png"
+
 )
 
 Merit::Badge.create!(
@@ -54,6 +55,7 @@ Merit::Badge.create!(
   level: "328",
   description: "badge1.png"
 )
+
 
 
 Merit::Badge.create!(
