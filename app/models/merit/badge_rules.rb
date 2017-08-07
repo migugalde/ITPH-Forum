@@ -21,7 +21,7 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-
+      
         grant_on 'comments#create', badge: "Novice Commenter", temporary: true do |comment|
             @allComments = Comment.where(user_id: comment.user_id)
             countComments = @allComments.count
