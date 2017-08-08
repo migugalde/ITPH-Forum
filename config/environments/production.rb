@@ -100,9 +100,9 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
   
   
-  config.web_socket_server_url = "wss://nameless-temple-25833.herokuapp.com/cable" 
+  config.web_socket_server_url = "wss://whispering-peak-99132.herokuapp.com/cable" 
   
-  config.action_cable.allowed_request_origins = ['https://nameless-temple-25833.herokuapp.com', 'http://nameless-temple-25833.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['whispering-peak-99132.herokuapp.com', 'whispering-peak-99132.herokuapp.com']
   
   config.action_mailer.raise_delivery_errors = true
   
