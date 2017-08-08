@@ -1,14 +1,14 @@
 class CommentBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(post)
-    ActionCable.server.broadcast stream_from "comment: #{post.id}", message: render_message(message)
+  def perform(post, comment, current_user)
+    ActionCable.server.broadcast "comment: #{post.id}", message: render_comment(comment, current_user)
   end
 
-  def render_message(message)
+  def render_comment(message, current_user)
   	# have to change this partial
-    ApplicationController.renderer.render(partial: 'posts/postsUpdate', \
-      locals: { post: message }) 
+    ApplicationController.renderer.render(partial: 'comments/commentsUpdate', \
+      locals: { comment: message, current_user: current_user}) 
   end
 
 end

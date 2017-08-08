@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
 		@comment.user_id = current_user.id if current_user
 		@comment.save
 		if @comment.save
+			CommentBroadcastJob.perform_now(@post, @comment, current_user)
 			redirect_to post_path(@post)
 		else
 			render 'new'
