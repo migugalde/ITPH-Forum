@@ -24,14 +24,14 @@ Merit::Badge.create!(
   id: 1,
   name: 'Novice Poster',
   level: "1",
-  description: "badge1.png"
+  description: "badge2.png"
 )
 
 Merit::Badge.create!(
   id: 2,
   name: 'Intermediate Poster',
   level: "82",
-  description: "badge1.png"
+  description: "badge2.png"
 
 )
 
@@ -39,58 +39,58 @@ Merit::Badge.create!(
   id: 3,
   name: 'Experienced Poster',
   level: "164",
-  description: "badge1.png"
+  description: "badge2.png"
 )
 
 Merit::Badge.create!(
   id: 4,
   name: 'Pro Poster',
   level: "246",
-  description: "badge1.png"
+  description: "badge2.png"
 )
 
 Merit::Badge.create!(
   id: 5,
   name: 'Ultimate Poster',
   level: "328",
-  description: "badge1.png"
+  description: "badge2.png"
 )
 
-
+#############################################
 
 Merit::Badge.create!(
   id: 6,
   name: "Novice Commenter",
   level: "1",
-  description: "badge2.png"
+  description: "badge3.png"
   )
 
 Merit::Badge.create!(
   id: 7,
   name: "Intermediate Commenter",
   level: "82",
-  description: "badge2.png"
+  description: "badge3.png"
   )
 
 Merit::Badge.create!(
   id: 8,
   name: "Experienced Commenter",
   level: "164",
-  description: "badge2.png"
+  description: "badge3.png"
   )
 
 Merit::Badge.create!(
   id: 9,
   name: "Pro Commenter",
   level: "246",
-  description: "badge2.png"
+  description: "badge3.png"
   )
 
 Merit::Badge.create!(
   id: 10,
   name: "Ultimate Commenter",
   level: "328",
-  description: "badge2.png"
+  description: "badge3.png"
 )
 
 # Create application badges (uses https://github.com/norman/ambry)
