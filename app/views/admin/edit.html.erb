@@ -1,5 +1,5 @@
 
-
+<div id="pushDownwards">
 <%= form_for @user, url: admin_path do |f| %>
     <p class="form">
       <%= f.label :first_name %><br>
@@ -32,3 +32,4 @@
       <%= link_to "Delete User", admin_path(@user), method: :delete, data: { confirm: "You sure?" }, class: 'button large' %>
     </p>
 <% end %>
+</div>
