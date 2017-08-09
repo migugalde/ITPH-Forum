@@ -37,18 +37,17 @@
                         Current Goals
                         %br
                     .accordion-content{"data-tab-content" => ""}
-                        - if @goal.nil? && @goal.graduation
+                        - if @goals.nil? || @goal.graduation
                             .row#header
                                 .large-10.columns
                                 - if current_user.id == @user.id
-                                    Looks like you haven't set a new goal yet. 
-                                    - if !@goal.nil?
-                                        - if @goal.graduation
-                                            = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
+                                    Looks like you haven't set a new goal yet.
+                                    - if @goal.graduation
+                                        = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
                                     - else
                                         = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
                                 - else
-                                    Looks like #{@user.first_name} hasn't set a new goal yet!
+                                    Looks like #{@user.username} hasn't set a new goal yet!
                         - else
                             .row#header.pushDown
                                 .large-10.columns
@@ -56,7 +55,7 @@
                                         %h4 My Tasks
                                         %hr
                                     -else
-                                        %h5 #{@user.first_name}'s goal
+                                        %h5 #{@user.username}'s goal
                                     - @goals.each.with_index do |g, i|
                                         - if !g.graduation
                                             %h5
@@ -83,7 +82,7 @@
                                 - if current_user.id == @user.id
                                     %h5 My Completed Tasks
                                 -else
-                                    %h5 #{@user.first_name}'s Completed Tasks
+                                    %h5 #{@user.username}'s Completed Tasks
                                 #badgeList
                                     - @goals.each do |g|
                                         -if g.graduation
@@ -100,7 +99,7 @@
                                     - if current_user.id == @user.id
                                         %p You haven't finished any tasks, yet! Let's change that.
                                     - else
-                                        %p Looks like #{@user.first_name} hasn't completed any tasks yet.
+                                        %p Looks like #{@user.username} hasn't completed any tasks yet.
 
 :javascript
     $(document).ready(function() {

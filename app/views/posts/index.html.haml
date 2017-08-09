@@ -69,7 +69,7 @@
                                 = time_ago_in_words(post.created_at)
                                 ago by
                                 %a
-                                    =link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user.id)
+                                    =link_to post.user.username, profile_path(post.user.id)
 
             =will_paginate @posts
 %br

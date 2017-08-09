@@ -9,6 +9,7 @@
     %th First Name 
     %th Last Name 
     %th Email 
+    %th Username
     %th Admin?
     %th Approved?
     %th 
@@ -19,6 +20,7 @@
           %a{:href => profile_path(user.id)}= user.first_name
         %td= user.last_name
         %td= user.email 
+        %td= user.username
         %td= user.admin
         %td= user.approved
         %td= link_to 'EDIT', edit_admin_path(user)

@@ -2,7 +2,7 @@ class AdminController < ApplicationController
     before_action :authenticate_admin!
     
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :admin, :approved)
+        params.require(:user).permit(:first_name, :last_name, :email, :admin, :approved, :username)
     end
     
     def index

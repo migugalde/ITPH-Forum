@@ -43,7 +43,7 @@
                             published at
                             = time_ago_in_words(@post.created_at)
                             ago by&nbsp  
-                            = link_to @post.user.email, profile_path(@post.user.id)
+                            = link_to @post.user.username, profile_path(@post.user.id)
                         %br
                 %hr/ 
             - if current_user

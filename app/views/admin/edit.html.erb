@@ -1,5 +1,5 @@
 
-
+<div id="pushDownwards">
 <%= form_for @user, url: admin_path do |f| %>
     <p class="form">
       <%= f.label :first_name %><br>
@@ -16,6 +16,11 @@
       <%= f.text_area :email, :required => true, :value => @user.email%>
     </p>
     
+    <p class="form">
+      <%= f.label :username %><br>
+      <%= f.text_area :username, :required => true, :value => @user.username%>
+    </p>
+    
      <p class="form">
       <%= f.label :admin %><br>
       <%= f.select :admin, ['true', 'false'], :selected => @user.admin %>
@@ -29,6 +34,6 @@
     <p class="form">
       <%= link_to "Cancel", admin_index_path, class: "button large" %>
       <%= f.submit "Update", class: "button large" %>
-      <%= link_to "Delete User", admin_path(@user), method: :delete, data: { confirm: "You sure?" }, class: 'button large' %>
     </p>
 <% end %>
+</div>
