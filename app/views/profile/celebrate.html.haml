@@ -37,17 +37,11 @@
                         Current Tasks
                         %br
                     .accordion-content{"data-tab-content" => ""}
-                        - if @goals.nil? || @goal.nil? || @goal.graduation
-                            .row#header
-                                .large-10.columns
-                                - if current_user.id == @user.id
-                                    Congratulations on completing your task!
-                                    - if @goal.graduation
-                                        = link_to 'Would you like to make a new task again?', new_profile_path(@user.id)
-                                    - else
-                                        = link_to 'Would you like to set a new task?', new_profile_path(@user.id)
-                                - if current_user.id != @user.id
-                                    Looks like #{@user.username} hasn't set a new task yet!
+                        - if current_user.id == @user.id
+                            Congratulations on completing your task!
+                            %a{"href" => "#", id: "yourButton"} Would you like to set a new task?
+                        - if current_user.id != @user.id
+                            Looks like #{@user.username} hasn't set a new task yet!
                         - if !(@goals.nil?) && !(@goal.nil?)
                             .row#header.pushDown
                                 .large-10.columns
