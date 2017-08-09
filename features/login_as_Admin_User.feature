@@ -33,11 +33,11 @@ Scenario: after login I can go and view the table of all users and edit them
   When I press "Update"
   Then I should see "An email has been sent to User verfifying their access has been revoked!"
   
-Scenario: after login I can go and delete a user
-  Given there is an admin
-  Given there is an unapproved user
-  Given I am an admin
-  When I go to the admin edit page for "user@domain.com"
-  When I click "Delete User"
-  Then I should not see "User"
+# Scenario: after login I can go and delete a user
+#   Given there is an admin
+#   Given there is an unapproved user
+#   Given I am an admin
+#   When I go to the admin edit page for "user@domain.com"
+#   When I click "Delete User"
+#   Then I should not see "User"
 
