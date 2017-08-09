@@ -2,7 +2,7 @@
 .row#header
     .small-6.columns.margT
         %a.header-text{:href => profile_path(@user.id), id: "name_user"}
-            = @name
+            ="#{@user.username}'s profile"
     .small-6.columns.right-align.marB
         - if current_user.id == @user.id
             %a.header-icon{"href" => "#", id: "yourButton"}
@@ -34,29 +34,25 @@
             %ul.accordion{"data-accordion" => ""}
                 %li.accordion-item.is-active{"data-accordion-item" => ""}
                     %a.accordion-title{:href => "#"} 
-                        Current Goals
+                        Current Tasks
                         %br
                     .accordion-content{"data-tab-content" => ""}
-                        - if @goal.nil? || @goal.graduation
+                        - if @goals.nil? || @goal.nil? || @goal.graduation
                             .row#header
                                 .large-10.columns
                                 - if current_user.id == @user.id
-                                    Looks like you haven't set a new goal yet. 
-                                    - if !@goal.nil?
-                                        - if @goal.graduation
-                                            = link_to 'Would you like to make a new goal again?', new_profile_path(@user.id)
-                                    - else
-                                        = link_to 'Would you like to set a new goal?', new_profile_path(@user.id)
-                                - else
-                                    Looks like #{@user.first_name} hasn't set a new goal yet!
-                        - else
+                                    Looks like you haven't set a new task yet.
+                                    %a{"href" => "#", id: "yourButton"} Would you like to set a new task?
+                                - if current_user.id != @user.id
+                                    Looks like #{@user.username} hasn't set a new task yet!
+                        - if !(@goals.nil?) && !(@goal.nil?)
                             .row#header.pushDown
                                 .large-10.columns
                                     - if current_user.id == @user.id
                                         %h4 My Tasks
-                                        %hr
                                     -else
-                                        %h5 #{@user.first_name}'s goal
+                                        %h5 #{@user.username}'s Tasks
+                                    %hr
                                     - @goals.each.with_index do |g, i|
                                         - if !g.graduation
                                             %h5
@@ -75,7 +71,7 @@
                                                     = link_to "Graduate From This Task", profile_flop_path(index: i, profile_id: @user.id), :class => "button limegreen expanded"
                 %li.accordion-item{"data-accordion-item" => ""}    
                     %a.accordion-title{:href => "#"} 
-                        Graduated Goals
+                        Graduated Tasks
                         %br
                     .accordion-content{"data-tab-content" => ""}            
                         .row#header.graduated
@@ -83,7 +79,7 @@
                                 - if current_user.id == @user.id
                                     %h5 My Completed Tasks
                                 -else
-                                    %h5 #{@user.first_name}'s Completed Tasks
+                                    %h5 #{@user.username}'s Completed Tasks
                                 #badgeList
                                     - @goals.each do |g|
                                         -if g.graduation
@@ -100,7 +96,7 @@
                                     - if current_user.id == @user.id
                                         %p You haven't finished any tasks, yet! Let's change that.
                                     - else
-                                        %p Looks like #{@user.first_name} hasn't completed any tasks yet.
+                                        %p Looks like #{@user.username} hasn't completed any tasks yet.
 
 :javascript
     $(document).ready(function() {

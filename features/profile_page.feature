@@ -6,9 +6,8 @@ Feature: Able to access and edit profile page(s) and goal(s)
     When I proceeded to the forum page
     When I follow "new post"
     When I press "Submit"
-
-    When I follow "tester@tester.com"
-    Then I should see "Looks like you haven't set a new goal yet"
+    When I click "tester"
+    Then I should see "You haven't finished any tasks, yet! Let's change that"
 
   Scenario: Able to edit profile page
     Given correct admin email and password for profile page
@@ -16,8 +15,8 @@ Feature: Able to access and edit profile page(s) and goal(s)
     When I proceeded to the forum page
     When I follow "new post"
     When I press "Submit"
-    When I follow "tester@tester.com"
-    Then I should see "Looks like you haven't set a new goal yet"
+    When I follow "tester"
+    Then I should see "You haven't finished any tasks, yet! Let's change that"
     When I upload an image
     When I press "life"
     Then I am on the profile page for "tester@tester.com"
@@ -25,12 +24,12 @@ Feature: Able to access and edit profile page(s) and goal(s)
     Then I should be on the profile page for "tester@tester.com"
     
  
-  # Scenario: Able to see the goals
-  #   Given correct admin email and password for profile page
-  #   When I follow profile 
-  #   When I press Goal 
-  #   When there are goals
-  #   Then I should see goal
-  #   When there are no goals
-  #   Then I should see the progress bar
+  Scenario: Able to see the goals
+    Given correct admin email and password for profile page
+    When I follow profile 
+    When I press Goal 
+    When there are goals
+    Then I should see goal
+    When there are no goals
+    Then I should see the progress bar
     

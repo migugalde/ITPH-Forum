@@ -8,7 +8,7 @@ Feature: directory page for users
 Scenario: view a list of all of the users and be able to view their profile
   Given I am a user who is approved
   When I go to the directory page
-  Then I should see "User"
-  When I click "User"
+  Then I should see "user"
+  When I click "user"
   Then I should see "goal"
   Then I should see "My Completed Tasks"

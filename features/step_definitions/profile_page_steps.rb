@@ -17,7 +17,8 @@ Given(/^correct admin email and password for profile page$/) do
   admin = 'true'
   approved = 'true'
   first_name = 'tester'
-  User.new(:email => email, :password => password, :admin => admin, :approved => approved, :first_name => first_name).save!
+  username = "tester"
+  User.new(:email => email, :password => password, :admin => admin, :approved => approved, :first_name => first_name, :username => username).save!
   visit '/users/sign_in'
   fill_in "Email_login", :with => email
   fill_in "Password", :with => password
@@ -41,7 +42,8 @@ Given(/^correct non admin email and password for profile page$/) do
   admin = 'false'
   approved = 'true'
   first_name = 'tester'
-  User.new(:email => email, :password => password, :admin => admin, :approved => approved, :first_name => first_name).save!
+  username = 'tester'
+  User.new(:email => email, :password => password, :admin => admin, :approved => approved, :first_name => first_name, :username => username).save!
   visit '/users/sign_in'
   fill_in "Email_login", :with => email
   fill_in "Password", :with => password

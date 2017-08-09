@@ -11,7 +11,7 @@
             commented
             = time_ago_in_words(comment.created_at) 
             ago by &nbsp
-            = link_to comment.user.email, profile_path(comment.user.id)
+            = link_to comment.user.username, profile_path(comment.user.id)
     .row
         .buttons
             - if current_user

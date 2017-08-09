@@ -58,6 +58,7 @@ Merit::Badge.create!(
 
 #############################################
 
+
 Merit::Badge.create!(
   id: 6,
   name: "Novice Commenter",

@@ -27,6 +27,7 @@
         .row#header
             %p
                 Sort by:
+                = link_to "All", posts_path(:all => 'all')
                 = link_to "Title", posts_path(:sort => "lower(title)") 
                 = link_to "Date", posts_path(:sort => "created_at DESC")
                 %select#title-search{:style => "width: 25%"}
@@ -47,15 +48,16 @@
         %div#posts
             #messages{remote: true} 
             - @posts.each do |post|
-                .row.post
-                    .small-6.columns
-                        %h2.title
-                            = link_to post.title, post
-                        %p.message
-                            = post.description
-                    %p.right-align.small-6.columns
-                        %a{:href => profile_path(post.user_id)}
-                            %img= image_tag User.find(post.user_id).avatar.url(:thumb), :class => 'prof-icon-forum'
+                .post
+                    .row
+                        .small-6.columns
+                            %h2.title
+                                = link_to post.title, post
+                            %p.message
+                                = post.description
+                        %p.right-align.small-6.columns
+                            %a{:href => profile_path(post.user_id)}
+                                %img= image_tag User.find(post.user_id).avatar.url(:thumb), :class => 'prof-icon-forum'
                     .row
                         .small-6.columns           
                             %p.tag.marL
@@ -67,7 +69,7 @@
                                 = time_ago_in_words(post.created_at)
                                 ago by
                                 %a
-                                    =link_to "#{post.user.first_name} #{post.user.last_name}", profile_path(post.user.id)
+                                    =link_to post.user.username, profile_path(post.user.id)
 
             =will_paginate @posts
 %br

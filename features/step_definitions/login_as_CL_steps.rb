@@ -6,10 +6,11 @@ require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "sel
 Given /^I am a user who is approved$/ do
   email = 'testing@man.net'
   password = 'secretpass'
+  username = "user"
   admin = 'false'
   approved = 'true'
   first_name = 'User'
-  User.new(:email => email, :password => password, :admin => admin, :approved => approved, :first_name => first_name).save!
+  User.new(:email => email, :password => password, :admin => admin, :approved => approved, :first_name => first_name, :username => username).save!
   visit '/users/sign_in'
   fill_in "Email_login", :with => email
   fill_in "Password", :with => password

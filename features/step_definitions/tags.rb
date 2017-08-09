@@ -34,26 +34,26 @@ When(/^I click on the tag search bar$/) do
   visit posts_path
 end
 
-When(/^type "([^"]*)"$/) do |arg1|
-  pending
-end
+# When(/^type "([^"]*)"$/) do |arg1|
+#   pending
+# end
 
-Then(/^I should see "([^"]*)" in the drop down$/) do |arg1|
-  pending
-end
+# Then(/^I should see "([^"]*)" in the drop down$/) do |arg1|
+#   pending
+# end
 
-Given(/^I am logged in as an admin$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Given(/^I am logged in as an admin$/) do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
-When(/^I create a post$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When(/^I create a post$/) do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
-When(/^tag it as admin$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# When(/^tag it as admin$/) do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
-Then(/^I should see it on the homepage$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
+# Then(/^I should see it on the homepage$/) do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end

@@ -2,7 +2,7 @@ class AdminController < ApplicationController
     before_action :authenticate_admin!
     
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :admin, :approved)
+        params.require(:user).permit(:first_name, :last_name, :email, :admin, :approved, :username)
     end
     
     def index
@@ -31,11 +31,11 @@ class AdminController < ApplicationController
         end
     end
     
-    def destroy
-        @user = User.find(params[:id])
-        @user.destroy
-        if @user.destroy
-            redirect_to admin_index_path
-        end
-    end
+    # def destroy
+    #     @user = User.find(params[:id])
+    #     @user.destroy
+    #     if @user.destroy
+    #         redirect_to admin_index_path
+    #     end
+    # end
 end
