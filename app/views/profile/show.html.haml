@@ -37,7 +37,7 @@
                         Current Goals
                         %br
                     .accordion-content{"data-tab-content" => ""}
-                        - if @goal.nil? || @goal.graduation
+                        - if @goal.nil? && @goal.graduation
                             .row#header
                                 .large-10.columns
                                 - if current_user.id == @user.id
