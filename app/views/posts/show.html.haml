@@ -52,8 +52,12 @@
                         = @post.comments.count
                         Comment(s) &nbsp&nbsp 
                     %hr/
+
                 #comments
                     = render @post.comments
+
+                #comments
+                    #commentUpdateId
                     
                     %a.header-icon{"href" => "#/", id: "yourButton"}
                         %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
