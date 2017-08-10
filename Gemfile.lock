@@ -85,6 +85,9 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    carrierwave-aws (1.2.0)
+      aws-sdk (~> 2.1)
+      carrierwave (>= 0.7, < 2.0)
     chronic (0.10.2)
     churn (0.0.35)
       chronic (>= 0.2.3)
@@ -457,6 +460,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.2)
   byebug
   carrierwave (~> 0.9)
+  carrierwave-aws
   codeclimate-test-reporter (= 1.0.0.pre.rc2)
   coffee-rails
   cucumber-rails
