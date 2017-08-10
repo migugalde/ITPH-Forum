@@ -112,10 +112,14 @@ Rails.application.configure do
 
   config.action_mailer.default_options = {from: 'admin@itphcommunity.com'}
   
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-		api_key: 'key-e796c3d50e04aaaa1c1a96d5bba9a427',
-		domain: 'sandbox7d55082f254c4626bd71d56bbe0dd9a7.mailgun.org'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => 'whispering-peak-99132.herokuapp.com', #mydomain actually contains the realvalue
+    :authentication => :plain,
   }
   
   config.paperclip_defaults = {
