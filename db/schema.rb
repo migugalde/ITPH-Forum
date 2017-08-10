@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806181918) do
+ActiveRecord::Schema.define(version: 20170810232853) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer "badge_id"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20170806181918) do
     t.integer "user_id"
     t.boolean "public", default: false
     t.text "description"
+    t.boolean "announcement"
   end
 
   create_table "repages", force: :cascade do |t|

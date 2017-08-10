@@ -13,7 +13,6 @@ class PostsController < ApplicationController
         else
             @posts = Post.all
         end
-        
         @tags = Tag.all
         
         if current_user.nil?
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
         #     @tags = @tags.order(session[:sort])
         # end
         #testing here
-        
+        p session[:sort]
         @posts = @posts.order(session[:sort])
         if params[:all]
             session[:tag] = nil
@@ -87,6 +86,6 @@ class PostsController < ApplicationController
     end
     
     def post_params
-        params.require(:post).permit(:title, :content, :all_tags, :description, :public)
+        params.require(:post).permit(:title, :content, :all_tags, :description, :public, :announcement)
     end
 end

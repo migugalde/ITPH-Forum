@@ -13,6 +13,8 @@
         - if current_user.admin
             = f.check_box :public
             Check if you want the public to see!
+            = f.check_box :announcement
+            Check if you want to pin this as an announcement to the homepage!
     .right-align
         = link_to 'Cancel', posts_path, class: "button"
         = f.submit 'Submit', class: "button"
