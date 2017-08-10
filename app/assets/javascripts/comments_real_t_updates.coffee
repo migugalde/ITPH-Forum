@@ -1,7 +1,7 @@
-App.cable.subscriptions.create {channel: "CommentUpdatesChannel", id: $("post_id")},
+App.cable.subscriptions.create {channel: "CommentUpdatesChannel",\
+      id: $("post_id")},
     collection: -> $("#post_id")
-
-
+    
     received:(data) ->
       $('#commentUpdateId').replaceWith data['message']
 
