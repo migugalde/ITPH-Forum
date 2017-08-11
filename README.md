@@ -15,3 +15,26 @@ Deployment on Heroku: https://whispering-peak-99132.herokuapp.com/
     Admin username: tester@tester.com,  Admin password: tester
     
     User username: user@domain.com,  User password: user_password
+    
+Setup details:
+
+Envirmental - 
+    Assuming you are in c9:
+
+    Step 1) cd /usr/local/rvm/gems/ruby-2.3.0/gems/merit-3.0.0/lib/merit
+    Step 2) navigarte to model_additions.rb 
+    Step 3) edit line 10 from 
+
+        belongs_to :sash, class_name: 'Merit::Sash', inverse_of: nil
+
+        to 
+
+        belongs_to :sash, class_name: 'Merit::Sash', inverse_of: nil, optional: true
+
+Heroku (deploying):
+
+In order to support media storage (profile pics for example), connect to heroku repository and do the following with your information in the quoted fields:
+
+    heroku config:set S3_BUCKET_NAME="your bucket name"
+    heroku config:set AWS_ACCESS_KEY_ID="your access key id"
+    heroku config:set AWS_SECRET_ACCESS_KEY="your secret access key"
