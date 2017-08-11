@@ -42,5 +42,7 @@ If you are deploying on your own Heroku please do the following -
 2) In order to support media storage (profile pics for example), connect to heroku repository and do the following with your AWS information in the quoted fields:
 
     heroku config:set S3_BUCKET_NAME="your bucket name"
+    
     heroku config:set AWS_ACCESS_KEY_ID="your access key id"
+    
     heroku config:set AWS_SECRET_ACCESS_KEY="your secret access key"
